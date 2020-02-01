@@ -4,3 +4,4 @@
 # Default installation directories
 /sample/bin/
 /sample/lib/
+/sample/*.yaml

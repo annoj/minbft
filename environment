@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+# Source SGX SDK environment
+source /opt/intel/sgxsdk/environment
+sudo bash -c "echo /opt/intel/sgxsdk/sdk_libs > /etc/ld.so.conf.d/sgx-sdk.conf"
+sudo ldconfig
+export SGX_MODE=SIM
+export SGX_SDK=/opt/intel/sgxsdk
+
+# Make sure minbft is recognized as go module
+export GO111MODULE=on

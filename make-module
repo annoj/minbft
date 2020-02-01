@@ -1,0 +1,24 @@
+#!/bin/zsh
+
+dir=$(dirname $0)
+
+# Make!
+make install || exit 1
+
+# Check binaries were build
+echo ${dir}
+[ -f ${dir}/sample/bin/keytool ] || exit 2
+[ -f ${dir}/sample/bin/peer ] || exit 3
+
+# Export libs
+# TODO: Fix lib path
+export LD_LIBRARY_PATH="/home/jona/lab/minbft/sample/lib:${LD_LIBRARY_PATH}"
+
+# Generate keys
+${dir}/sample/bin/keytool generate -u ${dir}/sample/lib/libusig.signed.so -o ${dir}/sample/keys.yaml
+
+# COnsensus configuration
+cp ${dir}/sample/config/consensus.yaml ${dir}/sample/
+
+# Peer configuration
+cp ${dir}/sample/peer/peer.yaml ${dir}/sample/
