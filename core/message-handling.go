@@ -374,6 +374,7 @@ func makeMessageValidator(validateRequest requestValidator, validatePrepare prep
 		case messages.Commit:
 			return validateCommit(msg)
 		case messages.ReqViewChange:
+			// XXX (Jona): ViewChange!
 			return fmt.Errorf("Not implemented")
 		default:
 			panic("Unknown message type")
@@ -424,6 +425,7 @@ func makeEmbeddedMessageProcessor(process messageProcessor, logger *logging.Logg
 		case messages.Commit:
 			processOne(msg.Prepare())
 		case messages.ReqViewChange:
+			// XXX (Jona): View Change!
 		default:
 			panic("Unknown message type")
 		}

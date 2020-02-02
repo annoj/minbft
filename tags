@@ -1,0 +1,1408 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+.DEFAULT_GOAL	usig/sgx/Makefile	/^.DEFAULT_GOAL := all$/;"	m
+ARTIFACTS	usig/sgx/Makefile	/^ARTIFACTS := $(ENCLAVE_ARTIFACTS) $(UNTRUSTED_ARTIFACTS) \\$/;"	m
+Add	core/internal/requestlist/mocks/mock.go	/^func (m *MockList) Add(arg0 messages.Request) {$/;"	f
+Add	core/internal/requestlist/mocks/mock.go	/^func (mr *MockListMockRecorder) Add(arg0 interface{}) *gomock.Call {$/;"	f
+Add	core/internal/requestlist/request-list.go	/^func (l *list) Add(req messages.Request) {$/;"	f
+AddReply	client/internal/requestbuffer/requestbuffer.go	/^func (rb *T) AddReply(msg messages.Reply) bool {$/;"	f
+AddReply	core/internal/clientstate/mocks/mock.go	/^func (m *MockState) AddReply(arg0 messages.Reply) error {$/;"	f
+AddReply	core/internal/clientstate/mocks/mock.go	/^func (mr *MockStateMockRecorder) AddReply(arg0 interface{}) *gomock.Call {$/;"	f
+AddReply	core/internal/clientstate/reply.go	/^func (s *replyState) AddReply(reply messages.Reply) error {$/;"	f
+AddRequest	client/internal/requestbuffer/requestbuffer.go	/^func (rb *T) AddRequest(msg messages.Request) (<-chan messages.Reply, bool) {$/;"	f
+AdvanceCurrentView	core/internal/viewstate/mocks/mock.go	/^func (m *MockState) AdvanceCurrentView(arg0 uint64) (bool, bool, func()) {$/;"	f
+AdvanceCurrentView	core/internal/viewstate/mocks/mock.go	/^func (mr *MockStateMockRecorder) AdvanceCurrentView(arg0 interface{}) *gomock.Call {$/;"	f
+AdvanceCurrentView	core/internal/viewstate/view-state.go	/^func (s *viewState) AdvanceCurrentView(view uint64) (ok, active bool, release func()) {$/;"	f
+AdvanceExpectedView	core/internal/viewstate/mocks/mock.go	/^func (m *MockState) AdvanceExpectedView(arg0 uint64) (bool, func()) {$/;"	f
+AdvanceExpectedView	core/internal/viewstate/mocks/mock.go	/^func (mr *MockStateMockRecorder) AdvanceExpectedView(arg0 interface{}) *gomock.Call {$/;"	f
+AdvanceExpectedView	core/internal/viewstate/view-state.go	/^func (s *viewState) AdvanceExpectedView(view uint64) (ok bool, release func()) {$/;"	f
+AfterFunc	core/internal/timer/mock/mock.go	/^func (m *MockProvider) AfterFunc(arg0 time.Duration, arg1 func()) timer.Timer {$/;"	f
+AfterFunc	core/internal/timer/mock/mock.go	/^func (mr *MockProviderMockRecorder) AfterFunc(arg0, arg1 interface{}) *gomock.Call {$/;"	f
+AfterFunc	core/internal/timer/timer.go	/^func (stdProvider) AfterFunc(d time.Duration, f func()) Timer {$/;"	f
+All	core/internal/requestlist/mocks/mock.go	/^func (m *MockList) All() []messages.Request {$/;"	f
+All	core/internal/requestlist/mocks/mock.go	/^func (mr *MockListMockRecorder) All() *gomock.Call {$/;"	f
+All	core/internal/requestlist/request-list.go	/^func (l *list) All() []messages.Request {$/;"	f
+Append	core/internal/messagelog/messagelog.go	/^func (log *messageLog) Append(msg messages.ReplicaMessage) {$/;"	f
+Append	core/internal/messagelog/mocks/mock.go	/^func (m *MockMessageLog) Append(arg0 messages.ReplicaMessage) {$/;"	f
+Append	core/internal/messagelog/mocks/mock.go	/^func (mr *MockMessageLogMockRecorder) Append(arg0 interface{}) *gomock.Call {$/;"	f
+AssignReplica	sample/conn/common/connector/connector.go	/^func (c *common) AssignReplica(id uint32, replica api.ConnectionHandler) {$/;"	f
+AssignReplica	sample/conn/common/replicastub/replica-stub.go	/^func (s *replicaStub) AssignReplica(replica api.ConnectionHandler) {$/;"	f
+AssignReplicaStub	sample/conn/dummy/connector/connector.go	/^func (c *connector) AssignReplicaStub(id uint32, stub replicastub.ReplicaStub) {$/;"	f
+AuthenBytes	messages/authen.go	/^func AuthenBytes(m Message) []byte {$/;"	f
+AuthenticationRole	api/api.go	/^type AuthenticationRole int$/;"	t
+AuthenticationScheme	sample/authentication/crypto.go	/^type AuthenticationScheme interface {$/;"	t
+Authenticator	api/api.go	/^type Authenticator interface {$/;"	t
+Authenticator	sample/authentication/authenticator.go	/^type Authenticator struct {$/;"	t
+BftKeyStorer	sample/authentication/keymanager.go	/^type BftKeyStorer interface {$/;"	t
+CFLAGS	usig/sgx/Makefile	/^$(ENCLAVE_OBJECTS): CFLAGS   := $(ENCLAVE_CFLAGS)$/;"	m
+CFLAGS	usig/sgx/Makefile	/^$(TEST_OBJECTS): CFLAGS   := $(UNTRUSTED_CFLAGS)$/;"	m
+CFLAGS	usig/sgx/Makefile	/^$(UNTRUSTED_OBJECTS): CFLAGS   := $(UNTRUSTED_CFLAGS)$/;"	m
+CHECK_ENCLAVE_POINTER	usig/sgx/enclave/usig_t.c	20;"	d	file:
+CHECK_REF_POINTER	usig/sgx/enclave/usig_t.c	10;"	d	file:
+CHECK_UNIQUE_POINTER	usig/sgx/enclave/usig_t.c	15;"	d	file:
+COMMON_CFLAGS	usig/sgx/Makefile	/^COMMON_CFLAGS   := -m64 -std=c99 -Wall -Wextra -Werror$/;"	m
+COMMON_CPPFLAGS	usig/sgx/Makefile	/^COMMON_CPPFLAGS := $(DEBUG_CPPFLAGS) -I$(SGX_INCLUDE_PATH) -MMD -MP$/;"	m
+COMMON_LDFLAGS	usig/sgx/Makefile	/^COMMON_LDFLAGS  := -L$(SGX_LIBRARY_PATH)$/;"	m
+COMMON_LDLIBS	usig/sgx/Makefile	/^COMMON_LDLIBS   :=$/;"	m
+CPPFLAGS	usig/sgx/Makefile	/^$(ENCLAVE_OBJECTS): CPPFLAGS := $(ENCLAVE_CPPFLAGS)$/;"	m
+CPPFLAGS	usig/sgx/Makefile	/^$(TEST_OBJECTS): CPPFLAGS := $(UNTRUSTED_CPPFLAGS) -I$(CURDIR)\/shim$/;"	m
+CPPFLAGS	usig/sgx/Makefile	/^$(UNTRUSTED_OBJECTS): CPPFLAGS := $(UNTRUSTED_CPPFLAGS)$/;"	m
+CaptureRequestSeq	core/internal/clientstate/mocks/mock.go	/^func (m *MockState) CaptureRequestSeq(arg0 uint64) (bool, func()) {$/;"	f
+CaptureRequestSeq	core/internal/clientstate/mocks/mock.go	/^func (mr *MockStateMockRecorder) CaptureRequestSeq(arg0 interface{}) *gomock.Call {$/;"	f
+CaptureRequestSeq	core/internal/clientstate/request-seq.go	/^func (s *seqState) CaptureRequestSeq(seq uint64) (new bool, release func()) {$/;"	f
+CaptureUI	core/internal/peerstate/mocks/mock.go	/^func (m *MockState) CaptureUI(arg0 *usig.UI) (bool, func()) {$/;"	f
+CaptureUI	core/internal/peerstate/mocks/mock.go	/^func (mr *MockStateMockRecorder) CaptureUI(arg0 interface{}) *gomock.Call {$/;"	f
+CaptureUI	core/internal/peerstate/peerstate.go	/^func (s *peerState) CaptureUI(ui *usig.UI) (new bool, release func()) {$/;"	f
+CertifiedMessage	messages/api.go	/^type CertifiedMessage interface {$/;"	t
+ChannelClient	sample/conn/grpc/proto/channel.pb.go	/^type ChannelClient interface {$/;"	t
+ChannelServer	sample/conn/grpc/proto/channel.pb.go	/^type ChannelServer interface {$/;"	t
+Channel_ClientChatClient	sample/conn/grpc/proto/channel.pb.go	/^type Channel_ClientChatClient interface {$/;"	t
+Channel_ClientChatServer	sample/conn/grpc/proto/channel.pb.go	/^type Channel_ClientChatServer interface {$/;"	t
+Channel_PeerChatClient	sample/conn/grpc/proto/channel.pb.go	/^type Channel_PeerChatClient interface {$/;"	t
+Channel_PeerChatServer	sample/conn/grpc/proto/channel.pb.go	/^type Channel_PeerChatServer interface {$/;"	t
+CheckpointPeriod	api/mocks/mock.go	/^func (m *MockConfiger) CheckpointPeriod() uint32 {$/;"	f
+CheckpointPeriod	api/mocks/mock.go	/^func (mr *MockConfigerMockRecorder) CheckpointPeriod() *gomock.Call {$/;"	f
+CheckpointPeriod	sample/config/viperconfiger.go	/^func (c *ViperConfiger) CheckpointPeriod() uint32 {$/;"	f
+Client	client/client.go	/^type Client interface {$/;"	t
+ClientAuthen	api/api.go	/^	ClientAuthen$/;"	c
+ClientChat	sample/conn/grpc/proto/channel.pb.go	/^func (*UnimplementedChannelServer) ClientChat(srv Channel_ClientChatServer) error {$/;"	f
+ClientChat	sample/conn/grpc/proto/channel.pb.go	/^func (c *channelClient) ClientChat(ctx context.Context, opts ...grpc.CallOption) (Channel_ClientChatClient, error) {$/;"	f
+ClientChat	sample/conn/grpc/server/server.go	/^func (s *server) ClientChat(stream proto.Channel_ClientChatServer) error {$/;"	f
+ClientID	messages/mocks/mock.go	/^func (m *MockClientMessage) ClientID() uint32 {$/;"	f
+ClientID	messages/mocks/mock.go	/^func (mr *MockClientMessageMockRecorder) ClientID() *gomock.Call {$/;"	f
+ClientID	messages/protobuf/reply.go	/^func (m *reply) ClientID() uint32 {$/;"	f
+ClientID	messages/protobuf/request.go	/^func (m *request) ClientID() uint32 {$/;"	f
+ClientMessage	messages/api.go	/^type ClientMessage interface {$/;"	t
+ClientMessageStreamHandler	api/mocks/mock.go	/^func (m *MockConnectionHandler) ClientMessageStreamHandler() api.MessageStreamHandler {$/;"	f
+ClientMessageStreamHandler	api/mocks/mock.go	/^func (mr *MockConnectionHandlerMockRecorder) ClientMessageStreamHandler() *gomock.Call {$/;"	f
+ClientMessageStreamHandler	core/replica.go	/^func (r *replica) ClientMessageStreamHandler() api.MessageStreamHandler {$/;"	f
+ClientMessageStreamHandler	sample/conn/common/replicastub/replica-stub.go	/^func (s *replicaStub) ClientMessageStreamHandler() api.MessageStreamHandler {$/;"	f
+ClientMessageStreamHandler	sample/conn/grpc/connector/replica.go	/^func (r *replica) ClientMessageStreamHandler() api.MessageStreamHandler {$/;"	f
+Commit	messages/api.go	/^type Commit interface {$/;"	t
+Commit	messages/protobuf/pb/messages.pb.go	/^type Commit struct {$/;"	t
+ConfigTester	sample/config/config_test.go	/^type ConfigTester interface {$/;"	t
+Configer	api/api.go	/^type Configer interface {$/;"	t
+ConnectManyReplicas	sample/conn/grpc/connector/connector.go	/^func ConnectManyReplicas(conn ReplicaConnector, targets map[uint32]string, dialOpts ...grpc.DialOption) error {$/;"	f
+ConnectReplica	sample/conn/grpc/connector/connector.go	/^func (c *connector) ConnectReplica(replicaID uint32, target string, dialOpts ...grpc.DialOption) error {$/;"	f
+ConnectionHandler	api/api.go	/^type ConnectionHandler interface {$/;"	t
+CreateUI	usig/mocks/mock.go	/^func (m *MockUSIG) CreateUI(arg0 []byte) (*usig.UI, error) {$/;"	f
+CreateUI	usig/mocks/mock.go	/^func (mr *MockUSIGMockRecorder) CreateUI(arg0 interface{}) *gomock.Call {$/;"	f
+CreateUI	usig/sgx/sgx-usig.go	/^func (u *USIG) CreateUI(message []byte) (*usig.UI, error) {$/;"	f
+CreateUI	usig/sgx/usig-enclave.go	/^func (enclave *USIGEnclave) CreateUI(digest Digest) (counter uint64, signature []byte, err error) {$/;"	f
+DEBUG_CPPFLAGS	usig/sgx/Makefile	/^  DEBUG_CPPFLAGS        := -DDEBUG -UNDEBUG -UEDEBUG$/;"	m
+DEBUG_CPPFLAGS	usig/sgx/Makefile	/^  DEBUG_CPPFLAGS        := -DNDEBUG -DEDEBUG -UDEBUG$/;"	m
+DEBUG_CPPFLAGS	usig/sgx/Makefile	/^  DEBUG_CPPFLAGS        := -DNDEBUG -UEDEBUG -UDEBUG$/;"	m
+Deliver	api/mocks/mock.go	/^func (m *MockRequestConsumer) Deliver(arg0 []byte) <-chan []byte {$/;"	f
+Deliver	api/mocks/mock.go	/^func (mr *MockRequestConsumerMockRecorder) Deliver(arg0 interface{}) *gomock.Call {$/;"	f
+Deliver	sample/requestconsumer/simpleledger.go	/^func (l *SimpleLedger) Deliver(msg []byte) <-chan []byte {$/;"	f
+Descriptor	messages/protobuf/pb/messages.pb.go	/^func (*Commit) Descriptor() ([]byte, []int) {$/;"	f
+Descriptor	messages/protobuf/pb/messages.pb.go	/^func (*Message) Descriptor() ([]byte, []int) {$/;"	f
+Descriptor	messages/protobuf/pb/messages.pb.go	/^func (*Prepare) Descriptor() ([]byte, []int) {$/;"	f
+Descriptor	messages/protobuf/pb/messages.pb.go	/^func (*Reply) Descriptor() ([]byte, []int) {$/;"	f
+Descriptor	messages/protobuf/pb/messages.pb.go	/^func (*ReqViewChange) Descriptor() ([]byte, []int) {$/;"	f
+Descriptor	messages/protobuf/pb/messages.pb.go	/^func (*Request) Descriptor() ([]byte, []int) {$/;"	f
+Descriptor	sample/conn/grpc/proto/channel.pb.go	/^func (*Message) Descriptor() ([]byte, []int) {$/;"	f
+Destroy	usig/sgx/usig-enclave.go	/^func (enclave *USIGEnclave) Destroy() {$/;"	f
+Digest	usig/sgx/usig-enclave.go	/^type Digest [sha256.Size]byte$/;"	t
+ECALL_USIG	usig/sgx/shim/shim.c	25;"	d	file:
+ENCLAVE_ARTIFACTS	usig/sgx/Makefile	/^ENCLAVE_ARTIFACTS := $(ENCLAVE_TARGET) $(ENCLAVE_SIGNED) $(ENCLAVE_CONFIG) \\$/;"	m
+ENCLAVE_CFLAGS	usig/sgx/Makefile	/^ENCLAVE_CFLAGS   := $(COMMON_CFLAGS) -fvisibility=hidden -fpie -fstack-protector$/;"	m
+ENCLAVE_CONFIG	usig/sgx/Makefile	/^ENCLAVE_CONFIG       := enclave\/$(ENCLAVE_NAME).config.xml$/;"	m
+ENCLAVE_CPPFLAGS	usig/sgx/Makefile	/^ENCLAVE_CPPFLAGS := $(COMMON_CPPFLAGS) -nostdinc -I$(SGX_INCLUDE_PATH)\/tlibc$/;"	m
+ENCLAVE_DEPS	usig/sgx/Makefile	/^ENCLAVE_DEPS    := $(ENCLAVE_SOURCES:.c=.d)$/;"	m
+ENCLAVE_DISABLE_DEBUG	usig/sgx/Makefile	/^  ENCLAVE_DISABLE_DEBUG := 0$/;"	m
+ENCLAVE_DISABLE_DEBUG	usig/sgx/Makefile	/^  ENCLAVE_DISABLE_DEBUG := 1$/;"	m
+ENCLAVE_EDL	usig/sgx/Makefile	/^ENCLAVE_EDL          := enclave\/$(ENCLAVE_NAME).edl$/;"	m
+ENCLAVE_KEY	usig/sgx/Makefile	/^ENCLAVE_KEY          := enclave\/$(ENCLAVE_NAME).key$/;"	m
+ENCLAVE_LDFLAGS	usig/sgx/Makefile	/^ENCLAVE_LDFLAGS  := $(COMMON_LDFLAGS) -Wl,-pie -Wl,--no-undefined \\$/;"	m
+ENCLAVE_LDLIBS	usig/sgx/Makefile	/^ENCLAVE_LDLIBS   := $(COMMON_LDLIBS) -Wl,--whole-archive \\$/;"	m
+ENCLAVE_LDS	usig/sgx/Makefile	/^ENCLAVE_LDS          := $(ENCLAVE_TARGET:.so=.lds)$/;"	m
+ENCLAVE_NAME	usig/sgx/Makefile	/^ENCLAVE_NAME         := usig$/;"	m
+ENCLAVE_OBJECTS	usig/sgx/Makefile	/^ENCLAVE_OBJECTS := $(ENCLAVE_SOURCES:.c=.o)$/;"	m
+ENCLAVE_PROXY_HEADER	usig/sgx/Makefile	/^ENCLAVE_PROXY_HEADER := $(ENCLAVE_PROXY_SOURCE:.c=.h)$/;"	m
+ENCLAVE_PROXY_SOURCE	usig/sgx/Makefile	/^ENCLAVE_PROXY_SOURCE := enclave\/$(ENCLAVE_NAME)_t.c$/;"	m
+ENCLAVE_PUB	usig/sgx/Makefile	/^ENCLAVE_PUB          := enclave\/$(ENCLAVE_NAME).pub$/;"	m
+ENCLAVE_SIGNED	usig/sgx/Makefile	/^ENCLAVE_SIGNED       := $(ENCLAVE_TARGET:.so=.signed.so)$/;"	m
+ENCLAVE_SOURCES	usig/sgx/Makefile	/^ENCLAVE_SOURCES := $(ENCLAVE_PROXY_SOURCE) enclave\/usig.c$/;"	m
+ENCLAVE_TARGET	usig/sgx/Makefile	/^ENCLAVE_TARGET       := enclave\/lib$(ENCLAVE_NAME).so$/;"	m
+EXPECT	api/mocks/mock.go	/^func (m *MockAuthenticator) EXPECT() *MockAuthenticatorMockRecorder {$/;"	f
+EXPECT	api/mocks/mock.go	/^func (m *MockConfiger) EXPECT() *MockConfigerMockRecorder {$/;"	f
+EXPECT	api/mocks/mock.go	/^func (m *MockConnectionHandler) EXPECT() *MockConnectionHandlerMockRecorder {$/;"	f
+EXPECT	api/mocks/mock.go	/^func (m *MockMessageStreamHandler) EXPECT() *MockMessageStreamHandlerMockRecorder {$/;"	f
+EXPECT	api/mocks/mock.go	/^func (m *MockRequestConsumer) EXPECT() *MockRequestConsumerMockRecorder {$/;"	f
+EXPECT	core/internal/clientstate/mocks/mock.go	/^func (m *MockState) EXPECT() *MockStateMockRecorder {$/;"	f
+EXPECT	core/internal/messagelog/mocks/mock.go	/^func (m *MockMessageLog) EXPECT() *MockMessageLogMockRecorder {$/;"	f
+EXPECT	core/internal/peerstate/mocks/mock.go	/^func (m *MockState) EXPECT() *MockStateMockRecorder {$/;"	f
+EXPECT	core/internal/requestlist/mocks/mock.go	/^func (m *MockList) EXPECT() *MockListMockRecorder {$/;"	f
+EXPECT	core/internal/timer/mock/mock.go	/^func (m *MockProvider) EXPECT() *MockProviderMockRecorder {$/;"	f
+EXPECT	core/internal/timer/mock/mock.go	/^func (m *MockTimer) EXPECT() *MockTimerMockRecorder {$/;"	f
+EXPECT	core/internal/viewstate/mocks/mock.go	/^func (m *MockState) EXPECT() *MockStateMockRecorder {$/;"	f
+EXPECT	messages/mocks/mock.go	/^func (m *MockCertifiedMessage) EXPECT() *MockCertifiedMessageMockRecorder {$/;"	f
+EXPECT	messages/mocks/mock.go	/^func (m *MockClientMessage) EXPECT() *MockClientMessageMockRecorder {$/;"	f
+EXPECT	messages/mocks/mock.go	/^func (m *MockMessage) EXPECT() *MockMessageMockRecorder {$/;"	f
+EXPECT	messages/mocks/mock.go	/^func (m *MockPeerMessage) EXPECT() *MockPeerMessageMockRecorder {$/;"	f
+EXPECT	messages/mocks/mock.go	/^func (m *MockReplicaMessage) EXPECT() *MockReplicaMessageMockRecorder {$/;"	f
+EXPECT	messages/mocks/mock.go	/^func (m *MockSignedMessage) EXPECT() *MockSignedMessageMockRecorder {$/;"	f
+EXPECT	usig/mocks/mock.go	/^func (m *MockUSIG) EXPECT() *MockUSIGMockRecorder {$/;"	f
+EcdsaNIST256pSigCipher	sample/authentication/crypto.go	/^	EcdsaNIST256pSigCipher struct{}$/;"	t
+EcdsaSigCipher	sample/authentication/crypto.go	/^type EcdsaSigCipher EcdsaNIST256pSigCipher$/;"	t
+Epoch	usig/sgx/usig-enclave.go	/^func (enclave *USIGEnclave) Epoch() uint64 {$/;"	f
+Execute	sample/authentication/keytool/cmd/root.go	/^func Execute() {$/;"	f
+Execute	sample/peer/cmd/root.go	/^func Execute() {$/;"	f
+Expired	core/internal/timer/mock/mock.go	/^func (m *MockTimer) Expired() <-chan time.Time {$/;"	f
+Expired	core/internal/timer/mock/mock.go	/^func (mr *MockTimerMockRecorder) Expired() *gomock.Call {$/;"	f
+Expired	core/internal/timer/timer.go	/^func (t stdTimer) Expired() <-chan time.Time {$/;"	f
+F	api/mocks/mock.go	/^func (m *MockConfiger) F() uint32 {$/;"	f
+F	api/mocks/mock.go	/^func (mr *MockConfigerMockRecorder) F() *gomock.Call {$/;"	f
+F	sample/config/viperconfiger.go	/^func (c *ViperConfiger) F() uint32 {$/;"	f
+GenerateAuthenticationTag	sample/authentication/crypto.go	/^func (a *PublicAuthenScheme) GenerateAuthenticationTag(m []byte, privKey interface{}) ([]byte, error) {$/;"	f
+GenerateAuthenticationTag	sample/authentication/crypto.go	/^func (au *SGXUSIGAuthenticationScheme) GenerateAuthenticationTag(m []byte, privKey interface{}) ([]byte, error) {$/;"	f
+GenerateMessageAuthenTag	api/mocks/mock.go	/^func (m *MockAuthenticator) GenerateMessageAuthenTag(arg0 api.AuthenticationRole, arg1 []byte) ([]byte, error) {$/;"	f
+GenerateMessageAuthenTag	api/mocks/mock.go	/^func (mr *MockAuthenticatorMockRecorder) GenerateMessageAuthenTag(arg0, arg1 interface{}) *gomock.Call {$/;"	f
+GenerateMessageAuthenTag	sample/authentication/authenticator.go	/^func (a *Authenticator) GenerateMessageAuthenTag(role api.AuthenticationRole, msg []byte) ([]byte, error) {$/;"	f
+GenerateTestnetKeys	sample/authentication/keymanager.go	/^func GenerateTestnetKeys(w io.Writer, opts *TestnetKeyOpts) error {$/;"	f
+GetClientId	messages/protobuf/pb/messages.pb.go	/^func (m *Reply) GetClientId() uint32 {$/;"	f
+GetClientId	messages/protobuf/pb/messages.pb.go	/^func (m *Request) GetClientId() uint32 {$/;"	f
+GetCommit	messages/protobuf/pb/messages.pb.go	/^func (m *Message) GetCommit() *Commit {$/;"	f
+GetLength	sample/requestconsumer/simpleledger.go	/^func (l *SimpleLedger) GetLength() uint64 {$/;"	f
+GetNewView	messages/protobuf/pb/messages.pb.go	/^func (m *ReqViewChange) GetNewView() uint64 {$/;"	f
+GetOperation	messages/protobuf/pb/messages.pb.go	/^func (m *Request) GetOperation() []byte {$/;"	f
+GetPayload	sample/conn/grpc/proto/channel.pb.go	/^func (m *Message) GetPayload() []byte {$/;"	f
+GetPrepare	messages/protobuf/pb/messages.pb.go	/^func (m *Commit) GetPrepare() *Prepare {$/;"	f
+GetPrepare	messages/protobuf/pb/messages.pb.go	/^func (m *Message) GetPrepare() *Prepare {$/;"	f
+GetReplicaId	messages/protobuf/pb/messages.pb.go	/^func (m *Commit) GetReplicaId() uint32 {$/;"	f
+GetReplicaId	messages/protobuf/pb/messages.pb.go	/^func (m *Prepare) GetReplicaId() uint32 {$/;"	f
+GetReplicaId	messages/protobuf/pb/messages.pb.go	/^func (m *Reply) GetReplicaId() uint32 {$/;"	f
+GetReplicaId	messages/protobuf/pb/messages.pb.go	/^func (m *ReqViewChange) GetReplicaId() uint32 {$/;"	f
+GetReply	messages/protobuf/pb/messages.pb.go	/^func (m *Message) GetReply() *Reply {$/;"	f
+GetReqViewChange	messages/protobuf/pb/messages.pb.go	/^func (m *Message) GetReqViewChange() *ReqViewChange {$/;"	f
+GetRequest	messages/protobuf/pb/messages.pb.go	/^func (m *Message) GetRequest() *Request {$/;"	f
+GetRequest	messages/protobuf/pb/messages.pb.go	/^func (m *Prepare) GetRequest() *Request {$/;"	f
+GetResult	messages/protobuf/pb/messages.pb.go	/^func (m *Reply) GetResult() []byte {$/;"	f
+GetSeq	messages/protobuf/pb/messages.pb.go	/^func (m *Reply) GetSeq() uint64 {$/;"	f
+GetSeq	messages/protobuf/pb/messages.pb.go	/^func (m *Request) GetSeq() uint64 {$/;"	f
+GetSignature	messages/protobuf/pb/messages.pb.go	/^func (m *Reply) GetSignature() []byte {$/;"	f
+GetSignature	messages/protobuf/pb/messages.pb.go	/^func (m *ReqViewChange) GetSignature() []byte {$/;"	f
+GetSignature	messages/protobuf/pb/messages.pb.go	/^func (m *Request) GetSignature() []byte {$/;"	f
+GetTyped	messages/protobuf/pb/messages.pb.go	/^func (m *Message) GetTyped() isMessage_Typed {$/;"	f
+GetUi	messages/protobuf/pb/messages.pb.go	/^func (m *Commit) GetUi() []byte {$/;"	f
+GetUi	messages/protobuf/pb/messages.pb.go	/^func (m *Prepare) GetUi() []byte {$/;"	f
+GetView	messages/protobuf/pb/messages.pb.go	/^func (m *Prepare) GetView() uint64 {$/;"	f
+HandleMessageStream	api/mocks/mock.go	/^func (m *MockMessageStreamHandler) HandleMessageStream(arg0 <-chan []byte) <-chan []byte {$/;"	f
+HandleMessageStream	api/mocks/mock.go	/^func (mr *MockMessageStreamHandlerMockRecorder) HandleMessageStream(arg0 interface{}) *gomock.Call {$/;"	f
+HandleMessageStream	core/replica.go	/^func (handle messageStreamHandler) HandleMessageStream(in <-chan []byte) <-chan []byte {$/;"	f
+HandleMessageStream	sample/conn/common/replicastub/replica-stub.go	/^func (s *messageStreamHandlerStub) HandleMessageStream(in <-chan []byte) <-chan []byte {$/;"	f
+HandleMessageStream	sample/conn/grpc/connector/replica.go	/^func (sh *clientStreamHandler) HandleMessageStream(in <-chan []byte) <-chan []byte {$/;"	f
+HandleMessageStream	sample/conn/grpc/connector/replica.go	/^func (sh *peerStreamHandler) HandleMessageStream(in <-chan []byte) <-chan []byte {$/;"	f
+Hash	sample/requestconsumer/simpleledger.go	/^func (b *SimpleBlock) Hash() []byte {$/;"	f
+HoldView	core/internal/viewstate/mocks/mock.go	/^func (m *MockState) HoldView() (uint64, uint64, func()) {$/;"	f
+HoldView	core/internal/viewstate/mocks/mock.go	/^func (mr *MockStateMockRecorder) HoldView() *gomock.Call {$/;"	f
+HoldView	core/internal/viewstate/view-state.go	/^func (s *viewState) HoldView() (current, expected uint64, release func()) {$/;"	f
+ID	usig/mocks/mock.go	/^func (m *MockUSIG) ID() []byte {$/;"	f
+ID	usig/mocks/mock.go	/^func (mr *MockUSIGMockRecorder) ID() *gomock.Call {$/;"	f
+ID	usig/sgx/sgx-usig.go	/^func (u *USIG) ID() []byte {$/;"	f
+INSTALL	Makefile	/^INSTALL := install$/;"	m
+INSTALL_DATA	Makefile	/^INSTALL_DATA := $(INSTALL) -m 644$/;"	m
+INSTALL_PROGRAM	Makefile	/^INSTALL_PROGRAM := $(INSTALL)$/;"	m
+ImplementsClientMessage	messages/mocks/mock.go	/^func (m *MockClientMessage) ImplementsClientMessage() {$/;"	f
+ImplementsClientMessage	messages/mocks/mock.go	/^func (mr *MockClientMessageMockRecorder) ImplementsClientMessage() *gomock.Call {$/;"	f
+ImplementsClientMessage	messages/protobuf/request.go	/^func (request) ImplementsClientMessage() {}$/;"	f
+ImplementsCommit	messages/protobuf/commit.go	/^func (commit) ImplementsCommit()         {}$/;"	f
+ImplementsPeerMessage	messages/mocks/mock.go	/^func (m *MockPeerMessage) ImplementsPeerMessage() {$/;"	f
+ImplementsPeerMessage	messages/mocks/mock.go	/^func (mr *MockPeerMessageMockRecorder) ImplementsPeerMessage() *gomock.Call {$/;"	f
+ImplementsPeerMessage	messages/protobuf/commit.go	/^func (commit) ImplementsPeerMessage()    {}$/;"	f
+ImplementsPeerMessage	messages/protobuf/prepare.go	/^func (prepare) ImplementsPeerMessage()    {}$/;"	f
+ImplementsPeerMessage	messages/protobuf/req-view-change.go	/^func (reqViewChange) ImplementsPeerMessage()    {}$/;"	f
+ImplementsPrepare	messages/protobuf/prepare.go	/^func (prepare) ImplementsPrepare()        {}$/;"	f
+ImplementsReplicaMessage	messages/mocks/mock.go	/^func (m *MockCertifiedMessage) ImplementsReplicaMessage() {$/;"	f
+ImplementsReplicaMessage	messages/mocks/mock.go	/^func (m *MockPeerMessage) ImplementsReplicaMessage() {$/;"	f
+ImplementsReplicaMessage	messages/mocks/mock.go	/^func (m *MockReplicaMessage) ImplementsReplicaMessage() {$/;"	f
+ImplementsReplicaMessage	messages/mocks/mock.go	/^func (mr *MockCertifiedMessageMockRecorder) ImplementsReplicaMessage() *gomock.Call {$/;"	f
+ImplementsReplicaMessage	messages/mocks/mock.go	/^func (mr *MockPeerMessageMockRecorder) ImplementsReplicaMessage() *gomock.Call {$/;"	f
+ImplementsReplicaMessage	messages/mocks/mock.go	/^func (mr *MockReplicaMessageMockRecorder) ImplementsReplicaMessage() *gomock.Call {$/;"	f
+ImplementsReplicaMessage	messages/protobuf/commit.go	/^func (commit) ImplementsReplicaMessage() {}$/;"	f
+ImplementsReplicaMessage	messages/protobuf/prepare.go	/^func (prepare) ImplementsReplicaMessage() {}$/;"	f
+ImplementsReplicaMessage	messages/protobuf/reply.go	/^func (reply) ImplementsReplicaMessage() {}$/;"	f
+ImplementsReplicaMessage	messages/protobuf/req-view-change.go	/^func (reqViewChange) ImplementsReplicaMessage() {}$/;"	f
+ImplementsReply	messages/protobuf/reply.go	/^func (reply) ImplementsReply()          {}$/;"	f
+ImplementsReqViewChange	messages/protobuf/req-view-change.go	/^func (reqViewChange) ImplementsReqViewChange()  {}$/;"	f
+ImplementsRequest	messages/protobuf/request.go	/^func (request) ImplementsRequest()       {}$/;"	f
+IsInitialized	sample/config/viperconfiger.go	/^func (c *ViperConfiger) IsInitialized() bool {$/;"	f
+KeySpec	sample/authentication/keymanager.go	/^func (ks *SimpleKeyStore) KeySpec(role api.AuthenticationRole) string {$/;"	f
+LDFLAGS	usig/sgx/Makefile	/^$(ENCLAVE_TARGET): LDFLAGS := $(ENCLAVE_LDFLAGS)$/;"	m
+LDFLAGS	usig/sgx/Makefile	/^$(TEST_TARGET): LDFLAGS := $(UNTRUSTED_LDFLAGS)$/;"	m
+LDFLAGS	usig/sgx/Makefile	/^$(UNTRUSTED_TARGET): LDFLAGS := $(UNTRUSTED_LDFLAGS) -shared$/;"	m
+LDLIBS	usig/sgx/Makefile	/^$(ENCLAVE_TARGET): LDLIBS  := $(ENCLAVE_LDLIBS)$/;"	m
+LDLIBS	usig/sgx/Makefile	/^$(TEST_TARGET): LDLIBS  := $(UNTRUSTED_LDLIBS)$/;"	m
+LDLIBS	usig/sgx/Makefile	/^$(UNTRUSTED_TARGET): LDLIBS  := $(UNTRUSTED_LDLIBS)$/;"	m
+List	core/internal/requestlist/request-list.go	/^type List interface {$/;"	t
+ListenAndServe	sample/conn/grpc/server/server.go	/^func ListenAndServe(s ReplicaServer, addr string, serverOpts ...grpc.ServerOption) error {$/;"	f
+LoadConfig	sample/config/viperconfiger.go	/^func (c *ViperConfiger) LoadConfig(filePath string) {$/;"	f
+LoadSimpleKeyStore	sample/authentication/keymanager.go	/^func LoadSimpleKeyStore(keystoreFileReader io.Reader, roles []api.AuthenticationRole, id uint32) (*SimpleKeyStore, error) {$/;"	f
+Logsize	api/mocks/mock.go	/^func (m *MockConfiger) Logsize() uint32 {$/;"	f
+Logsize	api/mocks/mock.go	/^func (mr *MockConfigerMockRecorder) Logsize() *gomock.Call {$/;"	f
+Logsize	sample/config/viperconfiger.go	/^func (c *ViperConfiger) Logsize() uint32 {$/;"	f
+MakeCert	usig/sgx/sgx-usig.go	/^func MakeCert(epoch uint64, signature []byte) []byte {$/;"	f
+MakeID	usig/sgx/sgx-usig.go	/^func MakeID(epoch uint64, publicKey interface{}) ([]byte, error) {$/;"	f
+MarshalBinary	messages/mocks/mock.go	/^func (m *MockCertifiedMessage) MarshalBinary() ([]byte, error) {$/;"	f
+MarshalBinary	messages/mocks/mock.go	/^func (m *MockClientMessage) MarshalBinary() ([]byte, error) {$/;"	f
+MarshalBinary	messages/mocks/mock.go	/^func (m *MockMessage) MarshalBinary() ([]byte, error) {$/;"	f
+MarshalBinary	messages/mocks/mock.go	/^func (m *MockPeerMessage) MarshalBinary() ([]byte, error) {$/;"	f
+MarshalBinary	messages/mocks/mock.go	/^func (m *MockReplicaMessage) MarshalBinary() ([]byte, error) {$/;"	f
+MarshalBinary	messages/mocks/mock.go	/^func (mr *MockCertifiedMessageMockRecorder) MarshalBinary() *gomock.Call {$/;"	f
+MarshalBinary	messages/mocks/mock.go	/^func (mr *MockClientMessageMockRecorder) MarshalBinary() *gomock.Call {$/;"	f
+MarshalBinary	messages/mocks/mock.go	/^func (mr *MockMessageMockRecorder) MarshalBinary() *gomock.Call {$/;"	f
+MarshalBinary	messages/mocks/mock.go	/^func (mr *MockPeerMessageMockRecorder) MarshalBinary() *gomock.Call {$/;"	f
+MarshalBinary	messages/mocks/mock.go	/^func (mr *MockReplicaMessageMockRecorder) MarshalBinary() *gomock.Call {$/;"	f
+MarshalBinary	messages/protobuf/commit.go	/^func (m *commit) MarshalBinary() ([]byte, error) {$/;"	f
+MarshalBinary	messages/protobuf/prepare.go	/^func (m *prepare) MarshalBinary() ([]byte, error) {$/;"	f
+MarshalBinary	messages/protobuf/reply.go	/^func (m *reply) MarshalBinary() ([]byte, error) {$/;"	f
+MarshalBinary	messages/protobuf/req-view-change.go	/^func (m *reqViewChange) MarshalBinary() ([]byte, error) {$/;"	f
+MarshalBinary	messages/protobuf/request.go	/^func (m *request) MarshalBinary() ([]byte, error) {$/;"	f
+MarshalBinary	sample/requestconsumer/simpleledger.go	/^func (b *SimpleBlock) MarshalBinary() ([]byte, error) {$/;"	f
+MarshalBinary	usig/usig.go	/^func (ui *UI) MarshalBinary() ([]byte, error) {$/;"	f
+MarshalOrPanic	messages/protobuf/pb/utils.go	/^func MarshalOrPanic(m proto.Message) []byte {$/;"	f
+Message	messages/api.go	/^type Message interface {$/;"	t
+Message	messages/protobuf/pb/messages.pb.go	/^type Message struct {$/;"	t
+Message	sample/conn/grpc/proto/channel.pb.go	/^type Message struct {$/;"	t
+MessageImpl	messages/api.go	/^type MessageImpl interface {$/;"	t
+MessageLog	core/internal/messagelog/messagelog.go	/^type MessageLog interface {$/;"	t
+MessageStreamHandler	api/api.go	/^type MessageStreamHandler interface {$/;"	t
+Message_Commit	messages/protobuf/pb/messages.pb.go	/^type Message_Commit struct {$/;"	t
+Message_Prepare	messages/protobuf/pb/messages.pb.go	/^type Message_Prepare struct {$/;"	t
+Message_Reply	messages/protobuf/pb/messages.pb.go	/^type Message_Reply struct {$/;"	t
+Message_ReqViewChange	messages/protobuf/pb/messages.pb.go	/^type Message_ReqViewChange struct {$/;"	t
+Message_Request	messages/protobuf/pb/messages.pb.go	/^type Message_Request struct {$/;"	t
+MockAuthenticator	api/mocks/mock.go	/^type MockAuthenticator struct {$/;"	t
+MockAuthenticatorMockRecorder	api/mocks/mock.go	/^type MockAuthenticatorMockRecorder struct {$/;"	t
+MockCertifiedMessage	messages/mocks/mock.go	/^type MockCertifiedMessage struct {$/;"	t
+MockCertifiedMessageMockRecorder	messages/mocks/mock.go	/^type MockCertifiedMessageMockRecorder struct {$/;"	t
+MockClientMessage	messages/mocks/mock.go	/^type MockClientMessage struct {$/;"	t
+MockClientMessageMockRecorder	messages/mocks/mock.go	/^type MockClientMessageMockRecorder struct {$/;"	t
+MockConfiger	api/mocks/mock.go	/^type MockConfiger struct {$/;"	t
+MockConfigerMockRecorder	api/mocks/mock.go	/^type MockConfigerMockRecorder struct {$/;"	t
+MockConnectionHandler	api/mocks/mock.go	/^type MockConnectionHandler struct {$/;"	t
+MockConnectionHandlerMockRecorder	api/mocks/mock.go	/^type MockConnectionHandlerMockRecorder struct {$/;"	t
+MockList	core/internal/requestlist/mocks/mock.go	/^type MockList struct {$/;"	t
+MockListMockRecorder	core/internal/requestlist/mocks/mock.go	/^type MockListMockRecorder struct {$/;"	t
+MockMessage	messages/mocks/mock.go	/^type MockMessage struct {$/;"	t
+MockMessageLog	core/internal/messagelog/mocks/mock.go	/^type MockMessageLog struct {$/;"	t
+MockMessageLogMockRecorder	core/internal/messagelog/mocks/mock.go	/^type MockMessageLogMockRecorder struct {$/;"	t
+MockMessageMockRecorder	messages/mocks/mock.go	/^type MockMessageMockRecorder struct {$/;"	t
+MockMessageStreamHandler	api/mocks/mock.go	/^type MockMessageStreamHandler struct {$/;"	t
+MockMessageStreamHandlerMockRecorder	api/mocks/mock.go	/^type MockMessageStreamHandlerMockRecorder struct {$/;"	t
+MockPeerMessage	messages/mocks/mock.go	/^type MockPeerMessage struct {$/;"	t
+MockPeerMessageMockRecorder	messages/mocks/mock.go	/^type MockPeerMessageMockRecorder struct {$/;"	t
+MockProvider	core/internal/timer/mock/mock.go	/^type MockProvider struct {$/;"	t
+MockProviderMockRecorder	core/internal/timer/mock/mock.go	/^type MockProviderMockRecorder struct {$/;"	t
+MockReplicaMessage	messages/mocks/mock.go	/^type MockReplicaMessage struct {$/;"	t
+MockReplicaMessageMockRecorder	messages/mocks/mock.go	/^type MockReplicaMessageMockRecorder struct {$/;"	t
+MockRequestConsumer	api/mocks/mock.go	/^type MockRequestConsumer struct {$/;"	t
+MockRequestConsumerMockRecorder	api/mocks/mock.go	/^type MockRequestConsumerMockRecorder struct {$/;"	t
+MockSignedMessage	messages/mocks/mock.go	/^type MockSignedMessage struct {$/;"	t
+MockSignedMessageMockRecorder	messages/mocks/mock.go	/^type MockSignedMessageMockRecorder struct {$/;"	t
+MockState	core/internal/clientstate/mocks/mock.go	/^type MockState struct {$/;"	t
+MockState	core/internal/peerstate/mocks/mock.go	/^type MockState struct {$/;"	t
+MockState	core/internal/viewstate/mocks/mock.go	/^type MockState struct {$/;"	t
+MockStateMockRecorder	core/internal/clientstate/mocks/mock.go	/^type MockStateMockRecorder struct {$/;"	t
+MockStateMockRecorder	core/internal/peerstate/mocks/mock.go	/^type MockStateMockRecorder struct {$/;"	t
+MockStateMockRecorder	core/internal/viewstate/mocks/mock.go	/^type MockStateMockRecorder struct {$/;"	t
+MockTimer	core/internal/timer/mock/mock.go	/^type MockTimer struct {$/;"	t
+MockTimerMockRecorder	core/internal/timer/mock/mock.go	/^type MockTimerMockRecorder struct {$/;"	t
+MockUSIG	usig/mocks/mock.go	/^type MockUSIG struct {$/;"	t
+MockUSIGMockRecorder	usig/mocks/mock.go	/^type MockUSIGMockRecorder struct {$/;"	t
+N	api/mocks/mock.go	/^func (m *MockConfiger) N() uint32 {$/;"	f
+N	api/mocks/mock.go	/^func (mr *MockConfigerMockRecorder) N() *gomock.Call {$/;"	f
+N	sample/config/viperconfiger.go	/^func (c *ViperConfiger) N() uint32 {$/;"	f
+NDEBUG	usig/sgx/test/usig_test.c	17;"	d	file:
+New	client/client.go	/^func New(id uint32, n, f uint32, stack Stack) (Client, error) {$/;"	f
+New	client/internal/requestbuffer/requestbuffer.go	/^func New() *T {$/;"	f
+New	core/internal/clientstate/client-state.go	/^func New(requestTimeout func() time.Duration, prepareTimeout func() time.Duration, opts ...Option) State {$/;"	f
+New	core/internal/messagelog/messagelog.go	/^func New() MessageLog {$/;"	f
+New	core/internal/peerstate/peerstate.go	/^func New() State {$/;"	f
+New	core/internal/requestlist/request-list.go	/^func New() List {$/;"	f
+New	core/internal/viewstate/view-state.go	/^func New() State {$/;"	f
+New	core/replica.go	/^func New(id uint32, configer api.Configer, stack Stack, opts ...Option) (api.Replica, error) {$/;"	f
+New	sample/authentication/authenticator.go	/^func New(roles []api.AuthenticationRole, id uint32, keystoreFileReader io.Reader) (*Authenticator, error) {$/;"	f
+New	sample/config/viperconfiger.go	/^func New() *ViperConfiger {$/;"	f
+New	sample/conn/common/replicastub/replica-stub.go	/^func New() ReplicaStub {$/;"	f
+New	sample/conn/grpc/server/server.go	/^func New(replica api.ConnectionHandler) ReplicaServer {$/;"	f
+New	usig/sgx/sgx-usig.go	/^func New(enclaveFile string, sealedKey []byte) (*USIG, error) {$/;"	f
+NewChannelClient	sample/conn/grpc/proto/channel.pb.go	/^func NewChannelClient(cc *grpc.ClientConn) ChannelClient {$/;"	f
+NewClientSide	sample/conn/common/connector/connector.go	/^func NewClientSide() ReplicaConnector {$/;"	f
+NewClientSide	sample/conn/dummy/connector/connector.go	/^func NewClientSide() ReplicaConnector {$/;"	f
+NewClientSide	sample/conn/grpc/connector/connector.go	/^func NewClientSide() ReplicaConnector {$/;"	f
+NewCommit	messages/protobuf/impl.go	/^func (*impl) NewCommit(r uint32, prep messages.Prepare) messages.Commit {$/;"	f
+NewFromBinary	messages/protobuf/impl.go	/^func (*impl) NewFromBinary(data []byte) (messages.Message, error) {$/;"	f
+NewImpl	messages/protobuf/impl.go	/^func NewImpl() messages.MessageImpl {$/;"	f
+NewMockAuthenticator	api/mocks/mock.go	/^func NewMockAuthenticator(ctrl *gomock.Controller) *MockAuthenticator {$/;"	f
+NewMockCertifiedMessage	messages/mocks/mock.go	/^func NewMockCertifiedMessage(ctrl *gomock.Controller) *MockCertifiedMessage {$/;"	f
+NewMockClientMessage	messages/mocks/mock.go	/^func NewMockClientMessage(ctrl *gomock.Controller) *MockClientMessage {$/;"	f
+NewMockConfiger	api/mocks/mock.go	/^func NewMockConfiger(ctrl *gomock.Controller) *MockConfiger {$/;"	f
+NewMockConnectionHandler	api/mocks/mock.go	/^func NewMockConnectionHandler(ctrl *gomock.Controller) *MockConnectionHandler {$/;"	f
+NewMockList	core/internal/requestlist/mocks/mock.go	/^func NewMockList(ctrl *gomock.Controller) *MockList {$/;"	f
+NewMockMessage	messages/mocks/mock.go	/^func NewMockMessage(ctrl *gomock.Controller) *MockMessage {$/;"	f
+NewMockMessageLog	core/internal/messagelog/mocks/mock.go	/^func NewMockMessageLog(ctrl *gomock.Controller) *MockMessageLog {$/;"	f
+NewMockMessageStreamHandler	api/mocks/mock.go	/^func NewMockMessageStreamHandler(ctrl *gomock.Controller) *MockMessageStreamHandler {$/;"	f
+NewMockPeerMessage	messages/mocks/mock.go	/^func NewMockPeerMessage(ctrl *gomock.Controller) *MockPeerMessage {$/;"	f
+NewMockProvider	core/internal/timer/mock/mock.go	/^func NewMockProvider(ctrl *gomock.Controller) *MockProvider {$/;"	f
+NewMockReplicaMessage	messages/mocks/mock.go	/^func NewMockReplicaMessage(ctrl *gomock.Controller) *MockReplicaMessage {$/;"	f
+NewMockRequestConsumer	api/mocks/mock.go	/^func NewMockRequestConsumer(ctrl *gomock.Controller) *MockRequestConsumer {$/;"	f
+NewMockSignedMessage	messages/mocks/mock.go	/^func NewMockSignedMessage(ctrl *gomock.Controller) *MockSignedMessage {$/;"	f
+NewMockState	core/internal/clientstate/mocks/mock.go	/^func NewMockState(ctrl *gomock.Controller) *MockState {$/;"	f
+NewMockState	core/internal/peerstate/mocks/mock.go	/^func NewMockState(ctrl *gomock.Controller) *MockState {$/;"	f
+NewMockState	core/internal/viewstate/mocks/mock.go	/^func NewMockState(ctrl *gomock.Controller) *MockState {$/;"	f
+NewMockTimer	core/internal/timer/mock/mock.go	/^func NewMockTimer(ctrl *gomock.Controller) *MockTimer {$/;"	f
+NewMockUSIG	usig/mocks/mock.go	/^func NewMockUSIG(ctrl *gomock.Controller) *MockUSIG {$/;"	f
+NewPrepare	messages/protobuf/impl.go	/^func (*impl) NewPrepare(r uint32, v uint64, req messages.Request) messages.Prepare {$/;"	f
+NewProvider	core/internal/clientstate/client-state.go	/^func NewProvider(requestTimeout func() time.Duration, prepareTimeout func() time.Duration, opts ...Option) Provider {$/;"	f
+NewProvider	core/internal/peerstate/peerstate.go	/^func NewProvider() Provider {$/;"	f
+NewReplicaSide	sample/conn/common/connector/connector.go	/^func NewReplicaSide() ReplicaConnector {$/;"	f
+NewReplicaSide	sample/conn/dummy/connector/connector.go	/^func NewReplicaSide() ReplicaConnector {$/;"	f
+NewReplicaSide	sample/conn/grpc/connector/connector.go	/^func NewReplicaSide() ReplicaConnector {$/;"	f
+NewReply	messages/protobuf/impl.go	/^func (*impl) NewReply(r, cl uint32, seq uint64, res []byte) messages.Reply {$/;"	f
+NewReqViewChange	messages/protobuf/impl.go	/^func (*impl) NewReqViewChange(r uint32, nv uint64) messages.ReqViewChange {$/;"	f
+NewRequest	messages/protobuf/impl.go	/^func (*impl) NewRequest(cl uint32, seq uint64, op []byte) messages.Request {$/;"	f
+NewSGXUSIGAuthenticationScheme	sample/authentication/crypto.go	/^func NewSGXUSIGAuthenticationScheme(usig *sgxusig.USIG) *SGXUSIGAuthenticationScheme {$/;"	f
+NewSimpleLedger	sample/requestconsumer/simpleledger.go	/^func NewSimpleLedger() *SimpleLedger {$/;"	f
+NewTimer	core/internal/timer/mock/mock.go	/^func (m *MockProvider) NewTimer(arg0 time.Duration) timer.Timer {$/;"	f
+NewTimer	core/internal/timer/mock/mock.go	/^func (mr *MockProviderMockRecorder) NewTimer(arg0 interface{}) *gomock.Call {$/;"	f
+NewTimer	core/internal/timer/timer.go	/^func (stdProvider) NewTimer(d time.Duration) Timer {$/;"	f
+NewUSIGEnclave	usig/sgx/usig-enclave.go	/^func NewUSIGEnclave(enclaveFile string, sealedKey []byte) (*USIGEnclave, error) {$/;"	f
+NewView	messages/protobuf/req-view-change.go	/^func (m *reqViewChange) NewView() uint64 {$/;"	f
+NewWithSGXUSIG	sample/authentication/authenticator.go	/^func NewWithSGXUSIG(roles []api.AuthenticationRole, id uint32, keystoreFileReader io.Reader, enclaveFile string) (*Authenticator, error) {$/;"	f
+NewWithUSIG	sample/authentication/authenticator.go	/^func NewWithUSIG(roles []api.AuthenticationRole, id uint32, ks BftKeyStorer, usig usig.USIG) (*Authenticator, error) {$/;"	f
+NodeKeySpec	sample/authentication/keymanager.go	/^func (ks *SimpleKeyStore) NodeKeySpec(role api.AuthenticationRole) string {$/;"	f
+NodePublicKey	sample/authentication/keymanager.go	/^func (ks *SimpleKeyStore) NodePublicKey(role api.AuthenticationRole, id uint32) (interface{}, error) {$/;"	f
+NodeRoles	sample/authentication/keymanager.go	/^func (ks *SimpleKeyStore) NodeRoles() []api.AuthenticationRole {$/;"	f
+Operation	messages/protobuf/request.go	/^func (m *request) Operation() []byte {$/;"	f
+Option	core/internal/clientstate/client-state.go	/^type Option func(*options)$/;"	t
+Option	core/options.go	/^type Option func(*options)$/;"	t
+ParseCert	usig/sgx/sgx-usig.go	/^func ParseCert(cert []byte) (epoch uint64, signature []byte, err error) {$/;"	f
+ParseID	usig/sgx/sgx-usig.go	/^func ParseID(usigID []byte) (epoch uint64, pubKey crypto.PublicKey, err error) {$/;"	f
+Peer	sample/config/viperconfiger.go	/^type Peer struct {$/;"	t
+PeerChat	sample/conn/grpc/proto/channel.pb.go	/^func (*UnimplementedChannelServer) PeerChat(srv Channel_PeerChatServer) error {$/;"	f
+PeerChat	sample/conn/grpc/proto/channel.pb.go	/^func (c *channelClient) PeerChat(ctx context.Context, opts ...grpc.CallOption) (Channel_PeerChatClient, error) {$/;"	f
+PeerChat	sample/conn/grpc/server/server.go	/^func (s *server) PeerChat(stream proto.Channel_PeerChatServer) error {$/;"	f
+PeerMessage	messages/api.go	/^type PeerMessage interface {$/;"	t
+PeerMessageStreamHandler	api/mocks/mock.go	/^func (m *MockConnectionHandler) PeerMessageStreamHandler() api.MessageStreamHandler {$/;"	f
+PeerMessageStreamHandler	api/mocks/mock.go	/^func (mr *MockConnectionHandlerMockRecorder) PeerMessageStreamHandler() *gomock.Call {$/;"	f
+PeerMessageStreamHandler	core/replica.go	/^func (r *replica) PeerMessageStreamHandler() api.MessageStreamHandler {$/;"	f
+PeerMessageStreamHandler	sample/conn/common/replicastub/replica-stub.go	/^func (s *replicaStub) PeerMessageStreamHandler() api.MessageStreamHandler {$/;"	f
+PeerMessageStreamHandler	sample/conn/grpc/connector/replica.go	/^func (r *replica) PeerMessageStreamHandler() api.MessageStreamHandler {$/;"	f
+Peers	sample/config/viperconfiger.go	/^func (c *ViperConfiger) Peers() []Peer {$/;"	f
+Prepare	messages/api.go	/^type Prepare interface {$/;"	t
+Prepare	messages/protobuf/commit.go	/^func (m *commit) Prepare() messages.Prepare {$/;"	f
+Prepare	messages/protobuf/pb/messages.pb.go	/^type Prepare struct {$/;"	t
+PrepareFromAPI	messages/protobuf/pb/utils.go	/^func PrepareFromAPI(prep messages.Prepare) *Prepare {$/;"	f
+PrepareRequestSeq	core/internal/clientstate/mocks/mock.go	/^func (m *MockState) PrepareRequestSeq(arg0 uint64) (bool, error) {$/;"	f
+PrepareRequestSeq	core/internal/clientstate/mocks/mock.go	/^func (mr *MockStateMockRecorder) PrepareRequestSeq(arg0 interface{}) *gomock.Call {$/;"	f
+PrepareRequestSeq	core/internal/clientstate/request-seq.go	/^func (s *seqState) PrepareRequestSeq(seq uint64) (new bool, err error) {$/;"	f
+PrivateKey	sample/authentication/keymanager.go	/^func (ks *SimpleKeyStore) PrivateKey(role api.AuthenticationRole) interface{} {$/;"	f
+ProtoMessage	messages/protobuf/pb/messages.pb.go	/^func (*Commit) ProtoMessage()    {}$/;"	f
+ProtoMessage	messages/protobuf/pb/messages.pb.go	/^func (*Message) ProtoMessage()    {}$/;"	f
+ProtoMessage	messages/protobuf/pb/messages.pb.go	/^func (*Prepare) ProtoMessage()    {}$/;"	f
+ProtoMessage	messages/protobuf/pb/messages.pb.go	/^func (*Reply) ProtoMessage()    {}$/;"	f
+ProtoMessage	messages/protobuf/pb/messages.pb.go	/^func (*ReqViewChange) ProtoMessage()    {}$/;"	f
+ProtoMessage	messages/protobuf/pb/messages.pb.go	/^func (*Request) ProtoMessage()    {}$/;"	f
+ProtoMessage	sample/conn/grpc/proto/channel.pb.go	/^func (*Message) ProtoMessage()    {}$/;"	f
+Provider	core/internal/clientstate/client-state.go	/^type Provider func(clientID uint32) State$/;"	t
+Provider	core/internal/peerstate/peerstate.go	/^type Provider func(replicaID uint32) State$/;"	t
+Provider	core/internal/timer/timer.go	/^type Provider interface {$/;"	t
+PublicAuthenScheme	sample/authentication/crypto.go	/^type PublicAuthenScheme struct {$/;"	t
+PublicKey	sample/authentication/keymanager.go	/^func (ks *SimpleKeyStore) PublicKey(role api.AuthenticationRole) interface{} {$/;"	f
+PublicKey	usig/sgx/usig-enclave.go	/^func (enclave *USIGEnclave) PublicKey() crypto.PublicKey {$/;"	f
+ReadConfig	sample/config/viperconfiger.go	/^func (c *ViperConfiger) ReadConfig(in io.Reader, cfgType string) error {$/;"	f
+Recv	sample/conn/grpc/proto/channel.pb.go	/^func (x *channelClientChatClient) Recv() (*Message, error) {$/;"	f
+Recv	sample/conn/grpc/proto/channel.pb.go	/^func (x *channelClientChatServer) Recv() (*Message, error) {$/;"	f
+Recv	sample/conn/grpc/proto/channel.pb.go	/^func (x *channelPeerChatClient) Recv() (*Message, error) {$/;"	f
+Recv	sample/conn/grpc/proto/channel.pb.go	/^func (x *channelPeerChatServer) Recv() (*Message, error) {$/;"	f
+RegisterChannelServer	sample/conn/grpc/proto/channel.pb.go	/^func RegisterChannelServer(s *grpc.Server, srv ChannelServer) {$/;"	f
+Remove	core/internal/requestlist/mocks/mock.go	/^func (m *MockList) Remove(arg0 uint32) {$/;"	f
+Remove	core/internal/requestlist/mocks/mock.go	/^func (mr *MockListMockRecorder) Remove(arg0 interface{}) *gomock.Call {$/;"	f
+Remove	core/internal/requestlist/request-list.go	/^func (l *list) Remove(clientID uint32) {$/;"	f
+RemoveRequest	client/internal/requestbuffer/requestbuffer.go	/^func (rb *T) RemoveRequest(seq uint64) {$/;"	f
+Replica	api/api.go	/^type Replica interface {$/;"	t
+ReplicaAuthen	api/api.go	/^	ReplicaAuthen AuthenticationRole = 1 + iota$/;"	c
+ReplicaConnector	api/api.go	/^type ReplicaConnector interface {$/;"	t
+ReplicaConnector	sample/conn/common/connector/connector.go	/^type ReplicaConnector interface {$/;"	t
+ReplicaConnector	sample/conn/dummy/connector/connector.go	/^type ReplicaConnector interface {$/;"	t
+ReplicaConnector	sample/conn/grpc/connector/connector.go	/^type ReplicaConnector interface {$/;"	t
+ReplicaID	messages/mocks/mock.go	/^func (m *MockCertifiedMessage) ReplicaID() uint32 {$/;"	f
+ReplicaID	messages/mocks/mock.go	/^func (m *MockPeerMessage) ReplicaID() uint32 {$/;"	f
+ReplicaID	messages/mocks/mock.go	/^func (m *MockReplicaMessage) ReplicaID() uint32 {$/;"	f
+ReplicaID	messages/mocks/mock.go	/^func (mr *MockCertifiedMessageMockRecorder) ReplicaID() *gomock.Call {$/;"	f
+ReplicaID	messages/mocks/mock.go	/^func (mr *MockPeerMessageMockRecorder) ReplicaID() *gomock.Call {$/;"	f
+ReplicaID	messages/mocks/mock.go	/^func (mr *MockReplicaMessageMockRecorder) ReplicaID() *gomock.Call {$/;"	f
+ReplicaID	messages/protobuf/commit.go	/^func (m *commit) ReplicaID() uint32 {$/;"	f
+ReplicaID	messages/protobuf/prepare.go	/^func (m *prepare) ReplicaID() uint32 {$/;"	f
+ReplicaID	messages/protobuf/reply.go	/^func (m *reply) ReplicaID() uint32 {$/;"	f
+ReplicaID	messages/protobuf/req-view-change.go	/^func (m *reqViewChange) ReplicaID() uint32 {$/;"	f
+ReplicaMessage	messages/api.go	/^type ReplicaMessage interface {$/;"	t
+ReplicaMessageStreamHandler	sample/conn/common/connector/connector.go	/^func (c *clientSide) ReplicaMessageStreamHandler(id uint32) api.MessageStreamHandler {$/;"	f
+ReplicaMessageStreamHandler	sample/conn/common/connector/connector.go	/^func (c *replicaSide) ReplicaMessageStreamHandler(id uint32) api.MessageStreamHandler {$/;"	f
+ReplicaServer	sample/conn/grpc/server/server.go	/^type ReplicaServer interface {$/;"	t
+ReplicaStub	sample/conn/common/replicastub/replica-stub.go	/^type ReplicaStub interface {$/;"	t
+Reply	messages/api.go	/^type Reply interface {$/;"	t
+Reply	messages/protobuf/pb/messages.pb.go	/^type Reply struct {$/;"	t
+ReplyChannel	core/internal/clientstate/mocks/mock.go	/^func (m *MockState) ReplyChannel(arg0 uint64) <-chan messages.Reply {$/;"	f
+ReplyChannel	core/internal/clientstate/mocks/mock.go	/^func (mr *MockStateMockRecorder) ReplyChannel(arg0 interface{}) *gomock.Call {$/;"	f
+ReplyChannel	core/internal/clientstate/reply.go	/^func (s *replyState) ReplyChannel(seq uint64) <-chan messages.Reply {$/;"	f
+ReqViewChange	messages/api.go	/^type ReqViewChange interface {$/;"	t
+ReqViewChange	messages/protobuf/pb/messages.pb.go	/^type ReqViewChange struct {$/;"	t
+Request	client/client.go	/^func (handler requestHandler) Request(operation []byte) <-chan []byte {$/;"	f
+Request	messages/api.go	/^type Request interface {$/;"	t
+Request	messages/protobuf/pb/messages.pb.go	/^type Request struct {$/;"	t
+Request	messages/protobuf/prepare.go	/^func (m *prepare) Request() messages.Request {$/;"	f
+RequestConsumer	api/api.go	/^type RequestConsumer interface {$/;"	t
+RequestFromAPI	messages/protobuf/pb/utils.go	/^func RequestFromAPI(req messages.Request) *Request {$/;"	f
+RequestStream	client/internal/requestbuffer/requestbuffer.go	/^func (rb *T) RequestStream(cancel <-chan struct{}) <-chan messages.Request {$/;"	f
+Reset	core/internal/timer/mock/mock.go	/^func (m *MockTimer) Reset(arg0 time.Duration) {$/;"	f
+Reset	core/internal/timer/mock/mock.go	/^func (mr *MockTimerMockRecorder) Reset(arg0 interface{}) *gomock.Call {$/;"	f
+Reset	core/internal/timer/timer.go	/^func (t stdTimer) Reset(d time.Duration) {$/;"	f
+Reset	messages/protobuf/pb/messages.pb.go	/^func (m *Commit) Reset()         { *m = Commit{} }$/;"	f
+Reset	messages/protobuf/pb/messages.pb.go	/^func (m *Message) Reset()         { *m = Message{} }$/;"	f
+Reset	messages/protobuf/pb/messages.pb.go	/^func (m *Prepare) Reset()         { *m = Prepare{} }$/;"	f
+Reset	messages/protobuf/pb/messages.pb.go	/^func (m *Reply) Reset()         { *m = Reply{} }$/;"	f
+Reset	messages/protobuf/pb/messages.pb.go	/^func (m *ReqViewChange) Reset()         { *m = ReqViewChange{} }$/;"	f
+Reset	messages/protobuf/pb/messages.pb.go	/^func (m *Request) Reset()         { *m = Request{} }$/;"	f
+Reset	sample/conn/grpc/proto/channel.pb.go	/^func (m *Message) Reset()         { *m = Message{} }$/;"	f
+Result	messages/protobuf/reply.go	/^func (m *reply) Result() []byte {$/;"	f
+RetireRequestSeq	core/internal/clientstate/mocks/mock.go	/^func (m *MockState) RetireRequestSeq(arg0 uint64) (bool, error) {$/;"	f
+RetireRequestSeq	core/internal/clientstate/mocks/mock.go	/^func (mr *MockStateMockRecorder) RetireRequestSeq(arg0 interface{}) *gomock.Call {$/;"	f
+RetireRequestSeq	core/internal/clientstate/request-seq.go	/^func (s *seqState) RetireRequestSeq(seq uint64) (new bool, err error) {$/;"	f
+SGXUSIGAuthenticationScheme	sample/authentication/crypto.go	/^type SGXUSIGAuthenticationScheme struct {$/;"	t
+SGX_BIN_PATH	usig/sgx/Makefile	/^SGX_BIN_PATH     := $(SGX_SDK)\/bin\/x64$/;"	m
+SGX_CAST	usig/sgx/enclave/usig_t.h	13;"	d
+SGX_CAST	usig/sgx/shim/usig_u.h	14;"	d
+SGX_CONFIG	usig/sgx/Makefile	/^  SGX_CONFIG := $(SGX_CONFIG)_debug$/;"	m
+SGX_CONFIG	usig/sgx/Makefile	/^  SGX_CONFIG := $(SGX_CONFIG)_prerelease$/;"	m
+SGX_CONFIG	usig/sgx/Makefile	/^  SGX_CONFIG := hw$/;"	m
+SGX_CONFIG	usig/sgx/Makefile	/^  SGX_CONFIG := sim$/;"	m
+SGX_CONFIG_FILE	usig/sgx/Makefile	/^SGX_CONFIG_FILE := .config_$(SGX_CONFIG)$/;"	m
+SGX_DEBUG	usig/sgx/Makefile	/^SGX_DEBUG ?= 1$/;"	m
+SGX_EDGER8R	usig/sgx/Makefile	/^SGX_EDGER8R      := $(SGX_BIN_PATH)\/sgx_edger8r$/;"	m
+SGX_INCLUDE_PATH	usig/sgx/Makefile	/^SGX_INCLUDE_PATH := $(SGX_SDK)\/include$/;"	m
+SGX_LIBRARY_PATH	usig/sgx/Makefile	/^SGX_LIBRARY_PATH := $(SGX_SDK)\/lib64$/;"	m
+SGX_MODE	usig/sgx/Makefile	/^SGX_MODE ?= HW$/;"	m
+SGX_SDK	usig/sgx/Makefile	/^  SGX_SDK := \/opt\/intel\/sgxsdk$/;"	m
+SGX_SIGNER	usig/sgx/Makefile	/^SGX_SIGNER       := $(SGX_BIN_PATH)\/sgx_sign$/;"	m
+SGX_TRTS_LIB	usig/sgx/Makefile	/^  SGX_TRTS_LIB     := sgx_trts$/;"	m
+SGX_TRTS_LIB	usig/sgx/Makefile	/^  SGX_TRTS_LIB     := sgx_trts_sim$/;"	m
+SGX_TSERVICE_LIB	usig/sgx/Makefile	/^  SGX_TSERVICE_LIB := sgx_tservice$/;"	m
+SGX_TSERVICE_LIB	usig/sgx/Makefile	/^  SGX_TSERVICE_LIB := sgx_tservice_sim$/;"	m
+SealedKey	usig/sgx/usig-enclave.go	/^func (enclave *USIGEnclave) SealedKey() []byte {$/;"	f
+Send	sample/conn/grpc/proto/channel.pb.go	/^func (x *channelClientChatClient) Send(m *Message) error {$/;"	f
+Send	sample/conn/grpc/proto/channel.pb.go	/^func (x *channelClientChatServer) Send(m *Message) error {$/;"	f
+Send	sample/conn/grpc/proto/channel.pb.go	/^func (x *channelPeerChatClient) Send(m *Message) error {$/;"	f
+Send	sample/conn/grpc/proto/channel.pb.go	/^func (x *channelPeerChatServer) Send(m *Message) error {$/;"	f
+Sequence	messages/protobuf/reply.go	/^func (m *reply) Sequence() uint64 {$/;"	f
+Sequence	messages/protobuf/request.go	/^func (m *request) Sequence() uint64 {$/;"	f
+Serve	sample/conn/grpc/server/server.go	/^func (s *server) Serve(lis net.Listener, serverOpts ...grpc.ServerOption) error {$/;"	f
+SetSignature	messages/mocks/mock.go	/^func (m *MockSignedMessage) SetSignature(arg0 []byte) {$/;"	f
+SetSignature	messages/mocks/mock.go	/^func (mr *MockSignedMessageMockRecorder) SetSignature(arg0 interface{}) *gomock.Call {$/;"	f
+SetSignature	messages/protobuf/reply.go	/^func (m *reply) SetSignature(signature []byte) {$/;"	f
+SetSignature	messages/protobuf/req-view-change.go	/^func (m *reqViewChange) SetSignature(signature []byte) {$/;"	f
+SetSignature	messages/protobuf/request.go	/^func (m *request) SetSignature(signature []byte) {$/;"	f
+SetUIBytes	messages/mocks/mock.go	/^func (m *MockCertifiedMessage) SetUIBytes(arg0 []byte) {$/;"	f
+SetUIBytes	messages/mocks/mock.go	/^func (mr *MockCertifiedMessageMockRecorder) SetUIBytes(arg0 interface{}) *gomock.Call {$/;"	f
+SetUIBytes	messages/protobuf/commit.go	/^func (m *commit) SetUIBytes(uiBytes []byte) {$/;"	f
+SetUIBytes	messages/protobuf/prepare.go	/^func (m *prepare) SetUIBytes(uiBytes []byte) {$/;"	f
+Sign	sample/authentication/crypto.go	/^func (c *EcdsaSigCipher) Sign(md []byte, privKey interface{}) ([]byte, error) {$/;"	f
+Signature	messages/mocks/mock.go	/^func (m *MockSignedMessage) Signature() []byte {$/;"	f
+Signature	messages/mocks/mock.go	/^func (mr *MockSignedMessageMockRecorder) Signature() *gomock.Call {$/;"	f
+Signature	messages/protobuf/reply.go	/^func (m *reply) Signature() []byte {$/;"	f
+Signature	messages/protobuf/req-view-change.go	/^func (m *reqViewChange) Signature() []byte {$/;"	f
+Signature	messages/protobuf/request.go	/^func (m *request) Signature() []byte {$/;"	f
+SignatureCipher	sample/authentication/crypto.go	/^type SignatureCipher interface {$/;"	t
+SignedMessage	messages/api.go	/^type SignedMessage interface {$/;"	t
+SimpleBlock	sample/requestconsumer/simpleledger.go	/^type SimpleBlock struct {$/;"	t
+SimpleKeyStore	sample/authentication/keymanager.go	/^type SimpleKeyStore struct {$/;"	t
+SimpleLedger	sample/requestconsumer/simpleledger.go	/^type SimpleLedger struct {$/;"	t
+Stack	client/client.go	/^type Stack interface {$/;"	t
+Stack	core/replica.go	/^type Stack interface {$/;"	t
+Standard	core/internal/timer/timer.go	/^func Standard() Provider {$/;"	f
+StartPrepareTimer	core/internal/clientstate/client-state.go	/^func (s *clientState) StartPrepareTimer(seq uint64, handleTimeout func()) {$/;"	f
+StartPrepareTimer	core/internal/clientstate/mocks/mock.go	/^func (m *MockState) StartPrepareTimer(arg0 uint64, arg1 func()) {$/;"	f
+StartPrepareTimer	core/internal/clientstate/mocks/mock.go	/^func (mr *MockStateMockRecorder) StartPrepareTimer(arg0, arg1 interface{}) *gomock.Call {$/;"	f
+StartRequestTimer	core/internal/clientstate/client-state.go	/^func (s *clientState) StartRequestTimer(seq uint64, handleTimeout func()) {$/;"	f
+StartRequestTimer	core/internal/clientstate/mocks/mock.go	/^func (m *MockState) StartRequestTimer(arg0 uint64, arg1 func()) {$/;"	f
+StartRequestTimer	core/internal/clientstate/mocks/mock.go	/^func (mr *MockStateMockRecorder) StartRequestTimer(arg0, arg1 interface{}) *gomock.Call {$/;"	f
+StartTimer	core/internal/clientstate/timeout.go	/^func (s *timerState) StartTimer(seq uint64, handleTimeout func()) {$/;"	f
+State	core/internal/clientstate/client-state.go	/^type State interface {$/;"	t
+State	core/internal/peerstate/peerstate.go	/^type State interface {$/;"	t
+State	core/internal/viewstate/view-state.go	/^type State interface {$/;"	t
+StateDigest	api/mocks/mock.go	/^func (m *MockRequestConsumer) StateDigest() []byte {$/;"	f
+StateDigest	api/mocks/mock.go	/^func (mr *MockRequestConsumerMockRecorder) StateDigest() *gomock.Call {$/;"	f
+StateDigest	sample/requestconsumer/simpleledger.go	/^func (l *SimpleLedger) StateDigest() []byte {$/;"	f
+Stop	core/internal/timer/mock/mock.go	/^func (m *MockTimer) Stop() bool {$/;"	f
+Stop	core/internal/timer/mock/mock.go	/^func (mr *MockTimerMockRecorder) Stop() *gomock.Call {$/;"	f
+Stop	core/internal/timer/timer.go	/^func (t stdTimer) Stop() bool {$/;"	f
+Stop	sample/conn/grpc/server/server.go	/^func (s *server) Stop() {$/;"	f
+StopPrepareTimer	core/internal/clientstate/client-state.go	/^func (s *clientState) StopPrepareTimer(seq uint64) {$/;"	f
+StopPrepareTimer	core/internal/clientstate/mocks/mock.go	/^func (m *MockState) StopPrepareTimer(arg0 uint64) {$/;"	f
+StopPrepareTimer	core/internal/clientstate/mocks/mock.go	/^func (mr *MockStateMockRecorder) StopPrepareTimer(arg0 interface{}) *gomock.Call {$/;"	f
+StopRequestTimer	core/internal/clientstate/client-state.go	/^func (s *clientState) StopRequestTimer(seq uint64) {$/;"	f
+StopRequestTimer	core/internal/clientstate/mocks/mock.go	/^func (m *MockState) StopRequestTimer(arg0 uint64) {$/;"	f
+StopRequestTimer	core/internal/clientstate/mocks/mock.go	/^func (mr *MockStateMockRecorder) StopRequestTimer(arg0 interface{}) *gomock.Call {$/;"	f
+StopTimer	core/internal/clientstate/timeout.go	/^func (s *timerState) StopTimer(seq uint64) {$/;"	f
+Stream	core/internal/messagelog/messagelog.go	/^func (log *messageLog) Stream(done <-chan struct{}) <-chan messages.ReplicaMessage {$/;"	f
+Stream	core/internal/messagelog/mocks/mock.go	/^func (m *MockMessageLog) Stream(arg0 <-chan struct{}) <-chan messages.ReplicaMessage {$/;"	f
+Stream	core/internal/messagelog/mocks/mock.go	/^func (mr *MockMessageLogMockRecorder) Stream(arg0 interface{}) *gomock.Call {$/;"	f
+String	api/api.go	/^func (r AuthenticationRole) String() string {$/;"	f
+String	messages/protobuf/pb/messages.pb.go	/^func (m *Commit) String() string { return proto.CompactTextString(m) }$/;"	f
+String	messages/protobuf/pb/messages.pb.go	/^func (m *Message) String() string { return proto.CompactTextString(m) }$/;"	f
+String	messages/protobuf/pb/messages.pb.go	/^func (m *Prepare) String() string { return proto.CompactTextString(m) }$/;"	f
+String	messages/protobuf/pb/messages.pb.go	/^func (m *Reply) String() string { return proto.CompactTextString(m) }$/;"	f
+String	messages/protobuf/pb/messages.pb.go	/^func (m *ReqViewChange) String() string { return proto.CompactTextString(m) }$/;"	f
+String	messages/protobuf/pb/messages.pb.go	/^func (m *Request) String() string { return proto.CompactTextString(m) }$/;"	f
+String	sample/conn/grpc/proto/channel.pb.go	/^func (m *Message) String() string { return proto.CompactTextString(m) }$/;"	f
+Stringify	messages/utils.go	/^func Stringify(msg Message) string {$/;"	f
+T	client/internal/requestbuffer/requestbuffer.go	/^type T struct {$/;"	t
+TEST_ARTIFACTS	usig/sgx/Makefile	/^TEST_ARTIFACTS := $(TEST_TARGET) $(TEST_OBJECTS) $(TEST_DEPS)$/;"	m
+TEST_DEPS	usig/sgx/Makefile	/^TEST_DEPS    := $(TEST_SOURCES:.c=.d)$/;"	m
+TEST_OBJECTS	usig/sgx/Makefile	/^TEST_OBJECTS := $(TEST_SOURCES:.c=.o)$/;"	m
+TEST_SOURCES	usig/sgx/Makefile	/^TEST_SOURCES := test\/usig_test.c$/;"	m
+TEST_TARGET	usig/sgx/Makefile	/^TEST_TARGET  := test\/usig_test$/;"	m
+TestAddReply	client/internal/requestbuffer/requestbuffer_test.go	/^func TestAddReply(t *testing.T) {$/;"	f
+TestAddRequest	client/internal/requestbuffer/requestbuffer_test.go	/^func TestAddRequest(t *testing.T) {$/;"	f
+TestAppend	core/internal/messagelog/messagelog_test.go	/^func TestAppend(t *testing.T) {$/;"	f
+TestAuthenticator	sample/authentication/authenticator_test.go	/^func TestAuthenticator(t *testing.T) {$/;"	f
+TestCaptureReleaseUI	core/internal/peerstate/peerstate_test.go	/^func TestCaptureReleaseUI(t *testing.T) {$/;"	f
+TestClientSide	sample/conn/grpc/grpc_test.go	/^func TestClientSide(t *testing.T) {$/;"	f
+TestCommit	messages/protobuf/commit_test.go	/^func TestCommit(t *testing.T) {$/;"	f
+TestConcurrent	client/internal/requestbuffer/requestbuffer_test.go	/^func TestConcurrent(t *testing.T) {$/;"	f
+TestConcurrent	core/internal/messagelog/messagelog_test.go	/^func TestConcurrent(t *testing.T) {$/;"	f
+TestConcurrent	core/internal/peerstate/peerstate_test.go	/^func TestConcurrent(t *testing.T) {$/;"	f
+TestConcurrent	core/internal/viewstate/view-state_test.go	/^func TestConcurrent(t *testing.T) {$/;"	f
+TestConfig	sample/config/config_test.go	/^func TestConfig(t *testing.T) {$/;"	f
+TestCrypto	sample/authentication/crypto_test.go	/^func TestCrypto(t *testing.T) {$/;"	f
+TestIntegration	core/integration_test.go	/^func TestIntegration(t *testing.T) {$/;"	f
+TestKeyStore	sample/authentication/keymanager_test.go	/^func TestKeyStore(t *testing.T) {$/;"	f
+TestList	core/internal/requestlist/request-list_test.go	/^func TestList(t *testing.T) {$/;"	f
+TestListConcurrent	core/internal/requestlist/request-list_test.go	/^func TestListConcurrent(t *testing.T) {$/;"	f
+TestMakeCommitApplier	core/commit_test.go	/^func TestMakeCommitApplier(t *testing.T) {$/;"	f
+TestMakeCommitValidator	core/commit_test.go	/^func TestMakeCommitValidator(t *testing.T) {$/;"	f
+TestMakeCommitmentCollector	core/commit_test.go	/^func TestMakeCommitmentCollector(t *testing.T) {$/;"	f
+TestMakeCommitmentCollectorConcurrent	core/commit_test.go	/^func TestMakeCommitmentCollectorConcurrent(t *testing.T) {$/;"	f
+TestMakeCommitmentCounter	core/commit_test.go	/^func TestMakeCommitmentCounter(t *testing.T) {$/;"	f
+TestMakeEmbeddedMessageProcessor	core/message-handling_test.go	/^func TestMakeEmbeddedMessageProcessor(t *testing.T) {$/;"	f
+TestMakeGeneratedMessageConsumer	core/message-handling_test.go	/^func TestMakeGeneratedMessageConsumer(t *testing.T) {$/;"	f
+TestMakeGeneratedMessageHandler	core/message-handling_test.go	/^func TestMakeGeneratedMessageHandler(t *testing.T) {$/;"	f
+TestMakeGeneratedMessageHandlerConcurrent	core/message-handling_test.go	/^func TestMakeGeneratedMessageHandlerConcurrent(t *testing.T) {$/;"	f
+TestMakeIncomingMessageHandler	core/message-handling_test.go	/^func TestMakeIncomingMessageHandler(t *testing.T) {$/;"	f
+TestMakeMessageProcessor	core/message-handling_test.go	/^func TestMakeMessageProcessor(t *testing.T) {$/;"	f
+TestMakeMessageReplier	core/message-handling_test.go	/^func TestMakeMessageReplier(t *testing.T) {$/;"	f
+TestMakeMessageSignatureVerifier	core/utils_test.go	/^func TestMakeMessageSignatureVerifier(t *testing.T) {$/;"	f
+TestMakeMessageSigner	core/utils_test.go	/^func TestMakeMessageSigner(t *testing.T) {$/;"	f
+TestMakeMessageValidator	core/message-handling_test.go	/^func TestMakeMessageValidator(t *testing.T) {$/;"	f
+TestMakeOperationExecutor	core/request_test.go	/^func TestMakeOperationExecutor(t *testing.T) {$/;"	f
+TestMakePeerMessageApplier	core/message-handling_test.go	/^func TestMakePeerMessageApplier(t *testing.T) {$/;"	f
+TestMakePeerMessageProcessor	core/message-handling_test.go	/^func TestMakePeerMessageProcessor(t *testing.T) {$/;"	f
+TestMakePrepareApplier	core/prepare_test.go	/^func TestMakePrepareApplier(t *testing.T) {$/;"	f
+TestMakePrepareTimeoutProvider	core/request_test.go	/^func TestMakePrepareTimeoutProvider(t *testing.T) {$/;"	f
+TestMakePrepareTimerStarter	core/request_test.go	/^func TestMakePrepareTimerStarter(t *testing.T) {$/;"	f
+TestMakePrepareTimerStopper	core/request_test.go	/^func TestMakePrepareTimerStopper(t *testing.T) {$/;"	f
+TestMakePrepareValidator	core/prepare_test.go	/^func TestMakePrepareValidator(t *testing.T) {$/;"	f
+TestMakeRequestApplier	core/request_test.go	/^func TestMakeRequestApplier(t *testing.T) {$/;"	f
+TestMakeRequestExecutor	core/request_test.go	/^func TestMakeRequestExecutor(t *testing.T) {$/;"	f
+TestMakeRequestProcessor	core/request_test.go	/^func TestMakeRequestProcessor(t *testing.T) {$/;"	f
+TestMakeRequestReplier	core/request_test.go	/^func TestMakeRequestReplier(t *testing.T) {$/;"	f
+TestMakeRequestSeqCapturer	core/request_test.go	/^func TestMakeRequestSeqCapturer(t *testing.T) {$/;"	f
+TestMakeRequestSeqPreparer	core/request_test.go	/^func TestMakeRequestSeqPreparer(t *testing.T) {$/;"	f
+TestMakeRequestSeqRetirer	core/request_test.go	/^func TestMakeRequestSeqRetirer(t *testing.T) {$/;"	f
+TestMakeRequestTimeoutHandler	core/timeout_test.go	/^func TestMakeRequestTimeoutHandler(t *testing.T) {$/;"	f
+TestMakeRequestTimeoutProvider	core/request_test.go	/^func TestMakeRequestTimeoutProvider(t *testing.T) {$/;"	f
+TestMakeRequestTimerStarter	core/request_test.go	/^func TestMakeRequestTimerStarter(t *testing.T) {$/;"	f
+TestMakeRequestTimerStopper	core/request_test.go	/^func TestMakeRequestTimerStopper(t *testing.T) {$/;"	f
+TestMakeRequestValidator	core/request_test.go	/^func TestMakeRequestValidator(t *testing.T) {$/;"	f
+TestMakeUICapturer	core/usig-ui_test.go	/^func TestMakeUICapturer(t *testing.T) {$/;"	f
+TestMakeUIMessageProcessor	core/message-handling_test.go	/^func TestMakeUIMessageProcessor(t *testing.T) {$/;"	f
+TestMakeUIVerifier	core/usig-ui_test.go	/^func TestMakeUIVerifier(t *testing.T) {$/;"	f
+TestMakeViewChangeRequestor	core/timeout_test.go	/^func TestMakeViewChangeRequestor(t *testing.T) {$/;"	f
+TestMakeViewChangeRequestorConcurrent	core/timeout_test.go	/^func TestMakeViewChangeRequestorConcurrent(t *testing.T) {$/;"	f
+TestMakeViewMessageProcessor	core/message-handling_test.go	/^func TestMakeViewMessageProcessor(t *testing.T) {$/;"	f
+TestMockUsig	usig/usig_test.go	/^func TestMockUsig(t *testing.T) {$/;"	f
+TestPrepare	messages/protobuf/prepare_test.go	/^func TestPrepare(t *testing.T) {$/;"	f
+TestProviderConcurrent	core/internal/clientstate/client-state_test.go	/^func TestProviderConcurrent(t *testing.T) {$/;"	f
+TestProviderConcurrent	core/internal/peerstate/peerstate_test.go	/^func TestProviderConcurrent(t *testing.T) {$/;"	f
+TestRemoveRequest	client/internal/requestbuffer/requestbuffer_test.go	/^func TestRemoveRequest(t *testing.T) {$/;"	f
+TestReplicaSide	sample/conn/grpc/grpc_test.go	/^func TestReplicaSide(t *testing.T) {$/;"	f
+TestReply	core/internal/clientstate/reply_test.go	/^func TestReply(t *testing.T) {$/;"	f
+TestReply	messages/protobuf/reply_test.go	/^func TestReply(t *testing.T) {$/;"	f
+TestReqViewChange	messages/protobuf/req-view-change_test.go	/^func TestReqViewChange(t *testing.T) {$/;"	f
+TestReqeustSeq	core/internal/clientstate/request-seq_test.go	/^func TestReqeustSeq(t *testing.T) {$/;"	f
+TestRequest	messages/protobuf/request_test.go	/^func TestRequest(t *testing.T) {$/;"	f
+TestRequestConsumer	sample/requestconsumer/requestconsumer_test.go	/^func TestRequestConsumer(t *testing.T) {$/;"	f
+TestRequestStream	client/internal/requestbuffer/requestbuffer_test.go	/^func TestRequestStream(t *testing.T) {$/;"	f
+TestSGXUSIG	usig/sgx/sgx-usig_test.go	/^func TestSGXUSIG(t *testing.T) {$/;"	f
+TestStream	core/internal/messagelog/messagelog_test.go	/^func TestStream(t *testing.T) {$/;"	f
+TestTimeout	core/internal/clientstate/timeout_test.go	/^func TestTimeout(t *testing.T) {$/;"	f
+TestUIMarshalUnmarshal	usig/usig_test.go	/^func TestUIMarshalUnmarshal(t *testing.T) {$/;"	f
+TestViewState	core/internal/viewstate/view-state_test.go	/^func TestViewState(t *testing.T) {$/;"	f
+TestWithFaulty	client/internal/requestbuffer/requestbuffer_test.go	/^func TestWithFaulty(t *testing.T) {$/;"	f
+TestWithFaulty	core/internal/messagelog/messagelog_test.go	/^func TestWithFaulty(t *testing.T) {$/;"	f
+TestnetKeyOpts	sample/authentication/keymanager.go	/^type TestnetKeyOpts struct {$/;"	t
+TimeoutPrepare	api/mocks/mock.go	/^func (m *MockConfiger) TimeoutPrepare() time.Duration {$/;"	f
+TimeoutPrepare	api/mocks/mock.go	/^func (mr *MockConfigerMockRecorder) TimeoutPrepare() *gomock.Call {$/;"	f
+TimeoutPrepare	sample/config/viperconfiger.go	/^func (c *ViperConfiger) TimeoutPrepare() time.Duration {$/;"	f
+TimeoutRequest	api/mocks/mock.go	/^func (m *MockConfiger) TimeoutRequest() time.Duration {$/;"	f
+TimeoutRequest	api/mocks/mock.go	/^func (mr *MockConfigerMockRecorder) TimeoutRequest() *gomock.Call {$/;"	f
+TimeoutRequest	sample/config/viperconfiger.go	/^func (c *ViperConfiger) TimeoutRequest() time.Duration {$/;"	f
+TimeoutViewChange	api/mocks/mock.go	/^func (m *MockConfiger) TimeoutViewChange() time.Duration {$/;"	f
+TimeoutViewChange	api/mocks/mock.go	/^func (mr *MockConfigerMockRecorder) TimeoutViewChange() *gomock.Call {$/;"	f
+TimeoutViewChange	sample/config/viperconfiger.go	/^func (c *ViperConfiger) TimeoutViewChange() time.Duration {$/;"	f
+Timer	core/internal/timer/timer.go	/^type Timer interface {$/;"	t
+UI	usig/usig.go	/^type UI struct {$/;"	t
+UIBytes	messages/mocks/mock.go	/^func (m *MockCertifiedMessage) UIBytes() []byte {$/;"	f
+UIBytes	messages/mocks/mock.go	/^func (mr *MockCertifiedMessageMockRecorder) UIBytes() *gomock.Call {$/;"	f
+UIBytes	messages/protobuf/commit.go	/^func (m *commit) UIBytes() []byte {$/;"	f
+UIBytes	messages/protobuf/prepare.go	/^func (m *prepare) UIBytes() []byte {$/;"	f
+UNTRUSTED_ARTIFACTS	usig/sgx/Makefile	/^UNTRUSTED_ARTIFACTS := $(UNTRUSTED_TARGET) $(UNTRUSTED_OBJECTS) $(UNTRUSTED_DEPS) \\$/;"	m
+UNTRUSTED_CFLAGS	usig/sgx/Makefile	/^UNTRUSTED_CFLAGS   := $(COMMON_CFLAGS) -fPIC$/;"	m
+UNTRUSTED_CPPFLAGS	usig/sgx/Makefile	/^UNTRUSTED_CPPFLAGS := $(COMMON_CPPFLAGS) -pthread$/;"	m
+UNTRUSTED_DEPS	usig/sgx/Makefile	/^UNTRUSTED_DEPS    := $(UNTRUSTED_SOURCES:.c=.d)$/;"	m
+UNTRUSTED_LDFLAGS	usig/sgx/Makefile	/^UNTRUSTED_LDFLAGS  := $(COMMON_LDFLAGS) -fPIC -pthread$/;"	m
+UNTRUSTED_LDLIBS	usig/sgx/Makefile	/^UNTRUSTED_LDLIBS   := -lpthread$/;"	m
+UNTRUSTED_NAME	usig/sgx/Makefile	/^UNTRUSTED_NAME         := usig_shim$/;"	m
+UNTRUSTED_OBJECTS	usig/sgx/Makefile	/^UNTRUSTED_OBJECTS := $(UNTRUSTED_SOURCES:.c=.o)$/;"	m
+UNTRUSTED_PROXY_HEADER	usig/sgx/Makefile	/^UNTRUSTED_PROXY_HEADER := $(UNTRUSTED_PROXY_SOURCE:.c=.h)$/;"	m
+UNTRUSTED_PROXY_SOURCE	usig/sgx/Makefile	/^UNTRUSTED_PROXY_SOURCE := shim\/$(ENCLAVE_NAME)_u.c$/;"	m
+UNTRUSTED_SOURCES	usig/sgx/Makefile	/^UNTRUSTED_SOURCES := $(UNTRUSTED_PROXY_SOURCE) shim\/shim.c$/;"	m
+UNTRUSTED_TARGET	usig/sgx/Makefile	/^UNTRUSTED_TARGET       := shim\/lib$(UNTRUSTED_NAME).so$/;"	m
+USIG	usig/sgx/sgx-usig.go	/^type USIG struct {$/;"	t
+USIG	usig/usig.go	/^type USIG interface {$/;"	t
+USIGAuthen	api/api.go	/^	USIGAuthen$/;"	c
+USIGEnclave	usig/sgx/usig-enclave.go	/^type USIGEnclave struct {$/;"	t
+USIG_H__	usig/sgx/shim/usig.h	18;"	d
+USIG_T_H__	usig/sgx/enclave/usig_t.h	2;"	d
+USIG_U_H__	usig/sgx/shim/usig_u.h	2;"	d
+UnimplementedChannelServer	sample/conn/grpc/proto/channel.pb.go	/^type UnimplementedChannelServer struct {$/;"	t
+UnmarshalBinary	sample/requestconsumer/simpleledger.go	/^func (b *SimpleBlock) UnmarshalBinary(marshaled []byte) error {$/;"	f
+UnmarshalBinary	usig/usig.go	/^func (ui *UI) UnmarshalBinary(in []byte) error {$/;"	f
+V	usig/sgx/Makefile	/^V ?= 0$/;"	m
+Verify	sample/authentication/crypto.go	/^func (c *EcdsaSigCipher) Verify(md, sig []byte, pubKey interface{}) bool {$/;"	f
+VerifyAuthenticationTag	sample/authentication/crypto.go	/^func (a *PublicAuthenScheme) VerifyAuthenticationTag(m []byte, sig []byte, pubKey interface{}) error {$/;"	f
+VerifyAuthenticationTag	sample/authentication/crypto.go	/^func (au *SGXUSIGAuthenticationScheme) VerifyAuthenticationTag(m []byte, sig []byte, pubKey interface{}) error {$/;"	f
+VerifyMessageAuthenTag	api/mocks/mock.go	/^func (m *MockAuthenticator) VerifyMessageAuthenTag(arg0 api.AuthenticationRole, arg1 uint32, arg2, arg3 []byte) error {$/;"	f
+VerifyMessageAuthenTag	api/mocks/mock.go	/^func (mr *MockAuthenticatorMockRecorder) VerifyMessageAuthenTag(arg0, arg1, arg2, arg3 interface{}) *gomock.Call {$/;"	f
+VerifyMessageAuthenTag	sample/authentication/authenticator.go	/^func (a *Authenticator) VerifyMessageAuthenTag(role api.AuthenticationRole, id uint32, msg []byte, authenTag []byte) error {$/;"	f
+VerifySignature	usig/sgx/usig-enclave.go	/^func VerifySignature(pubKey interface{}, digest Digest, epoch, counter uint64, signature []byte) error {$/;"	f
+VerifyUI	usig/mocks/mock.go	/^func (m *MockUSIG) VerifyUI(arg0 []byte, arg1 *usig.UI, arg2 []byte) error {$/;"	f
+VerifyUI	usig/mocks/mock.go	/^func (mr *MockUSIGMockRecorder) VerifyUI(arg0, arg1, arg2 interface{}) *gomock.Call {$/;"	f
+VerifyUI	usig/sgx/sgx-usig.go	/^func (u *USIG) VerifyUI(message []byte, ui *usig.UI, usigID []byte) error {$/;"	f
+VerifyUI	usig/sgx/sgx-usig.go	/^func VerifyUI(message []byte, ui *usig.UI, usigID []byte) error {$/;"	f
+View	messages/protobuf/prepare.go	/^func (m *prepare) View() uint64 {$/;"	f
+ViperConfiger	sample/config/viperconfiger.go	/^type ViperConfiger struct {$/;"	t
+WithLogFile	core/options.go	/^func WithLogFile(f *os.File) Option {$/;"	f
+WithLogLevel	core/options.go	/^func WithLogLevel(l logging.Level) Option {$/;"	f
+WithTimerProvider	core/internal/clientstate/client-state.go	/^func WithTimerProvider(timerProvider timer.Provider) Option {$/;"	f
+XXX_DiscardUnknown	messages/protobuf/pb/messages.pb.go	/^func (m *Commit) XXX_DiscardUnknown() {$/;"	f
+XXX_DiscardUnknown	messages/protobuf/pb/messages.pb.go	/^func (m *Message) XXX_DiscardUnknown() {$/;"	f
+XXX_DiscardUnknown	messages/protobuf/pb/messages.pb.go	/^func (m *Prepare) XXX_DiscardUnknown() {$/;"	f
+XXX_DiscardUnknown	messages/protobuf/pb/messages.pb.go	/^func (m *Reply) XXX_DiscardUnknown() {$/;"	f
+XXX_DiscardUnknown	messages/protobuf/pb/messages.pb.go	/^func (m *ReqViewChange) XXX_DiscardUnknown() {$/;"	f
+XXX_DiscardUnknown	messages/protobuf/pb/messages.pb.go	/^func (m *Request) XXX_DiscardUnknown() {$/;"	f
+XXX_DiscardUnknown	sample/conn/grpc/proto/channel.pb.go	/^func (m *Message) XXX_DiscardUnknown() {$/;"	f
+XXX_Marshal	messages/protobuf/pb/messages.pb.go	/^func (m *Commit) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {$/;"	f
+XXX_Marshal	messages/protobuf/pb/messages.pb.go	/^func (m *Message) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {$/;"	f
+XXX_Marshal	messages/protobuf/pb/messages.pb.go	/^func (m *Prepare) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {$/;"	f
+XXX_Marshal	messages/protobuf/pb/messages.pb.go	/^func (m *Reply) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {$/;"	f
+XXX_Marshal	messages/protobuf/pb/messages.pb.go	/^func (m *ReqViewChange) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {$/;"	f
+XXX_Marshal	messages/protobuf/pb/messages.pb.go	/^func (m *Request) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {$/;"	f
+XXX_Marshal	sample/conn/grpc/proto/channel.pb.go	/^func (m *Message) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {$/;"	f
+XXX_Merge	messages/protobuf/pb/messages.pb.go	/^func (m *Commit) XXX_Merge(src proto.Message) {$/;"	f
+XXX_Merge	messages/protobuf/pb/messages.pb.go	/^func (m *Message) XXX_Merge(src proto.Message) {$/;"	f
+XXX_Merge	messages/protobuf/pb/messages.pb.go	/^func (m *Prepare) XXX_Merge(src proto.Message) {$/;"	f
+XXX_Merge	messages/protobuf/pb/messages.pb.go	/^func (m *Reply) XXX_Merge(src proto.Message) {$/;"	f
+XXX_Merge	messages/protobuf/pb/messages.pb.go	/^func (m *ReqViewChange) XXX_Merge(src proto.Message) {$/;"	f
+XXX_Merge	messages/protobuf/pb/messages.pb.go	/^func (m *Request) XXX_Merge(src proto.Message) {$/;"	f
+XXX_Merge	sample/conn/grpc/proto/channel.pb.go	/^func (m *Message) XXX_Merge(src proto.Message) {$/;"	f
+XXX_OneofWrappers	messages/protobuf/pb/messages.pb.go	/^func (*Message) XXX_OneofWrappers() []interface{} {$/;"	f
+XXX_Size	messages/protobuf/pb/messages.pb.go	/^func (m *Commit) XXX_Size() int {$/;"	f
+XXX_Size	messages/protobuf/pb/messages.pb.go	/^func (m *Message) XXX_Size() int {$/;"	f
+XXX_Size	messages/protobuf/pb/messages.pb.go	/^func (m *Prepare) XXX_Size() int {$/;"	f
+XXX_Size	messages/protobuf/pb/messages.pb.go	/^func (m *Reply) XXX_Size() int {$/;"	f
+XXX_Size	messages/protobuf/pb/messages.pb.go	/^func (m *ReqViewChange) XXX_Size() int {$/;"	f
+XXX_Size	messages/protobuf/pb/messages.pb.go	/^func (m *Request) XXX_Size() int {$/;"	f
+XXX_Size	sample/conn/grpc/proto/channel.pb.go	/^func (m *Message) XXX_Size() int {$/;"	f
+XXX_Unmarshal	messages/protobuf/pb/messages.pb.go	/^func (m *Commit) XXX_Unmarshal(b []byte) error {$/;"	f
+XXX_Unmarshal	messages/protobuf/pb/messages.pb.go	/^func (m *Message) XXX_Unmarshal(b []byte) error {$/;"	f
+XXX_Unmarshal	messages/protobuf/pb/messages.pb.go	/^func (m *Prepare) XXX_Unmarshal(b []byte) error {$/;"	f
+XXX_Unmarshal	messages/protobuf/pb/messages.pb.go	/^func (m *Reply) XXX_Unmarshal(b []byte) error {$/;"	f
+XXX_Unmarshal	messages/protobuf/pb/messages.pb.go	/^func (m *ReqViewChange) XXX_Unmarshal(b []byte) error {$/;"	f
+XXX_Unmarshal	messages/protobuf/pb/messages.pb.go	/^func (m *Request) XXX_Unmarshal(b []byte) error {$/;"	f
+XXX_Unmarshal	sample/conn/grpc/proto/channel.pb.go	/^func (m *Message) XXX_Unmarshal(b []byte) error {$/;"	f
+_	messages/protobuf/pb/messages.pb.go	/^const _ = proto.ProtoPackageIsVersion3 \/\/ please upgrade the proto package$/;"	c
+_	messages/protobuf/pb/messages.pb.go	/^var _ = fmt.Errorf$/;"	v
+_	messages/protobuf/pb/messages.pb.go	/^var _ = math.Inf$/;"	v
+_	messages/protobuf/pb/messages.pb.go	/^var _ = proto.Marshal$/;"	v
+_	sample/authentication/authenticator.go	/^var _ api.Authenticator = (*Authenticator)(nil)$/;"	v
+_	sample/authentication/crypto.go	/^var _ = SignatureCipher(&EcdsaSigCipher{})$/;"	v
+_	sample/authentication/crypto.go	/^var _ AuthenticationScheme = (*PublicAuthenScheme)(nil)$/;"	v
+_	sample/authentication/crypto.go	/^var _ AuthenticationScheme = (*SGXUSIGAuthenticationScheme)(nil)$/;"	v
+_	sample/conn/grpc/proto/channel.pb.go	/^const _ = grpc.SupportPackageIsVersion4$/;"	c
+_	sample/conn/grpc/proto/channel.pb.go	/^const _ = proto.ProtoPackageIsVersion3 \/\/ please upgrade the proto package$/;"	c
+_	sample/conn/grpc/proto/channel.pb.go	/^var _ = fmt.Errorf$/;"	v
+_	sample/conn/grpc/proto/channel.pb.go	/^var _ = math.Inf$/;"	v
+_	sample/conn/grpc/proto/channel.pb.go	/^var _ = proto.Marshal$/;"	v
+_	sample/conn/grpc/proto/channel.pb.go	/^var _ context.Context$/;"	v
+_	sample/conn/grpc/proto/channel.pb.go	/^var _ grpc.ClientConn$/;"	v
+_	usig/sgx/sgx-usig.go	/^var _ usig.USIG = new(USIG)$/;"	v
+_Channel_ClientChat_Handler	sample/conn/grpc/proto/channel.pb.go	/^func _Channel_ClientChat_Handler(srv interface{}, stream grpc.ServerStream) error {$/;"	f
+_Channel_PeerChat_Handler	sample/conn/grpc/proto/channel.pb.go	/^func _Channel_PeerChat_Handler(srv interface{}, stream grpc.ServerStream) error {$/;"	f
+_Channel_serviceDesc	sample/conn/grpc/proto/channel.pb.go	/^var _Channel_serviceDesc = grpc.ServiceDesc{$/;"	v
+abbrev-cmd	usig/sgx/Makefile	/^  abbrev-cmd = $(1)$/;"	m
+abbrev-cmd	usig/sgx/Makefile	/^  abbrev-cmd = $(if $(2), \\$/;"	m
+acceptedMessage	sample/requestconsumer/simpleledger.go	/^type acceptedMessage struct {$/;"	t
+addReply	client/internal/requestbuffer/requestbuffer.go	/^func (r *request) addReply(msg messages.Reply) bool {$/;"	f
+addReply	client/internal/requestbuffer/requestbuffer.go	/^func (rs *replySet) addReply(msg messages.Reply) bool {$/;"	f
+api	api/api.go	/^package api$/;"	p
+appendBlock	sample/requestconsumer/simpleledger.go	/^func (l *SimpleLedger) appendBlock(payload []byte) *SimpleBlock {$/;"	f
+assign	sample/conn/common/replicastub/replica-stub.go	/^func (s *messageStreamHandlerStub) assign(sh api.MessageStreamHandler) {$/;"	f
+authenBytesExtractor	core/utils.go	/^type authenBytesExtractor func(msg messages.Message) []byte$/;"	t
+authenticator	sample/authentication/authenticator.go	/^package authenticator$/;"	p
+authenticator	sample/authentication/authenticator_test.go	/^package authenticator$/;"	p
+authenticator	sample/authentication/crypto.go	/^package authenticator$/;"	p
+authenticator	sample/authentication/crypto_test.go	/^package authenticator$/;"	p
+authenticator	sample/authentication/keymanager.go	/^package authenticator$/;"	p
+authenticator	sample/authentication/keymanager_test.go	/^package authenticator$/;"	p
+bindir	Makefile	/^bindir := $(prefix)\/bin$/;"	m
+blockHashAlgo	sample/requestconsumer/simpleledger.go	/^	blockHashAlgo = crypto.SHA256$/;"	c
+builddir	Makefile	/^builddir := sample\/build$/;"	m
+cfgEnvPrefix	sample/authentication/keytool/cmd/root.go	/^	cfgEnvPrefix = name$/;"	c
+cfgEnvPrefix	sample/peer/cmd/root.go	/^	cfgEnvPrefix = name$/;"	c
+cfgFile	sample/authentication/keytool/cmd/root.go	/^var cfgFile string$/;"	v
+cfgFile	sample/peer/cmd/root.go	/^var cfgFile string$/;"	v
+cfgTemplate	core/integration_test.go	/^const cfgTemplate = `$/;"	c
+channelClient	sample/conn/grpc/proto/channel.pb.go	/^type channelClient struct {$/;"	t
+channelClientChatClient	sample/conn/grpc/proto/channel.pb.go	/^type channelClientChatClient struct {$/;"	t
+channelClientChatServer	sample/conn/grpc/proto/channel.pb.go	/^type channelClientChatServer struct {$/;"	t
+channelPeerChatClient	sample/conn/grpc/proto/channel.pb.go	/^type channelPeerChatClient struct {$/;"	t
+channelPeerChatServer	sample/conn/grpc/proto/channel.pb.go	/^type channelPeerChatServer struct {$/;"	t
+client	client/client.go	/^package client$/;"	p
+client	client/message-handling.go	/^package client$/;"	p
+client	client/request.go	/^package client$/;"	p
+clientSide	sample/conn/common/connector/connector.go	/^type clientSide struct {$/;"	t
+clientStack	sample/peer/cmd/request.go	/^type clientStack struct {$/;"	t
+clientStacks	core/integration_test.go	/^	clientStacks []*testClientStack$/;"	v
+clientState	core/internal/clientstate/client-state.go	/^type clientState struct {$/;"	t
+clientStreamHandler	sample/conn/grpc/connector/replica.go	/^type clientStreamHandler struct {$/;"	t
+clients	core/integration_test.go	/^	clients      []cl.Client$/;"	v
+clientstate	core/internal/clientstate/client-state.go	/^package clientstate$/;"	p
+clientstate	core/internal/clientstate/client-state_test.go	/^package clientstate$/;"	p
+clientstate	core/internal/clientstate/reply.go	/^package clientstate$/;"	p
+clientstate	core/internal/clientstate/reply_test.go	/^package clientstate$/;"	p
+clientstate	core/internal/clientstate/request-seq.go	/^package clientstate$/;"	p
+clientstate	core/internal/clientstate/request-seq_test.go	/^package clientstate$/;"	p
+clientstate	core/internal/clientstate/timeout.go	/^package clientstate$/;"	p
+clientstate	core/internal/clientstate/timeout_test.go	/^package clientstate$/;"	p
+cmd	sample/authentication/keytool/cmd/generate.go	/^package cmd$/;"	p
+cmd	sample/authentication/keytool/cmd/root.go	/^package cmd$/;"	p
+cmd	sample/peer/cmd/request.go	/^package cmd$/;"	p
+cmd	sample/peer/cmd/root.go	/^package cmd$/;"	p
+cmd	sample/peer/cmd/run.go	/^package cmd$/;"	p
+collectReplies	client/request.go	/^func collectReplies(f uint32, replyChan <-chan messages.Reply, remover requestRemover, resultChan chan<- []byte) {$/;"	f
+commit	messages/protobuf/commit.go	/^type commit struct {$/;"	t
+commitApplier	core/commit.go	/^type commitApplier func(commit messages.Commit, active bool) error$/;"	t
+commitValidator	core/commit.go	/^type commitValidator func(commit messages.Commit) error$/;"	t
+commitmentCollector	core/commit.go	/^type commitmentCollector func(replicaID uint32, prepare messages.Prepare) error$/;"	t
+commitmentCounter	core/commit.go	/^type commitmentCounter func(replicaID uint32, prepare messages.Prepare) (done bool, err error)$/;"	t
+common	sample/conn/common/connector/connector.go	/^type common struct {$/;"	t
+config	sample/config/config_test.go	/^package config$/;"	p
+config	sample/config/viperconfiger.go	/^package config$/;"	p
+configers	sample/config/config_test.go	/^var configers = []ConfigTester{New()}$/;"	v
+connector	sample/conn/common/connector/connector.go	/^package connector$/;"	p
+connector	sample/conn/dummy/connector/connector.go	/^package connector$/;"	p
+connector	sample/conn/dummy/connector/connector.go	/^type connector struct {$/;"	t
+connector	sample/conn/grpc/connector/connector.go	/^package connector$/;"	p
+connector	sample/conn/grpc/connector/connector.go	/^type connector struct {$/;"	t
+connector	sample/conn/grpc/connector/replica.go	/^package connector$/;"	p
+counter	usig/sgx/enclave/usig.c	/^    uint64_t counter;$/;"	m	struct:__anon5	file:
+createTestnetCfg	core/integration_test.go	/^func createTestnetCfg(numReplica int, numClient int) ([]byte, []byte) {$/;"	f
+defCfgFile	sample/authentication/keytool/cmd/root.go	/^	defCfgFile   = name + ".yaml"$/;"	c
+defCfgFile	sample/peer/cmd/root.go	/^	defCfgFile   = name + ".yaml"$/;"	c
+defClientKeySpec	sample/authentication/keytool/cmd/generate.go	/^	defClientKeySpec   = "ECDSA"$/;"	c
+defClientSecParam	sample/authentication/keytool/cmd/generate.go	/^	defClientSecParam  = 256$/;"	c
+defConsensusCfgFile	sample/peer/cmd/run.go	/^	defConsensusCfgFile = "consensus.yaml"$/;"	c
+defKeysFile	sample/peer/cmd/run.go	/^	defKeysFile         = "keys.yaml"$/;"	c
+defNrClients	sample/authentication/keytool/cmd/generate.go	/^	defNrClients       = 1$/;"	c
+defNrReplicas	sample/authentication/keytool/cmd/generate.go	/^	defNrReplicas     = 3$/;"	c
+defOutFile	sample/authentication/keytool/cmd/root.go	/^	defOutFile   = "keys.yaml"$/;"	c
+defReplicaKeySpec	sample/authentication/keytool/cmd/generate.go	/^	defReplicaKeySpec = "ECDSA"$/;"	c
+defReplicaSecParam	sample/authentication/keytool/cmd/generate.go	/^	defReplicaSecParam = 256$/;"	c
+defUsigEnclaveFile	sample/authentication/keytool/cmd/generate.go	/^	defUsigEnclaveFile = "libusig.signed.so"$/;"	c
+defUsigEnclaveFile	sample/peer/cmd/run.go	/^	defUsigEnclaveFile  = "libusig.signed.so"$/;"	c
+defaultIncomingMessageHandler	core/message-handling.go	/^func defaultIncomingMessageHandler(id uint32, log messagelog.MessageLog, config api.Configer, stack Stack, logger *logging.Logger) incomingMessageHandler {$/;"	f
+defaultLogPrefix	core/replica.go	/^	defaultLogPrefix = `%{color}[%{module}] %{time:15:04:05.000} %{shortfunc} ▶ %{level:.4s} %{id:03x}%{color:reset}`$/;"	c
+defaultOptions	core/internal/clientstate/client-state.go	/^var defaultOptions = options{$/;"	v
+defaultTimeout	core/internal/clientstate/client-state_test.go	/^var defaultTimeout func() time.Duration = func() time.Duration { return time.Duration(0) }$/;"	v
+digest	usig/sgx/enclave/usig.c	/^    sgx_sha256_hash_t digest;$/;"	m	struct:__anon5	file:
+dlclose	usig/sgx/usig-enclave.go	/^func dlclose(handle unsafe.Pointer) error {$/;"	f
+dlerror	usig/sgx/usig-enclave.go	/^func dlerror() error {$/;"	f
+dlopen	usig/sgx/usig-enclave.go	/^func dlopen() (unsafe.Pointer, error) {$/;"	f
+dlsymOrPanic	usig/sgx/usig-enclave.go	/^func dlsymOrPanic(handle unsafe.Pointer, name string) unsafe.Pointer {$/;"	f
+ecall_addr	usig/sgx/enclave/usig_t.c	/^	struct {void* ecall_addr; uint8_t is_priv;} ecall_table[6];$/;"	m	struct:__anon2::__anon3	file:
+ecall_table	usig/sgx/enclave/usig_t.c	/^	struct {void* ecall_addr; uint8_t is_priv;} ecall_table[6];$/;"	m	struct:__anon2	typeref:struct:__anon2::__anon3	file:
+ecall_usig_create_ui	usig/sgx/enclave/usig.c	/^sgx_status_t ecall_usig_create_ui(sgx_sha256_hash_t digest,$/;"	f
+ecall_usig_create_ui	usig/sgx/shim/usig_u.c	/^sgx_status_t ecall_usig_create_ui(sgx_enclave_id_t eid, sgx_status_t* retval, sgx_sha256_hash_t digest, uint64_t* counter, sgx_ec256_signature_t* signature)$/;"	f
+ecall_usig_get_epoch	usig/sgx/enclave/usig.c	/^sgx_status_t ecall_usig_get_epoch(uint64_t *epoch)$/;"	f
+ecall_usig_get_epoch	usig/sgx/shim/usig_u.c	/^sgx_status_t ecall_usig_get_epoch(sgx_enclave_id_t eid, sgx_status_t* retval, uint64_t* epoch)$/;"	f
+ecall_usig_get_pub_key	usig/sgx/enclave/usig.c	/^sgx_status_t ecall_usig_get_pub_key(sgx_ec256_public_t *pub_key)$/;"	f
+ecall_usig_get_pub_key	usig/sgx/shim/usig_u.c	/^sgx_status_t ecall_usig_get_pub_key(sgx_enclave_id_t eid, sgx_status_t* retval, sgx_ec256_public_t* pub_key)$/;"	f
+ecall_usig_get_sealed_key_size	usig/sgx/enclave/usig.c	/^sgx_status_t ecall_usig_get_sealed_key_size(uint32_t *size)$/;"	f
+ecall_usig_get_sealed_key_size	usig/sgx/shim/usig_u.c	/^sgx_status_t ecall_usig_get_sealed_key_size(sgx_enclave_id_t eid, sgx_status_t* retval, uint32_t* size)$/;"	f
+ecall_usig_init	usig/sgx/enclave/usig.c	/^sgx_status_t ecall_usig_init(void *sealed_data, uint32_t sealed_data_size)$/;"	f
+ecall_usig_init	usig/sgx/shim/usig_u.c	/^sgx_status_t ecall_usig_init(sgx_enclave_id_t eid, sgx_status_t* retval, void* sealed_data, uint32_t sealed_data_size)$/;"	f
+ecall_usig_seal_key	usig/sgx/enclave/usig.c	/^sgx_status_t ecall_usig_seal_key(void *sealed_data, uint32_t sealed_data_size)$/;"	f
+ecall_usig_seal_key	usig/sgx/shim/usig_u.c	/^sgx_status_t ecall_usig_seal_key(sgx_enclave_id_t eid, sgx_status_t* retval, void* sealed_data, uint32_t sealed_data_size)$/;"	f
+ecdsaKeySpec	sample/authentication/keymanager.go	/^type ecdsaKeySpec struct{}$/;"	t
+ecdsaKeyStoreExampleYAML	sample/authentication/keymanager_test.go	/^var ecdsaKeyStoreExampleYAML = `$/;"	v
+ecdsaPrivKey	sample/authentication/crypto_test.go	/^	ecdsaPrivKey *ecdsa.PrivateKey$/;"	v
+ecdsaPubKey	sample/authentication/crypto_test.go	/^	ecdsaPubKey  *ecdsa.PublicKey$/;"	v
+ecdsaSignature	sample/authentication/crypto.go	/^type ecdsaSignature struct {$/;"	t
+embeddedMessageProcessor	core/message-handling.go	/^type embeddedMessageProcessor func(msg messages.PeerMessage)$/;"	t
+enclaveFile	usig/sgx/sgx-usig_test.go	/^	enclaveFile = "enclave\/libusig.signed.so"$/;"	c
+enclave_file	usig/sgx/test/usig_test.c	/^const char *enclave_file;$/;"	v
+epoch	usig/sgx/enclave/usig.c	/^    uint64_t epoch;$/;"	m	struct:__anon5	file:
+fileDescriptor_4dc296cbfe5ffcd5	messages/protobuf/pb/messages.pb.go	/^var fileDescriptor_4dc296cbfe5ffcd5 = []byte{$/;"	v
+fileDescriptor_c8f385724121f37b	sample/conn/grpc/proto/channel.pb.go	/^var fileDescriptor_c8f385724121f37b = []byte{$/;"	v
+g_dyn_entry_table	usig/sgx/enclave/usig_t.c	/^} g_dyn_entry_table = {$/;"	v	typeref:struct:__anon4
+g_ecall_table	usig/sgx/enclave/usig_t.c	/^} g_ecall_table = {$/;"	v	typeref:struct:__anon2
+generateCmd	sample/authentication/keytool/cmd/generate.go	/^var generateCmd = &cobra.Command{$/;"	v
+generateKeyPair	sample/authentication/keymanager.go	/^func (spec *ecdsaKeySpec) generateKeyPair(securityParam int) (string, string, error) {$/;"	f
+generateKeyPair	sample/authentication/keymanager.go	/^func (spec *sgxEcdsaKeySpec) generateKeyPair(securityParam int) (string, string, error) {$/;"	f
+generateKeySet	sample/authentication/keymanager.go	/^func generateKeySet(nrKeys int, keySpec string, secParam int, enclaveFile string) (*keySet, error) {$/;"	f
+generateKeys	sample/authentication/keytool/cmd/generate.go	/^func generateKeys() error {$/;"	f
+generate_key	usig/sgx/enclave/usig.c	/^static sgx_status_t generate_key(void)$/;"	f	file:
+generatedMessageConsumer	core/message-handling.go	/^type generatedMessageConsumer func(msg messages.ReplicaMessage)$/;"	t
+generatedMessageHandler	core/message-handling.go	/^type generatedMessageHandler func(msg messages.ReplicaMessage)$/;"	t
+getKeySpec	sample/authentication/keymanager.go	/^func getKeySpec(keySpecStr string) (keySpec, error) {$/;"	f
+getLoggingOptions	sample/peer/cmd/run.go	/^func getLoggingOptions() ([]minbft.Option, error) {$/;"	f
+getSpecName	sample/authentication/keymanager.go	/^func (spec *ecdsaKeySpec) getSpecName() string {$/;"	f
+getSpecName	sample/authentication/keymanager.go	/^func (spec *sgxEcdsaKeySpec) getSpecName() string {$/;"	f
+getTimeDuration	sample/config/viperconfiger.go	/^func (c *ViperConfiger) getTimeDuration(key string) time.Duration {$/;"	f
+getUint32	sample/config/viperconfiger.go	/^func (c *ViperConfiger) getUint32(key string) uint32 {$/;"	f
+grpc	sample/conn/grpc/grpc_test.go	/^package grpc$/;"	p
+handleGeneratedPeerMessages	core/message-handling.go	/^func handleGeneratedPeerMessages(log messagelog.MessageLog, handle incomingMessageHandler, logger *logging.Logger) {$/;"	f
+handleIn	sample/conn/grpc/connector/replica.go	/^func (r *replica) handleIn(stream rpcStream, in <-chan []byte) {$/;"	f
+handleOut	sample/conn/grpc/connector/replica.go	/^func (r *replica) handleOut(stream rpcStream, out chan<- []byte) {$/;"	f
+handleRequest	client/request.go	/^func handleRequest(operation []byte, submitter requestSubmitter, collector replyCollector) <-chan []byte {$/;"	f
+handleStream	sample/conn/grpc/server/server.go	/^func handleStream(stream rpcStream, in chan<- []byte, out <-chan []byte) error {$/;"	f
+hashSize	sample/requestconsumer/simpleledger.go	/^	hashSize      = sha256.Size$/;"	c
+hashsum	messages/authen.go	/^func hashsum(data []byte) []byte {$/;"	f
+impl	messages/protobuf/impl.go	/^type impl struct{}$/;"	t
+incomingMessageHandler	client/message-handling.go	/^type incomingMessageHandler func(in <-chan []byte)$/;"	t
+incomingMessageHandler	core/message-handling.go	/^type incomingMessageHandler func(msg messages.Message, own bool) (reply <-chan messages.Message, new bool, err error)$/;"	t
+init	messages/protobuf/pb/messages.pb.go	/^func init() { proto.RegisterFile("messages.proto", fileDescriptor_4dc296cbfe5ffcd5) }$/;"	f
+init	messages/protobuf/pb/messages.pb.go	/^func init() {$/;"	f
+init	sample/authentication/keytool/cmd/generate.go	/^func init() {$/;"	f
+init	sample/authentication/keytool/cmd/root.go	/^func init() {$/;"	f
+init	sample/conn/grpc/proto/channel.pb.go	/^func init() { proto.RegisterFile("channel.proto", fileDescriptor_c8f385724121f37b) }$/;"	f
+init	sample/conn/grpc/proto/channel.pb.go	/^func init() {$/;"	f
+init	sample/peer/cmd/request.go	/^func init() {$/;"	f
+init	sample/peer/cmd/root.go	/^func init() {$/;"	f
+init	sample/peer/cmd/run.go	/^func init() {$/;"	f
+initConfig	sample/authentication/keytool/cmd/root.go	/^func initConfig() {$/;"	f
+initConfig	sample/peer/cmd/root.go	/^func initConfig() {$/;"	f
+initExampleFile	sample/config/config_test.go	/^func initExampleFile(t *testing.T, fileExt string, cfgExample []byte) (string, func()) {$/;"	f
+initTestCredentials	sample/authentication/crypto_test.go	/^func initTestCredentials(t *testing.T) {$/;"	f
+initTestnetPeers	core/integration_test.go	/^func initTestnetPeers(numReplica int, numClient int) {$/;"	f
+initialized	usig/sgx/enclave/usig.c	/^static bool initialized;$/;"	v	file:
+isMessage_Typed	messages/protobuf/pb/messages.pb.go	/^func (*Message_Commit) isMessage_Typed() {}$/;"	f
+isMessage_Typed	messages/protobuf/pb/messages.pb.go	/^func (*Message_Prepare) isMessage_Typed() {}$/;"	f
+isMessage_Typed	messages/protobuf/pb/messages.pb.go	/^func (*Message_Reply) isMessage_Typed() {}$/;"	f
+isMessage_Typed	messages/protobuf/pb/messages.pb.go	/^func (*Message_ReqViewChange) isMessage_Typed() {}$/;"	f
+isMessage_Typed	messages/protobuf/pb/messages.pb.go	/^func (*Message_Request) isMessage_Typed() {}$/;"	f
+isMessage_Typed	messages/protobuf/pb/messages.pb.go	/^type isMessage_Typed interface {$/;"	t
+isPrimary	core/utils.go	/^func isPrimary(view uint64, id uint32, n uint32) bool {$/;"	f
+is_priv	usig/sgx/enclave/usig_t.c	/^	struct {void* ecall_addr; uint8_t is_priv;} ecall_table[6];$/;"	m	struct:__anon2::__anon3	file:
+keyPair	sample/authentication/keymanager.go	/^type keyPair struct {$/;"	t
+keySet	sample/authentication/keymanager.go	/^type keySet struct {$/;"	t
+keySpec	sample/authentication/keymanager.go	/^type keySpec interface {$/;"	t
+keySpecEcdsa	sample/authentication/keymanager.go	/^	keySpecEcdsa    = "ECDSA"$/;"	c
+keySpecSgxEcdsa	sample/authentication/keymanager.go	/^	keySpecSgxEcdsa = "SGX_ECDSA"$/;"	c
+libdir	Makefile	/^libdir := $(prefix)\/lib$/;"	m
+list	core/internal/requestlist/request-list.go	/^type list struct {$/;"	t
+listenAndServe	sample/conn/grpc/grpc_test.go	/^func listenAndServe(srv server.ReplicaServer) (addr string) {$/;"	f
+logger	client/client.go	/^var logger = logging.MustGetLogger(module)$/;"	v
+main	sample/authentication/keytool/main.go	/^func main() {$/;"	f
+main	sample/authentication/keytool/main.go	/^package main$/;"	p
+main	sample/peer/main.go	/^func main() {$/;"	f
+main	sample/peer/main.go	/^package main$/;"	p
+main	usig/sgx/test/usig_test.c	/^int main(int argc, const char **argv)$/;"	f
+makeCommitApplier	core/commit.go	/^func makeCommitApplier(collectCommitment commitmentCollector) commitApplier {$/;"	f
+makeCommitValidator	core/commit.go	/^func makeCommitValidator(verifyUI uiVerifier, validatePrepare prepareValidator) commitValidator {$/;"	f
+makeCommitmentCollector	core/commit.go	/^func makeCommitmentCollector(countCommitment commitmentCounter, retireSeq requestSeqRetirer, pendingReq requestlist.List, stopReqTimer requestTimerStopper, executeRequest requestExecutor) commitmentCollector {$/;"	f
+makeCommitmentCounter	core/commit.go	/^func makeCommitmentCounter(f uint32) commitmentCounter {$/;"	f
+makeEmbeddedMessageProcessor	core/message-handling.go	/^func makeEmbeddedMessageProcessor(process messageProcessor, logger *logging.Logger) embeddedMessageProcessor {$/;"	f
+makeGeneratedMessageConsumer	core/message-handling.go	/^func makeGeneratedMessageConsumer(log messagelog.MessageLog, provider clientstate.Provider, logger *logging.Logger) generatedMessageConsumer {$/;"	f
+makeGeneratedMessageHandler	core/message-handling.go	/^func makeGeneratedMessageHandler(sign messageSigner, assignUI uiAssigner, consume generatedMessageConsumer) generatedMessageHandler {$/;"	f
+makeIncomingMessageHandler	client/message-handling.go	/^func makeIncomingMessageHandler(replicaID uint32, handleReply replyMessageHandler) incomingMessageHandler {$/;"	f
+makeIncomingMessageHandler	core/message-handling.go	/^func makeIncomingMessageHandler(validate messageValidator, process messageProcessor, reply messageReplier) incomingMessageHandler {$/;"	f
+makeLogger	core/utils.go	/^func makeLogger(id uint32, opts options) *logging.Logger {$/;"	f
+makeManyMsgs	core/internal/messagelog/messagelog_test.go	/^func makeManyMsgs(nrMessages int) []messages.ReplicaMessage {$/;"	f
+makeMessageProcessor	core/message-handling.go	/^func makeMessageProcessor(processRequest requestProcessor, processPeerMessage peerMessageProcessor) messageProcessor {$/;"	f
+makeMessageReplier	core/message-handling.go	/^func makeMessageReplier(replyRequest requestReplier) messageReplier {$/;"	f
+makeMessageSignatureVerifier	core/utils.go	/^func makeMessageSignatureVerifier(authen api.Authenticator, extractAuthenBytes authenBytesExtractor) messageSignatureVerifier {$/;"	f
+makeMessageSigner	core/utils.go	/^func makeMessageSigner(authen api.Authenticator, extractAuthenBytes authenBytesExtractor) messageSigner {$/;"	f
+makeMessageStreamHandler	core/message-handling.go	/^func makeMessageStreamHandler(handle incomingMessageHandler, logger *logging.Logger) messageStreamHandler {$/;"	f
+makeMessageValidator	core/message-handling.go	/^func makeMessageValidator(validateRequest requestValidator, validatePrepare prepareValidator, validateCommit commitValidator) messageValidator {$/;"	f
+makeMessages	sample/conn/grpc/grpc_test.go	/^func makeMessages(n int) (msgs [][]byte) {$/;"	f
+makeMockUIMsg	core/usig-ui_test.go	/^func makeMockUIMsg(ctrl *gomock.Controller, replicaID uint32, cv uint64) (messages.CertifiedMessage, *usig.UI) {$/;"	f
+makeMsg	core/internal/messagelog/messagelog_test.go	/^func makeMsg() messages.ReplicaMessage {$/;"	f
+makeOperationExecutor	core/request.go	/^func makeOperationExecutor(consumer api.RequestConsumer) operationExecutor {$/;"	f
+makeOutgoingMessageHandler	client/message-handling.go	/^func makeOutgoingMessageHandler(buf *requestbuffer.T) outgoingMessageHandler {$/;"	f
+makePeerConnector	core/message-handling.go	/^func makePeerConnector(peerID uint32, connector api.ReplicaConnector) peerConnector {$/;"	f
+makePeerMessageApplier	core/message-handling.go	/^func makePeerMessageApplier(applyPrepare prepareApplier, applyCommit commitApplier) peerMessageApplier {$/;"	f
+makePeerMessageProcessor	core/message-handling.go	/^func makePeerMessageProcessor(processEmbedded embeddedMessageProcessor, processUIMessage uiMessageProcessor) peerMessageProcessor {$/;"	f
+makePeerMessageSupplier	core/message-handling.go	/^func makePeerMessageSupplier(log messagelog.MessageLog) peerMessageSupplier {$/;"	f
+makePrepare	core/commit_test.go	/^func makePrepare(p, v, cv int) messages.Prepare {$/;"	f
+makePrepareApplier	core/prepare.go	/^func makePrepareApplier(id uint32, prepareSeq requestSeqPreparer, collectCommitment commitmentCollector, handleGeneratedMessage generatedMessageHandler, stopPrepTimer prepareTimerStopper) prepareApplier {$/;"	f
+makePrepareTimeoutProvider	core/request.go	/^func makePrepareTimeoutProvider(config api.Configer) prepareTimeoutProvider {$/;"	f
+makePrepareTimerStarter	core/request.go	/^func makePrepareTimerStarter(provideClientState clientstate.Provider, logger *logging.Logger) prepareTimerStarter {$/;"	f
+makePrepareTimerStopper	core/request.go	/^func makePrepareTimerStopper(provideClientState clientstate.Provider) prepareTimerStopper {$/;"	f
+makePrepareValidator	core/prepare.go	/^func makePrepareValidator(n uint32, verifyUI uiVerifier, validateRequest requestValidator) prepareValidator {$/;"	f
+makeReplicaConnector	client/message-handling.go	/^func makeReplicaConnector(replicaID uint32, connector api.ReplicaConnector) replicaConnector {$/;"	f
+makeReply	client/internal/requestbuffer/requestbuffer_test.go	/^func makeReply(replicaID uint32, seq uint64) messages.Reply {$/;"	f
+makeReply	core/internal/clientstate/reply_test.go	/^func makeReply(seq uint64) messages.Reply {$/;"	f
+makeReplyAuthenticator	client/message-handling.go	/^func makeReplyAuthenticator(clientID uint32, authenticator api.Authenticator) replyAuthenticator {$/;"	f
+makeReplyCollector	client/request.go	/^func makeReplyCollector(f uint32, buf *requestbuffer.T) replyCollector {$/;"	f
+makeReplyConsumer	client/message-handling.go	/^func makeReplyConsumer(buf *requestbuffer.T) replyConsumer {$/;"	f
+makeReplyMessageHandler	client/message-handling.go	/^func makeReplyMessageHandler(consumer replyConsumer, authenticator replyAuthenticator) replyMessageHandler {$/;"	f
+makeRequest	client/internal/requestbuffer/requestbuffer_test.go	/^func makeRequest(seq uint64) messages.Request {$/;"	f
+makeRequestApplier	core/request.go	/^func makeRequestApplier(id, n uint32, handleGeneratedMessage generatedMessageHandler, startReqTimer requestTimerStarter, startPrepTimer prepareTimerStarter) requestApplier {$/;"	f
+makeRequestConstructor	client/request.go	/^func makeRequestConstructor(clientID uint32, seq sequenceGenerator) requestConstructor {$/;"	f
+makeRequestConsumer	client/request.go	/^func makeRequestConsumer(buf *requestbuffer.T) requestConsumer {$/;"	f
+makeRequestExecutor	core/request.go	/^func makeRequestExecutor(id uint32, executor operationExecutor, handleGeneratedMessage generatedMessageHandler) requestExecutor {$/;"	f
+makeRequestHandler	client/request.go	/^func makeRequestHandler(clientID uint32, seq sequenceGenerator, authen api.Authenticator, buf *requestbuffer.T, f uint32) requestHandler {$/;"	f
+makeRequestPreparer	client/request.go	/^func makeRequestPreparer(clientID uint32, authenticator api.Authenticator, seq sequenceGenerator) requestPreparer {$/;"	f
+makeRequestProcessor	core/request.go	/^func makeRequestProcessor(captureSeq requestSeqCapturer, pendingReq requestlist.List, viewState viewstate.State, applyRequest requestApplier) requestProcessor {$/;"	f
+makeRequestRemover	client/request.go	/^func makeRequestRemover(buf *requestbuffer.T) requestRemover {$/;"	f
+makeRequestReplier	core/request.go	/^func makeRequestReplier(provider clientstate.Provider) requestReplier {$/;"	f
+makeRequestSeqCapturer	core/request.go	/^func makeRequestSeqCapturer(provideClientState clientstate.Provider) requestSeqCapturer {$/;"	f
+makeRequestSeqPreparer	core/request.go	/^func makeRequestSeqPreparer(provideClientState clientstate.Provider) requestSeqPreparer {$/;"	f
+makeRequestSeqRetirer	core/request.go	/^func makeRequestSeqRetirer(provideClientState clientstate.Provider) requestSeqRetirer {$/;"	f
+makeRequestSigner	client/request.go	/^func makeRequestSigner(authenticator api.Authenticator) requestSigner {$/;"	f
+makeRequestSubmitter	client/request.go	/^func makeRequestSubmitter(clientID uint32, seq sequenceGenerator, authen api.Authenticator, buf *requestbuffer.T) requestSubmitter {$/;"	f
+makeRequestTimeoutHandler	core/timeout.go	/^func makeRequestTimeoutHandler(requestViewChange viewChangeRequestor, logger *logging.Logger) requestTimeoutHandler {$/;"	f
+makeRequestTimeoutProvider	core/request.go	/^func makeRequestTimeoutProvider(config api.Configer) requestTimeoutProvider {$/;"	f
+makeRequestTimerStarter	core/request.go	/^func makeRequestTimerStarter(provideClientState clientstate.Provider, handleTimeout requestTimeoutHandler, logger *logging.Logger) requestTimerStarter {$/;"	f
+makeRequestTimerStopper	core/request.go	/^func makeRequestTimerStopper(provideClientState clientstate.Provider) requestTimerStopper {$/;"	f
+makeRequestValidator	core/request.go	/^func makeRequestValidator(verify messageSignatureVerifier) requestValidator {$/;"	f
+makeSequenceGenerator	client/request.go	/^func makeSequenceGenerator() sequenceGenerator {$/;"	f
+makeUIAssigner	core/usig-ui.go	/^func makeUIAssigner(authen api.Authenticator, extractAuthenBytes authenBytesExtractor) uiAssigner {$/;"	f
+makeUICapturer	core/usig-ui.go	/^func makeUICapturer(providePeerState peerstate.Provider) uiCapturer {$/;"	f
+makeUIMessageProcessor	core/message-handling.go	/^func makeUIMessageProcessor(captureUI uiCapturer, processViewMessage viewMessageProcessor) uiMessageProcessor {$/;"	f
+makeUIVerifier	core/usig-ui.go	/^func makeUIVerifier(authen api.Authenticator, extractAuthenBytes authenBytesExtractor) uiVerifier {$/;"	f
+makeUSIGKeyFingerprint	sample/authentication/crypto.go	/^func makeUSIGKeyFingerprint(pubKey interface{}) (fingerprint usigKeyFingerprint, err error) {$/;"	f
+makeViewChangeRequestor	core/timeout.go	/^func makeViewChangeRequestor(id uint32, viewState viewstate.State, handleGeneratedMessage generatedMessageHandler) viewChangeRequestor {$/;"	f
+makeViewMessageProcessor	core/message-handling.go	/^func makeViewMessageProcessor(viewState viewstate.State, applyPeerMessage peerMessageApplier) viewMessageProcessor {$/;"	f
+marshalMessage	messages/protobuf/impl.go	/^func marshalMessage(m proto.Message) ([]byte, error) {$/;"	f
+maxStringWidth	messages/utils.go	/^const maxStringWidth = 256$/;"	c
+messageDigest	usig/sgx/sgx-usig.go	/^func messageDigest(message []byte) Digest {$/;"	f
+messageImpl	client/client.go	/^var messageImpl = protobufMessages.NewImpl()$/;"	v
+messageImpl	client/internal/requestbuffer/requestbuffer_test.go	/^var messageImpl = protobufMessages.NewImpl()$/;"	v
+messageImpl	core/internal/clientstate/reply_test.go	/^var messageImpl = protobufMessages.NewImpl()$/;"	v
+messageImpl	core/internal/requestlist/request-list_test.go	/^var messageImpl = protobufMessages.NewImpl()$/;"	v
+messageImpl	core/replica.go	/^var messageImpl = protobufMessages.NewImpl()$/;"	v
+messageLog	core/internal/messagelog/messagelog.go	/^type messageLog struct {$/;"	t
+messageProcessor	core/message-handling.go	/^type messageProcessor func(msg messages.Message) (new bool, err error)$/;"	t
+messageReplier	core/message-handling.go	/^type messageReplier func(msg messages.Message) (reply <-chan messages.Message, err error)$/;"	t
+messageSignatureVerifier	core/utils.go	/^type messageSignatureVerifier func(msg messages.SignedMessage) error$/;"	t
+messageSigner	core/utils.go	/^type messageSigner func(msg messages.SignedMessage)$/;"	t
+messageStreamHandler	core/message-handling.go	/^type messageStreamHandler func(in <-chan []byte, reply chan<- []byte)$/;"	t
+messageStreamHandlerStub	sample/conn/common/replicastub/replica-stub.go	/^type messageStreamHandlerStub struct {$/;"	t
+messageValidator	core/message-handling.go	/^type messageValidator func(msg messages.Message) error$/;"	t
+messagelog	core/internal/messagelog/messagelog.go	/^package messagelog$/;"	p
+messagelog	core/internal/messagelog/messagelog_test.go	/^package messagelog$/;"	p
+messages	messages/api.go	/^package messages$/;"	p
+messages	messages/authen.go	/^package messages$/;"	p
+messages	messages/utils.go	/^package messages$/;"	p
+minbft	core/commit.go	/^package minbft$/;"	p
+minbft	core/commit_test.go	/^package minbft$/;"	p
+minbft	core/message-handling.go	/^package minbft$/;"	p
+minbft	core/message-handling_test.go	/^package minbft$/;"	p
+minbft	core/options.go	/^package minbft$/;"	p
+minbft	core/prepare.go	/^package minbft$/;"	p
+minbft	core/prepare_test.go	/^package minbft$/;"	p
+minbft	core/replica.go	/^package minbft$/;"	p
+minbft	core/request.go	/^package minbft$/;"	p
+minbft	core/request_test.go	/^package minbft$/;"	p
+minbft	core/testutils_test.go	/^package minbft$/;"	p
+minbft	core/timeout.go	/^package minbft$/;"	p
+minbft	core/timeout_test.go	/^package minbft$/;"	p
+minbft	core/usig-ui.go	/^package minbft$/;"	p
+minbft	core/usig-ui_test.go	/^package minbft$/;"	p
+minbft	core/utils.go	/^package minbft$/;"	p
+minbft	core/utils_test.go	/^package minbft$/;"	p
+minbft_test	core/integration_test.go	/^package minbft_test$/;"	p
+mock	core/internal/timer/mock/generate.go	/^package mock$/;"	p
+mock	core/internal/timer/mock/mock.go	/^package mock$/;"	p
+mockBlock	sample/requestconsumer/requestconsumer_test.go	/^func mockBlock(prevBlock *SimpleBlock, payload []byte) *SimpleBlock {$/;"	f
+mockResult	sample/requestconsumer/requestconsumer_test.go	/^func mockResult(block *SimpleBlock) []byte {$/;"	f
+mock_api	api/mocks/generate.go	/^package mock_api \/\/nolint$/;"	p
+mock_api	api/mocks/mock.go	/^package mock_api$/;"	p
+mock_clientstate	core/internal/clientstate/mocks/generate.go	/^package mock_clientstate \/\/nolint$/;"	p
+mock_clientstate	core/internal/clientstate/mocks/mock.go	/^package mock_clientstate$/;"	p
+mock_messagelog	core/internal/messagelog/mocks/generate.go	/^package mock_messagelog \/\/nolint$/;"	p
+mock_messagelog	core/internal/messagelog/mocks/mock.go	/^package mock_messagelog$/;"	p
+mock_messages	messages/mocks/generate.go	/^package mock_messages \/\/nolint$/;"	p
+mock_messages	messages/mocks/mock.go	/^package mock_messages$/;"	p
+mock_peerstate	core/internal/peerstate/mocks/generate.go	/^package mock_peerstate \/\/nolint$/;"	p
+mock_peerstate	core/internal/peerstate/mocks/mock.go	/^package mock_peerstate$/;"	p
+mock_requestlist	core/internal/requestlist/mocks/generate.go	/^package mock_requestlist \/\/nolint$/;"	p
+mock_requestlist	core/internal/requestlist/mocks/mock.go	/^package mock_requestlist$/;"	p
+mock_usig	usig/mocks/generate.go	/^package mock_usig \/\/nolint$/;"	p
+mock_usig	usig/mocks/mock.go	/^package mock_usig$/;"	p
+mock_viewstate	core/internal/viewstate/mocks/generate.go	/^package mock_viewstate \/\/nolint$/;"	p
+mock_viewstate	core/internal/viewstate/mocks/mock.go	/^package mock_viewstate$/;"	p
+module	client/client.go	/^	module = "client"$/;"	c
+module	core/replica.go	/^	module           = "minbft"$/;"	c
+ms_counter	usig/sgx/enclave/usig_t.c	/^	uint64_t* ms_counter;$/;"	m	struct:ms_ecall_usig_create_ui_t	file:
+ms_counter	usig/sgx/shim/usig_u.c	/^	uint64_t* ms_counter;$/;"	m	struct:ms_ecall_usig_create_ui_t	file:
+ms_digest	usig/sgx/enclave/usig_t.c	/^	sgx_sha256_hash_t*  ms_digest;$/;"	m	struct:ms_ecall_usig_create_ui_t	file:
+ms_digest	usig/sgx/shim/usig_u.c	/^	sgx_sha256_hash_t*  ms_digest;$/;"	m	struct:ms_ecall_usig_create_ui_t	file:
+ms_ecall_usig_create_ui_t	usig/sgx/enclave/usig_t.c	/^typedef struct ms_ecall_usig_create_ui_t {$/;"	s	file:
+ms_ecall_usig_create_ui_t	usig/sgx/enclave/usig_t.c	/^} ms_ecall_usig_create_ui_t;$/;"	t	typeref:struct:ms_ecall_usig_create_ui_t	file:
+ms_ecall_usig_create_ui_t	usig/sgx/shim/usig_u.c	/^typedef struct ms_ecall_usig_create_ui_t {$/;"	s	file:
+ms_ecall_usig_create_ui_t	usig/sgx/shim/usig_u.c	/^} ms_ecall_usig_create_ui_t;$/;"	t	typeref:struct:ms_ecall_usig_create_ui_t	file:
+ms_ecall_usig_get_epoch_t	usig/sgx/enclave/usig_t.c	/^typedef struct ms_ecall_usig_get_epoch_t {$/;"	s	file:
+ms_ecall_usig_get_epoch_t	usig/sgx/enclave/usig_t.c	/^} ms_ecall_usig_get_epoch_t;$/;"	t	typeref:struct:ms_ecall_usig_get_epoch_t	file:
+ms_ecall_usig_get_epoch_t	usig/sgx/shim/usig_u.c	/^typedef struct ms_ecall_usig_get_epoch_t {$/;"	s	file:
+ms_ecall_usig_get_epoch_t	usig/sgx/shim/usig_u.c	/^} ms_ecall_usig_get_epoch_t;$/;"	t	typeref:struct:ms_ecall_usig_get_epoch_t	file:
+ms_ecall_usig_get_pub_key_t	usig/sgx/enclave/usig_t.c	/^typedef struct ms_ecall_usig_get_pub_key_t {$/;"	s	file:
+ms_ecall_usig_get_pub_key_t	usig/sgx/enclave/usig_t.c	/^} ms_ecall_usig_get_pub_key_t;$/;"	t	typeref:struct:ms_ecall_usig_get_pub_key_t	file:
+ms_ecall_usig_get_pub_key_t	usig/sgx/shim/usig_u.c	/^typedef struct ms_ecall_usig_get_pub_key_t {$/;"	s	file:
+ms_ecall_usig_get_pub_key_t	usig/sgx/shim/usig_u.c	/^} ms_ecall_usig_get_pub_key_t;$/;"	t	typeref:struct:ms_ecall_usig_get_pub_key_t	file:
+ms_ecall_usig_get_sealed_key_size_t	usig/sgx/enclave/usig_t.c	/^typedef struct ms_ecall_usig_get_sealed_key_size_t {$/;"	s	file:
+ms_ecall_usig_get_sealed_key_size_t	usig/sgx/enclave/usig_t.c	/^} ms_ecall_usig_get_sealed_key_size_t;$/;"	t	typeref:struct:ms_ecall_usig_get_sealed_key_size_t	file:
+ms_ecall_usig_get_sealed_key_size_t	usig/sgx/shim/usig_u.c	/^typedef struct ms_ecall_usig_get_sealed_key_size_t {$/;"	s	file:
+ms_ecall_usig_get_sealed_key_size_t	usig/sgx/shim/usig_u.c	/^} ms_ecall_usig_get_sealed_key_size_t;$/;"	t	typeref:struct:ms_ecall_usig_get_sealed_key_size_t	file:
+ms_ecall_usig_init_t	usig/sgx/enclave/usig_t.c	/^typedef struct ms_ecall_usig_init_t {$/;"	s	file:
+ms_ecall_usig_init_t	usig/sgx/enclave/usig_t.c	/^} ms_ecall_usig_init_t;$/;"	t	typeref:struct:ms_ecall_usig_init_t	file:
+ms_ecall_usig_init_t	usig/sgx/shim/usig_u.c	/^typedef struct ms_ecall_usig_init_t {$/;"	s	file:
+ms_ecall_usig_init_t	usig/sgx/shim/usig_u.c	/^} ms_ecall_usig_init_t;$/;"	t	typeref:struct:ms_ecall_usig_init_t	file:
+ms_ecall_usig_seal_key_t	usig/sgx/enclave/usig_t.c	/^typedef struct ms_ecall_usig_seal_key_t {$/;"	s	file:
+ms_ecall_usig_seal_key_t	usig/sgx/enclave/usig_t.c	/^} ms_ecall_usig_seal_key_t;$/;"	t	typeref:struct:ms_ecall_usig_seal_key_t	file:
+ms_ecall_usig_seal_key_t	usig/sgx/shim/usig_u.c	/^typedef struct ms_ecall_usig_seal_key_t {$/;"	s	file:
+ms_ecall_usig_seal_key_t	usig/sgx/shim/usig_u.c	/^} ms_ecall_usig_seal_key_t;$/;"	t	typeref:struct:ms_ecall_usig_seal_key_t	file:
+ms_epoch	usig/sgx/enclave/usig_t.c	/^	uint64_t* ms_epoch;$/;"	m	struct:ms_ecall_usig_get_epoch_t	file:
+ms_epoch	usig/sgx/shim/usig_u.c	/^	uint64_t* ms_epoch;$/;"	m	struct:ms_ecall_usig_get_epoch_t	file:
+ms_pub_key	usig/sgx/enclave/usig_t.c	/^	sgx_ec256_public_t* ms_pub_key;$/;"	m	struct:ms_ecall_usig_get_pub_key_t	file:
+ms_pub_key	usig/sgx/shim/usig_u.c	/^	sgx_ec256_public_t* ms_pub_key;$/;"	m	struct:ms_ecall_usig_get_pub_key_t	file:
+ms_retval	usig/sgx/enclave/usig_t.c	/^	sgx_status_t ms_retval;$/;"	m	struct:ms_ecall_usig_create_ui_t	file:
+ms_retval	usig/sgx/enclave/usig_t.c	/^	sgx_status_t ms_retval;$/;"	m	struct:ms_ecall_usig_get_epoch_t	file:
+ms_retval	usig/sgx/enclave/usig_t.c	/^	sgx_status_t ms_retval;$/;"	m	struct:ms_ecall_usig_get_pub_key_t	file:
+ms_retval	usig/sgx/enclave/usig_t.c	/^	sgx_status_t ms_retval;$/;"	m	struct:ms_ecall_usig_get_sealed_key_size_t	file:
+ms_retval	usig/sgx/enclave/usig_t.c	/^	sgx_status_t ms_retval;$/;"	m	struct:ms_ecall_usig_init_t	file:
+ms_retval	usig/sgx/enclave/usig_t.c	/^	sgx_status_t ms_retval;$/;"	m	struct:ms_ecall_usig_seal_key_t	file:
+ms_retval	usig/sgx/shim/usig_u.c	/^	sgx_status_t ms_retval;$/;"	m	struct:ms_ecall_usig_create_ui_t	file:
+ms_retval	usig/sgx/shim/usig_u.c	/^	sgx_status_t ms_retval;$/;"	m	struct:ms_ecall_usig_get_epoch_t	file:
+ms_retval	usig/sgx/shim/usig_u.c	/^	sgx_status_t ms_retval;$/;"	m	struct:ms_ecall_usig_get_pub_key_t	file:
+ms_retval	usig/sgx/shim/usig_u.c	/^	sgx_status_t ms_retval;$/;"	m	struct:ms_ecall_usig_get_sealed_key_size_t	file:
+ms_retval	usig/sgx/shim/usig_u.c	/^	sgx_status_t ms_retval;$/;"	m	struct:ms_ecall_usig_init_t	file:
+ms_retval	usig/sgx/shim/usig_u.c	/^	sgx_status_t ms_retval;$/;"	m	struct:ms_ecall_usig_seal_key_t	file:
+ms_sealed_data	usig/sgx/enclave/usig_t.c	/^	void* ms_sealed_data;$/;"	m	struct:ms_ecall_usig_init_t	file:
+ms_sealed_data	usig/sgx/enclave/usig_t.c	/^	void* ms_sealed_data;$/;"	m	struct:ms_ecall_usig_seal_key_t	file:
+ms_sealed_data	usig/sgx/shim/usig_u.c	/^	void* ms_sealed_data;$/;"	m	struct:ms_ecall_usig_init_t	file:
+ms_sealed_data	usig/sgx/shim/usig_u.c	/^	void* ms_sealed_data;$/;"	m	struct:ms_ecall_usig_seal_key_t	file:
+ms_sealed_data_size	usig/sgx/enclave/usig_t.c	/^	uint32_t ms_sealed_data_size;$/;"	m	struct:ms_ecall_usig_init_t	file:
+ms_sealed_data_size	usig/sgx/enclave/usig_t.c	/^	uint32_t ms_sealed_data_size;$/;"	m	struct:ms_ecall_usig_seal_key_t	file:
+ms_sealed_data_size	usig/sgx/shim/usig_u.c	/^	uint32_t ms_sealed_data_size;$/;"	m	struct:ms_ecall_usig_init_t	file:
+ms_sealed_data_size	usig/sgx/shim/usig_u.c	/^	uint32_t ms_sealed_data_size;$/;"	m	struct:ms_ecall_usig_seal_key_t	file:
+ms_signature	usig/sgx/enclave/usig_t.c	/^	sgx_ec256_signature_t* ms_signature;$/;"	m	struct:ms_ecall_usig_create_ui_t	file:
+ms_signature	usig/sgx/shim/usig_u.c	/^	sgx_ec256_signature_t* ms_signature;$/;"	m	struct:ms_ecall_usig_create_ui_t	file:
+ms_size	usig/sgx/enclave/usig_t.c	/^	uint32_t* ms_size;$/;"	m	struct:ms_ecall_usig_get_sealed_key_size_t	file:
+ms_size	usig/sgx/shim/usig_u.c	/^	uint32_t* ms_size;$/;"	m	struct:ms_ecall_usig_get_sealed_key_size_t	file:
+msgMap	core/internal/requestlist/request-list.go	/^type msgMap map[uint32]messages.Request$/;"	t
+msgSize	sample/conn/grpc/grpc_test.go	/^	msgSize    = 32$/;"	c
+must	sample/authentication/keytool/cmd/root.go	/^func must(err error) {$/;"	f
+must	sample/peer/cmd/root.go	/^func must(err error) {$/;"	f
+name	sample/authentication/keytool/cmd/root.go	/^	name         = "keytool"$/;"	c
+name	sample/peer/cmd/root.go	/^	name         = "peer"$/;"	c
+new	sample/authentication/authenticator.go	/^func new(roles []api.AuthenticationRole, id uint32, ks BftKeyStorer, usig usig.USIG) (*Authenticator, error) {$/;"	f
+newClientSideConnector	core/integration_test.go	/^func newClientSideConnector() api.ReplicaConnector {$/;"	f
+newCommit	messages/protobuf/commit.go	/^func newCommit(r uint32, prep messages.Prepare) *commit {$/;"	f
+newCommitFromPb	messages/protobuf/commit.go	/^func newCommitFromPb(pbMsg *pb.Commit) *commit {$/;"	f
+newCommon	sample/conn/common/connector/connector.go	/^func newCommon() *common {$/;"	f
+newMessageStreamHandlerStub	sample/conn/common/replicastub/replica-stub.go	/^func newMessageStreamHandlerStub() *messageStreamHandlerStub {$/;"	f
+newOptions	core/options.go	/^func newOptions(opts ...Option) options {$/;"	f
+newPrepare	messages/protobuf/prepare.go	/^func newPrepare(r uint32, v uint64, req messages.Request) *prepare {$/;"	f
+newPrepareFromPb	messages/protobuf/prepare.go	/^func newPrepareFromPb(pbMsg *pb.Prepare) *prepare {$/;"	f
+newReplicaSideConnector	core/integration_test.go	/^func newReplicaSideConnector(replicaID uint32) api.ReplicaConnector {$/;"	f
+newReply	messages/protobuf/reply.go	/^func newReply(r, cl uint32, seq uint64, res []byte) *reply {$/;"	f
+newReplyFromPb	messages/protobuf/reply.go	/^func newReplyFromPb(pbMsg *pb.Reply) *reply {$/;"	f
+newReplySet	client/internal/requestbuffer/requestbuffer.go	/^func newReplySet() *replySet {$/;"	f
+newReplyState	core/internal/clientstate/reply.go	/^func newReplyState() *replyState {$/;"	f
+newReqViewChange	messages/protobuf/req-view-change.go	/^func newReqViewChange(r uint32, nv uint64) *reqViewChange {$/;"	f
+newReqViewChangeFromPb	messages/protobuf/req-view-change.go	/^func newReqViewChangeFromPb(pbMsg *pb.ReqViewChange) *reqViewChange {$/;"	f
+newRequest	client/internal/requestbuffer/requestbuffer.go	/^func newRequest(msg messages.Request) *request {$/;"	f
+newRequest	messages/protobuf/request.go	/^func newRequest(cl uint32, seq uint64, op []byte) *request {$/;"	f
+newRequestFromPb	messages/protobuf/request.go	/^func newRequestFromPb(pbMsg *pb.Request) *request {$/;"	f
+newSeqState	core/internal/clientstate/request-seq.go	/^func newSeqState() *seqState {$/;"	f
+newTestComm	messages/protobuf/commit_test.go	/^func newTestComm(impl messages.MessageImpl, r uint32, prep messages.Prepare, cv uint64) messages.Commit {$/;"	f
+newTestPrep	messages/protobuf/prepare_test.go	/^func newTestPrep(impl messages.MessageImpl, r uint32, v uint64, req messages.Request, cv uint64) messages.Prepare {$/;"	f
+newTestReply	messages/protobuf/reply_test.go	/^func newTestReply(impl messages.MessageImpl, r, cl uint32, seq uint64, res []byte) messages.Reply {$/;"	f
+newTestReq	messages/protobuf/request_test.go	/^func newTestReq(impl messages.MessageImpl, cl uint32, seq uint64, op []byte) messages.Request {$/;"	f
+newTestReqViewChange	messages/protobuf/req-view-change_test.go	/^func newTestReqViewChange(impl messages.MessageImpl, r uint32, nv uint64) messages.ReqViewChange {$/;"	f
+newTestUI	messages/protobuf/testutils_test.go	/^func newTestUI(cv uint64, data []byte) []byte {$/;"	f
+newTimerState	core/internal/clientstate/timeout.go	/^func newTimerState(timerProvider timer.Provider, timeout func() time.Duration) *timerState {$/;"	f
+nrMessages	sample/conn/grpc/grpc_test.go	/^	nrMessages = 5$/;"	c
+nrReplicas	sample/conn/grpc/grpc_test.go	/^	nrReplicas = 3$/;"	c
+nr_ecall	usig/sgx/enclave/usig_t.c	/^	size_t nr_ecall;$/;"	m	struct:__anon2	file:
+nr_ocall	usig/sgx/enclave/usig_t.c	/^	size_t nr_ocall;$/;"	m	struct:__anon4	file:
+nr_ocall	usig/sgx/shim/usig_u.c	/^	size_t nr_ocall;$/;"	m	struct:__anon1	file:
+ocall_table_usig	usig/sgx/shim/usig_u.c	/^} ocall_table_usig = {$/;"	v	typeref:struct:__anon1	file:
+operationExecutor	core/request.go	/^type operationExecutor func(operation []byte) (resultChan <-chan []byte)$/;"	t
+options	core/internal/clientstate/client-state.go	/^type options struct {$/;"	t
+options	core/options.go	/^type options struct {$/;"	t
+outgoingMessageHandler	client/message-handling.go	/^type outgoingMessageHandler func(out chan<- []byte)$/;"	t
+ownerKey	sample/authentication/keymanager.go	/^type ownerKey struct {$/;"	t
+parseKeyPair	sample/authentication/keymanager.go	/^func (ks *SimpleKeyStore) parseKeyPair(role api.AuthenticationRole, keyspec keySpec, keypair *keyPair) error {$/;"	f
+parseMessageUI	core/usig-ui.go	/^func parseMessageUI(msg messages.CertifiedMessage) (*usig.UI, error) {$/;"	f
+parsePrivateKey	sample/authentication/keymanager.go	/^func (spec *ecdsaKeySpec) parsePrivateKey(privKeyStr string) (interface{}, error) {$/;"	f
+parsePrivateKey	sample/authentication/keymanager.go	/^func (spec *sgxEcdsaKeySpec) parsePrivateKey(privKeyStr string) (interface{}, error) {$/;"	f
+parsePublicKey	sample/authentication/keymanager.go	/^func (spec *ecdsaKeySpec) parsePublicKey(pubKeyStr string) (interface{}, error) {$/;"	f
+parseSimpleKeyStoreFile	sample/authentication/keymanager.go	/^func parseSimpleKeyStoreFile(reader io.Reader) (*simpleKeyStoreFile, error) {$/;"	f
+pb	messages/protobuf/pb/generate.go	/^package pb$/;"	p
+pb	messages/protobuf/pb/messages.pb.go	/^package pb$/;"	p
+pb	messages/protobuf/pb/utils.go	/^package pb$/;"	p
+pbPrepareFromAPI	messages/protobuf/prepare.go	/^func pbPrepareFromAPI(m messages.Prepare) *pb.Prepare {$/;"	f
+pbRequestFromAPI	messages/protobuf/request.go	/^func pbRequestFromAPI(m messages.Request) *pb.Request {$/;"	f
+peerConnector	core/message-handling.go	/^type peerConnector func(out <-chan []byte) (in <-chan []byte, err error)$/;"	t
+peerMessageApplier	core/message-handling.go	/^type peerMessageApplier func(msg messages.PeerMessage, active bool) error$/;"	t
+peerMessageProcessor	core/message-handling.go	/^type peerMessageProcessor func(msg messages.PeerMessage) (new bool, err error)$/;"	t
+peerMessageSupplier	core/message-handling.go	/^type peerMessageSupplier func(out chan<- []byte)$/;"	t
+peerState	core/internal/peerstate/peerstate.go	/^type peerState struct {$/;"	t
+peerStreamHandler	sample/conn/grpc/connector/replica.go	/^type peerStreamHandler struct {$/;"	t
+peerstate	core/internal/peerstate/peerstate.go	/^package peerstate$/;"	p
+peerstate	core/internal/peerstate/peerstate_test.go	/^package peerstate$/;"	p
+prefix	Makefile	/^prefix ?= sample$/;"	m
+prepare	messages/protobuf/prepare.go	/^type prepare struct {$/;"	t
+prepareApplier	core/prepare.go	/^type prepareApplier func(prepare messages.Prepare, active bool) error$/;"	t
+prepareRequest	client/request.go	/^func prepareRequest(operation []byte, constructor requestConstructor, signer requestSigner) messages.Request {$/;"	f
+prepareTimeoutProvider	core/request.go	/^type prepareTimeoutProvider func() time.Duration$/;"	t
+prepareTimerStarter	core/request.go	/^type prepareTimerStarter func(request messages.Request, view uint64)$/;"	t
+prepareTimerStopper	core/request.go	/^type prepareTimerStopper func(request messages.Request)$/;"	t
+prepareValidator	core/prepare.go	/^type prepareValidator func(prepare messages.Prepare) error$/;"	t
+primaryID	core/testutils_test.go	/^func primaryID(n uint32, view uint64) uint32 {$/;"	f
+proto	sample/conn/grpc/proto/channel.pb.go	/^package proto$/;"	p
+proto	sample/conn/grpc/proto/generate.go	/^package proto$/;"	p
+protobuf	messages/protobuf/commit.go	/^package protobuf$/;"	p
+protobuf	messages/protobuf/commit_test.go	/^package protobuf$/;"	p
+protobuf	messages/protobuf/impl.go	/^package protobuf$/;"	p
+protobuf	messages/protobuf/prepare.go	/^package protobuf$/;"	p
+protobuf	messages/protobuf/prepare_test.go	/^package protobuf$/;"	p
+protobuf	messages/protobuf/reply.go	/^package protobuf$/;"	p
+protobuf	messages/protobuf/reply_test.go	/^package protobuf$/;"	p
+protobuf	messages/protobuf/req-view-change.go	/^package protobuf$/;"	p
+protobuf	messages/protobuf/req-view-change_test.go	/^package protobuf$/;"	p
+protobuf	messages/protobuf/request.go	/^package protobuf$/;"	p
+protobuf	messages/protobuf/request_test.go	/^package protobuf$/;"	p
+protobuf	messages/protobuf/testutils_test.go	/^package protobuf$/;"	p
+publicKeySet	sample/authentication/keymanager.go	/^type publicKeySet struct {$/;"	t
+randBytes	messages/protobuf/testutils_test.go	/^func randBytes() []byte {$/;"	f
+randComm	messages/protobuf/commit_test.go	/^func randComm(impl messages.MessageImpl) messages.Commit {$/;"	f
+randN	core/testutils_test.go	/^func randN() uint32 {$/;"	f
+randOtherReplicaID	core/testutils_test.go	/^func randOtherReplicaID(id, n uint32) uint32 {$/;"	f
+randOtherSeq	core/internal/clientstate/timeout_test.go	/^func randOtherSeq(seq uint64) uint64 {$/;"	f
+randOtherView	core/testutils_test.go	/^func randOtherView(view uint64) uint64 {$/;"	f
+randPrep	messages/protobuf/prepare_test.go	/^func randPrep(impl messages.MessageImpl) messages.Prepare {$/;"	f
+randReplicaID	core/testutils_test.go	/^func randReplicaID(n uint32) uint32 {$/;"	f
+randReply	messages/protobuf/reply_test.go	/^func randReply(impl messages.MessageImpl) messages.Reply {$/;"	f
+randReq	messages/protobuf/request_test.go	/^func randReq(impl messages.MessageImpl) messages.Request {$/;"	f
+randReqViewChange	messages/protobuf/req-view-change_test.go	/^func randReqViewChange(impl messages.MessageImpl) messages.ReqViewChange {$/;"	f
+randSeq	core/internal/clientstate/timeout_test.go	/^func randSeq() uint64 {$/;"	f
+randTimeout	core/internal/clientstate/timeout_test.go	/^func randTimeout() time.Duration {$/;"	f
+randUI	messages/protobuf/testutils_test.go	/^func randUI(data []byte) []byte {$/;"	f
+randView	core/testutils_test.go	/^func randView() uint64 {$/;"	f
+remarshalMsg	messages/protobuf/testutils_test.go	/^func remarshalMsg(impl messages.MessageImpl, msg messages.Message) messages.Message {$/;"	f
+replica	core/replica.go	/^type replica struct {$/;"	t
+replica	sample/conn/grpc/connector/replica.go	/^type replica struct {$/;"	t
+replicaConnector	client/message-handling.go	/^type replicaConnector func(out <-chan []byte) (in <-chan []byte, err error)$/;"	t
+replicaSide	sample/conn/common/connector/connector.go	/^type replicaSide struct {$/;"	t
+replicaStack	sample/peer/cmd/run.go	/^type replicaStack struct {$/;"	t
+replicaStacks	core/integration_test.go	/^	replicaStacks []*testReplicaStack$/;"	v
+replicaStub	sample/conn/common/replicastub/replica-stub.go	/^type replicaStub struct {$/;"	t
+replicaStubs	core/integration_test.go	/^	replicaStubs []replicastub.ReplicaStub$/;"	v
+replicas	core/integration_test.go	/^	replicas      []api.Replica$/;"	v
+replicastub	sample/conn/common/replicastub/replica-stub.go	/^package replicastub$/;"	p
+reply	messages/protobuf/reply.go	/^type reply struct {$/;"	t
+replyAuthenticator	client/message-handling.go	/^type replyAuthenticator func(reply messages.Reply) error$/;"	t
+replyCollector	client/request.go	/^type replyCollector func(in <-chan messages.Reply, out chan<- []byte)$/;"	t
+replyConsumer	client/message-handling.go	/^type replyConsumer func(reply messages.Reply) bool$/;"	t
+replyMessageHandler	client/message-handling.go	/^type replyMessageHandler func(reply messages.Reply)$/;"	t
+replySet	client/internal/requestbuffer/requestbuffer.go	/^type replySet struct {$/;"	t
+replyState	core/internal/clientstate/reply.go	/^type replyState struct {$/;"	t
+reqViewChange	messages/protobuf/req-view-change.go	/^type reqViewChange struct {$/;"	t
+request	client/internal/requestbuffer/requestbuffer.go	/^type request struct {$/;"	t
+request	messages/protobuf/request.go	/^type request struct {$/;"	t
+request	sample/peer/cmd/request.go	/^func request(client client.Client, arg string) {$/;"	f
+requestApplier	core/request.go	/^type requestApplier func(request messages.Request, view uint64) error$/;"	t
+requestCmd	sample/peer/cmd/request.go	/^var requestCmd = &cobra.Command{$/;"	v
+requestConstructor	client/request.go	/^type requestConstructor func(operation []byte) messages.Request$/;"	t
+requestConsumer	client/request.go	/^type requestConsumer func(request messages.Request) (<-chan messages.Reply, bool)$/;"	t
+requestExecutor	core/request.go	/^type requestExecutor func(request messages.Request)$/;"	t
+requestHandler	client/request.go	/^type requestHandler func(operation []byte) <-chan []byte$/;"	t
+requestPreparer	client/request.go	/^type requestPreparer func(operation []byte) messages.Request$/;"	t
+requestProcessor	core/request.go	/^type requestProcessor func(request messages.Request) (new bool, err error)$/;"	t
+requestRemover	client/request.go	/^type requestRemover func(seq uint64)$/;"	t
+requestReplier	core/request.go	/^type requestReplier func(request messages.Request) <-chan messages.Reply$/;"	t
+requestSeqCapturer	core/request.go	/^type requestSeqCapturer func(request messages.Request) (new bool, release func())$/;"	t
+requestSeqPreparer	core/request.go	/^type requestSeqPreparer func(request messages.Request) (new bool)$/;"	t
+requestSeqRetirer	core/request.go	/^type requestSeqRetirer func(request messages.Request) (new bool)$/;"	t
+requestSigner	client/request.go	/^type requestSigner func(request messages.Request) error$/;"	t
+requestSubmitter	client/request.go	/^type requestSubmitter func(operation []byte) <-chan messages.Reply$/;"	t
+requestTimeoutHandler	core/request.go	/^type requestTimeoutHandler func(view uint64)$/;"	t
+requestTimeoutProvider	core/request.go	/^type requestTimeoutProvider func() time.Duration$/;"	t
+requestTimerStarter	core/request.go	/^type requestTimerStarter func(request messages.Request, view uint64)$/;"	t
+requestTimerStopper	core/request.go	/^type requestTimerStopper func(request messages.Request)$/;"	t
+requestValidator	core/request.go	/^type requestValidator func(request messages.Request) error$/;"	t
+requestbuffer	client/internal/requestbuffer/requestbuffer.go	/^package requestbuffer$/;"	p
+requestbuffer	client/internal/requestbuffer/requestbuffer_test.go	/^package requestbuffer$/;"	p
+requestconsumer	sample/requestconsumer/requestconsumer_test.go	/^package requestconsumer$/;"	p
+requestconsumer	sample/requestconsumer/simpleledger.go	/^package requestconsumer$/;"	p
+requestlist	core/internal/requestlist/request-list.go	/^package requestlist$/;"	p
+requestlist	core/internal/requestlist/request-list_test.go	/^package requestlist$/;"	p
+requests	sample/peer/cmd/request.go	/^func requests(args []string) ([]byte, error) {$/;"	f
+requireCommEqual	messages/protobuf/commit_test.go	/^func requireCommEqual(t *testing.T, comm1, comm2 messages.Commit) {$/;"	f
+requirePrepEqual	messages/protobuf/prepare_test.go	/^func requirePrepEqual(t *testing.T, prep1, prep2 messages.Prepare) {$/;"	f
+requireReplyEqual	messages/protobuf/reply_test.go	/^func requireReplyEqual(t *testing.T, reply1, reply2 messages.Reply) {$/;"	f
+requireReqEqual	messages/protobuf/request_test.go	/^func requireReqEqual(t *testing.T, req1, req2 messages.Request) {$/;"	f
+requireReqViewChangeEqual	messages/protobuf/req-view-change_test.go	/^func requireReqViewChangeEqual(t *testing.T, rvc1, rvc2 messages.ReqViewChange) {$/;"	f
+resetFixture	core/integration_test.go	/^func resetFixture() {$/;"	f
+rootCmd	sample/authentication/keytool/cmd/root.go	/^var rootCmd = &cobra.Command{$/;"	v
+rootCmd	sample/peer/cmd/root.go	/^var rootCmd = &cobra.Command{$/;"	v
+rpcStream	sample/conn/grpc/connector/replica.go	/^type rpcStream interface {$/;"	t
+rpcStream	sample/conn/grpc/server/server.go	/^type rpcStream interface {$/;"	t
+run	sample/peer/cmd/run.go	/^func run() error {$/;"	f
+runCmd	sample/peer/cmd/run.go	/^var runCmd = &cobra.Command{$/;"	v
+seqState	core/internal/clientstate/request-seq.go	/^type seqState struct {$/;"	t
+sequenceGenerator	client/request.go	/^type sequenceGenerator func() uint64$/;"	t
+server	sample/conn/grpc/server/server.go	/^package server$/;"	p
+server	sample/conn/grpc/server/server.go	/^type server struct {$/;"	t
+setupClientHandlers	sample/conn/grpc/grpc_test.go	/^func setupClientHandlers(ctrl *gomock.Controller, replicas []*mock_api.MockConnectionHandler) (handlers []*mock_api.MockMessageStreamHandler) {$/;"	f
+setupClientStateProviderMock	core/request_test.go	/^func setupClientStateProviderMock(t *testing.T, ctrl *gomock.Controller, expectedClientID uint32) (clientstate.Provider, *mock_clientstate.MockState) {$/;"	f
+setupConnector	sample/conn/grpc/grpc_test.go	/^func setupConnector(ctrl *gomock.Controller, conn connector.ReplicaConnector, n int) (replicas []*mock_api.MockConnectionHandler, stop func()) {$/;"	f
+setupPeerHandlers	sample/conn/grpc/grpc_test.go	/^func setupPeerHandlers(ctrl *gomock.Controller, replicas []*mock_api.MockConnectionHandler) (handlers []*mock_api.MockMessageStreamHandler) {$/;"	f
+setupPeerStateProviderMock	core/usig-ui_test.go	/^func setupPeerStateProviderMock(ctrl *gomock.Controller, mock *testifymock.Mock, replicaID uint32) (peerstate.Provider, *mock_peerstate.MockState) {$/;"	f
+setupTimeoutMock	core/internal/clientstate/timeout_test.go	/^func setupTimeoutMock(mock *testifymock.Mock, ctrl *gomock.Controller) (state State, timerProvider *timermock.MockProvider, handleRequestTimeout func(), handlePrepareTimeout func()) {$/;"	f
+sgx	usig/sgx/sgx-usig.go	/^package sgx$/;"	p
+sgx	usig/sgx/sgx-usig_test.go	/^package sgx$/;"	p
+sgx	usig/sgx/usig-enclave.go	/^package sgx$/;"	p
+sgxEC256PubKeyToGo	usig/sgx/usig-enclave.go	/^func sgxEC256PubKeyToGo(sgxPubKey *C.sgx_ec256_public_t) crypto.PublicKey {$/;"	f
+sgxEC256SigToASN1	usig/sgx/usig-enclave.go	/^func sgxEC256SigToASN1(sgxSig *C.sgx_ec256_signature_t) []byte {$/;"	f
+sgxEcdsaKeySpec	sample/authentication/keymanager.go	/^type sgxEcdsaKeySpec struct {$/;"	t
+sgxEcdsaKeyStoreExampleYAML	sample/authentication/keymanager_test.go	/^var sgxEcdsaKeyStoreExampleYAML = `$/;"	v
+sgxError	usig/sgx/usig-enclave.go	/^func sgxError(sgxErr C.sgx_status_t) error {$/;"	f
+sgxSuccessOrPanic	usig/sgx/usig-enclave.go	/^func sgxSuccessOrPanic(sgxErr C.sgx_status_t) {$/;"	f
+sgxUint32SliceToBigInt	usig/sgx/usig-enclave.go	/^func sgxUint32SliceToBigInt(sgxArr []C.uint32_t) *big.Int {$/;"	f
+sgxUint8SliceToBigInt	usig/sgx/usig-enclave.go	/^func sgxUint8SliceToBigInt(sgxArr []C.uint8_t) *big.Int {$/;"	f
+sgx_ecall_usig_create_ui	usig/sgx/enclave/usig_t.c	/^static sgx_status_t SGX_CDECL sgx_ecall_usig_create_ui(void* pms)$/;"	f	file:
+sgx_ecall_usig_get_epoch	usig/sgx/enclave/usig_t.c	/^static sgx_status_t SGX_CDECL sgx_ecall_usig_get_epoch(void* pms)$/;"	f	file:
+sgx_ecall_usig_get_pub_key	usig/sgx/enclave/usig_t.c	/^static sgx_status_t SGX_CDECL sgx_ecall_usig_get_pub_key(void* pms)$/;"	f	file:
+sgx_ecall_usig_get_sealed_key_size	usig/sgx/enclave/usig_t.c	/^static sgx_status_t SGX_CDECL sgx_ecall_usig_get_sealed_key_size(void* pms)$/;"	f	file:
+sgx_ecall_usig_init	usig/sgx/enclave/usig_t.c	/^static sgx_status_t SGX_CDECL sgx_ecall_usig_init(void* pms)$/;"	f	file:
+sgx_ecall_usig_seal_key	usig/sgx/enclave/usig_t.c	/^static sgx_status_t SGX_CDECL sgx_ecall_usig_seal_key(void* pms)$/;"	f	file:
+shortString	messages/utils.go	/^func shortString(str string, max int) string {$/;"	f
+signature_is_equal	usig/sgx/test/usig_test.c	/^static inline bool signature_is_equal(sgx_ec256_signature_t *s1,$/;"	f	file:
+silent-cmd	usig/sgx/Makefile	/^  silent-cmd = $(1) >\/dev\/null $(if $(2), 2>&1)$/;"	m
+silent-cmd	usig/sgx/Makefile	/^  silent-cmd = $(1)$/;"	m
+simpleKeyStoreFile	sample/authentication/keymanager.go	/^type simpleKeyStoreFile struct {$/;"	t
+startNewServer	sample/conn/grpc/grpc_test.go	/^func startNewServer(replica api.ConnectionHandler, done chan struct{}) (addr string) {$/;"	f
+startPeerConnection	core/message-handling.go	/^func startPeerConnection(connect peerConnector, supply peerMessageSupplier) error {$/;"	f
+startPeerConnections	core/message-handling.go	/^func startPeerConnections(replicaID, n uint32, connector api.ReplicaConnector, log messagelog.MessageLog, logger *logging.Logger) error {$/;"	f
+startReplicaConnection	client/message-handling.go	/^func startReplicaConnection(outHandler outgoingMessageHandler, inHandler incomingMessageHandler, connector replicaConnector) error {$/;"	f
+startReplicaConnections	client/message-handling.go	/^func startReplicaConnections(clientID, n uint32, buf *requestbuffer.T, stack Stack) error {$/;"	f
+stdProvider	core/internal/timer/timer.go	/^type stdProvider struct{}$/;"	t
+stdTimer	core/internal/timer/timer.go	/^type stdTimer struct{ *time.Timer }$/;"	t
+submitRequest	client/request.go	/^func submitRequest(operation []byte, preparer requestPreparer, consumer requestConsumer) <-chan messages.Reply {$/;"	f
+supplyMessages	core/internal/messagelog/messagelog.go	/^func (log *messageLog) supplyMessages(ch chan<- messages.ReplicaMessage, done <-chan struct{}) {$/;"	f
+supplyReplies	client/internal/requestbuffer/requestbuffer.go	/^func (r *request) supplyReplies(ch chan<- messages.Reply) {$/;"	f
+supplyReplies	client/internal/requestbuffer/requestbuffer.go	/^func (rs *replySet) supplyReplies(ch chan<- messages.Reply, cancel <-chan struct{}) {$/;"	f
+supplyRequests	client/internal/requestbuffer/requestbuffer.go	/^func (rb *T) supplyRequests(ch chan<- messages.Request, cancel <-chan struct{}) {$/;"	f
+table	usig/sgx/shim/usig_u.c	/^	void * table[1];$/;"	m	struct:__anon1	file:
+testAcceptOneRequest	core/integration_test.go	/^func testAcceptOneRequest(t *testing.T) {$/;"	f
+testAddReply	core/internal/clientstate/reply_test.go	/^func testAddReply(t *testing.T) {$/;"	f
+testCaptureReleaseRequestSeq	core/internal/clientstate/request-seq_test.go	/^func testCaptureReleaseRequestSeq(t *testing.T) {$/;"	f
+testCaptureReleaseRequestSeqConcurrent	core/internal/clientstate/request-seq_test.go	/^func testCaptureReleaseRequestSeqConcurrent(t *testing.T) {$/;"	f
+testClientAuthenticator	sample/authentication/authenticator_test.go	/^func testClientAuthenticator(t *testing.T, ks []byte) {$/;"	f
+testClientID	core/integration_test.go	/^	testClientID = 0$/;"	c
+testClientStack	core/integration_test.go	/^type testClientStack struct {$/;"	t
+testConnection	sample/conn/grpc/grpc_test.go	/^func testConnection(t *testing.T, sh api.MessageStreamHandler, mockHandler *mock_api.MockMessageStreamHandler) {$/;"	f
+testConnector	sample/conn/grpc/grpc_test.go	/^func testConnector(t *testing.T, conn connector.ReplicaConnector, handlers []*mock_api.MockMessageStreamHandler) {$/;"	f
+testEcdsaAuthenScheme	sample/authentication/crypto_test.go	/^func testEcdsaAuthenScheme(t *testing.T) {$/;"	f
+testEcdsaSigCipher	sample/authentication/crypto_test.go	/^func testEcdsaSigCipher(t *testing.T) {$/;"	f
+testGenerateSampleKeyFile	sample/authentication/keymanager_test.go	/^func testGenerateSampleKeyFile(t *testing.T) {$/;"	f
+testKeyStoreExamples	sample/authentication/keymanager_test.go	/^	testKeyStoreExamples = []struct {$/;"	v
+testLoadSimpleKeyStore	sample/authentication/keymanager_test.go	/^func testLoadSimpleKeyStore(t *testing.T) {$/;"	f
+testMessage	sample/authentication/crypto_test.go	/^	testMessage = []byte("hello")$/;"	v
+testMessage	sample/requestconsumer/requestconsumer_test.go	/^	testMessage = []byte("accepted message")$/;"	v
+testParseParam	sample/config/config_test.go	/^func testParseParam(t *testing.T) {$/;"	f
+testPrepareRequestSeq	core/internal/clientstate/request-seq_test.go	/^func testPrepareRequestSeq(t *testing.T) {$/;"	f
+testReplicaAuthenticator	sample/authentication/authenticator_test.go	/^func testReplicaAuthenticator(t *testing.T, ks []byte) {$/;"	f
+testReplicaStack	core/integration_test.go	/^type testReplicaStack struct {$/;"	t
+testReplyChannel	core/internal/clientstate/reply_test.go	/^func testReplyChannel(t *testing.T) {$/;"	f
+testReplyChannelConcurrent	core/internal/clientstate/reply_test.go	/^func testReplyChannelConcurrent(t *testing.T) {$/;"	f
+testRequestMessage	core/integration_test.go	/^	testRequestMessage = []byte("test request message")$/;"	v
+testRetireRequestSeq	core/internal/clientstate/request-seq_test.go	/^func testRetireRequestSeq(t *testing.T) {$/;"	f
+testSig	messages/protobuf/testutils_test.go	/^func testSig(data []byte) []byte {$/;"	f
+testSimpleBlockMarshaler	sample/requestconsumer/requestconsumer_test.go	/^func testSimpleBlockMarshaler(t *testing.T) {$/;"	f
+testSimpleLedger	sample/requestconsumer/requestconsumer_test.go	/^func testSimpleLedger(t *testing.T) {$/;"	f
+testStartTimeout	core/internal/clientstate/timeout_test.go	/^func testStartTimeout(t *testing.T) {$/;"	f
+testStopTimeout	core/internal/clientstate/timeout_test.go	/^func testStopTimeout(t *testing.T) {$/;"	f
+testStream	sample/conn/grpc/grpc_test.go	/^func testStream(t *testing.T, out chan<- []byte, in <-chan []byte) {$/;"	f
+testUSIGAuthenScheme	sample/authentication/crypto_test.go	/^func testUSIGAuthenScheme(t *testing.T) {$/;"	f
+test_create_ui	usig/sgx/test/usig_test.c	/^static void test_create_ui()$/;"	f	file:
+test_init_destroy	usig/sgx/test/usig_test.c	/^static void test_init_destroy()$/;"	f	file:
+test_seal_key	usig/sgx/test/usig_test.c	/^static void test_seal_key()$/;"	f	file:
+testnetKeygenCases	sample/authentication/keymanager_test.go	/^	testnetKeygenCases = []*TestnetKeyOpts{$/;"	v
+timer	core/internal/timer/timer.go	/^package timer$/;"	p
+timerState	core/internal/clientstate/timeout.go	/^type timerState struct {$/;"	t
+token	usig/sgx/shim/shim.c	/^static sgx_launch_token_t token;$/;"	v	file:
+typedMessageFromPb	messages/protobuf/impl.go	/^func typedMessageFromPb(pbMsg *pb.Message) (messages.Message, error) {$/;"	f
+uiAssigner	core/usig-ui.go	/^type uiAssigner func(msg messages.CertifiedMessage)$/;"	t
+uiCapturer	core/usig-ui.go	/^type uiCapturer func(msg messages.CertifiedMessage) (new bool, release func())$/;"	t
+uiMessageProcessor	core/message-handling.go	/^type uiMessageProcessor func(msg messages.CertifiedMessage) (new bool, err error)$/;"	t
+uiVerifier	core/usig-ui.go	/^type uiVerifier func(msg messages.CertifiedMessage) (ui *usig.UI, err error)$/;"	t
+unseal_key	usig/sgx/enclave/usig.c	/^static sgx_status_t unseal_key(void *data, uint32_t size)$/;"	f	file:
+untrustedFile	usig/sgx/usig-enclave.go	/^	untrustedFile = "libusig_shim.so"$/;"	c
+usig	usig/usig.go	/^package usig$/;"	p
+usig-target-list	Makefile	/^usig-target-list := usig-help usig-all usig-build usig-clean		\\$/;"	m
+usigEnclaveFile	core/integration_test.go	/^const usigEnclaveFile = "..\/usig\/sgx\/enclave\/libusig.signed.so"$/;"	c
+usigEnclaveFile	sample/authentication/keymanager_test.go	/^const usigEnclaveFile = "..\/..\/usig\/sgx\/enclave\/libusig.signed.so"$/;"	c
+usigKeyFingerprint	sample/authentication/crypto.go	/^type usigKeyFingerprint [8]byte$/;"	t
+usig_cert_data_t	usig/sgx/enclave/usig.c	/^} usig_cert_data_t;$/;"	t	typeref:struct:__anon5	file:
+usig_create_ui	usig/sgx/shim/shim.c	/^sgx_status_t usig_create_ui(sgx_enclave_id_t enclave_id,$/;"	f
+usig_destroy	usig/sgx/shim/shim.c	/^sgx_status_t usig_destroy(const sgx_enclave_id_t enclave_id)$/;"	f
+usig_epoch	usig/sgx/enclave/usig.c	/^static uint64_t usig_epoch;$/;"	v	file:
+usig_get_epoch	usig/sgx/shim/shim.c	/^sgx_status_t usig_get_epoch(sgx_enclave_id_t enclave_id,$/;"	f
+usig_get_pub_key	usig/sgx/shim/shim.c	/^sgx_status_t usig_get_pub_key(sgx_enclave_id_t enclave_id,$/;"	f
+usig_init	usig/sgx/shim/shim.c	/^sgx_status_t usig_init(const char *enclave_file, sgx_enclave_id_t *enclave_id,$/;"	f
+usig_priv_key	usig/sgx/enclave/usig.c	/^static sgx_ec256_private_t usig_priv_key;$/;"	v	file:
+usig_pub_key	usig/sgx/enclave/usig.c	/^static sgx_ec256_public_t usig_pub_key;$/;"	v	file:
+usig_seal_key	usig/sgx/shim/shim.c	/^sgx_status_t usig_seal_key(sgx_enclave_id_t enclave_id,$/;"	f
+usig_test	usig/usig_test.go	/^package usig_test$/;"	p
+viewChangeRequestor	core/timeout.go	/^type viewChangeRequestor func(newView uint64) (ok bool)$/;"	t
+viewForPrimary	core/testutils_test.go	/^func viewForPrimary(n uint32, id uint32) uint64 {$/;"	f
+viewMessageProcessor	core/message-handling.go	/^type viewMessageProcessor func(msg messages.PeerMessage) (new bool, err error)$/;"	t
+viewState	core/internal/viewstate/view-state.go	/^type viewState struct {$/;"	t
+viewstate	core/internal/viewstate/view-state.go	/^package viewstate$/;"	p
+viewstate	core/internal/viewstate/view-state_test.go	/^package viewstate$/;"	p
+waitDuration	core/integration_test.go	/^	waitDuration = 200 * time.Millisecond$/;"	c
+waitForReplyLocked	core/internal/clientstate/reply.go	/^func (s *replyState) waitForReplyLocked() {$/;"	f
+waitReplica	sample/conn/common/replicastub/replica-stub.go	/^func (s *replicaStub) waitReplica() api.ConnectionHandler {$/;"	f
+writeAuthenBytes	messages/authen.go	/^func writeAuthenBytes(buf io.Writer, m Message) {$/;"	f
+xxx_messageInfo_Commit	messages/protobuf/pb/messages.pb.go	/^var xxx_messageInfo_Commit proto.InternalMessageInfo$/;"	v
+xxx_messageInfo_Message	messages/protobuf/pb/messages.pb.go	/^var xxx_messageInfo_Message proto.InternalMessageInfo$/;"	v
+xxx_messageInfo_Message	sample/conn/grpc/proto/channel.pb.go	/^var xxx_messageInfo_Message proto.InternalMessageInfo$/;"	v
+xxx_messageInfo_Prepare	messages/protobuf/pb/messages.pb.go	/^var xxx_messageInfo_Prepare proto.InternalMessageInfo$/;"	v
+xxx_messageInfo_Reply	messages/protobuf/pb/messages.pb.go	/^var xxx_messageInfo_Reply proto.InternalMessageInfo$/;"	v
+xxx_messageInfo_ReqViewChange	messages/protobuf/pb/messages.pb.go	/^var xxx_messageInfo_ReqViewChange proto.InternalMessageInfo$/;"	v
+xxx_messageInfo_Request	messages/protobuf/pb/messages.pb.go	/^var xxx_messageInfo_Request proto.InternalMessageInfo$/;"	v
+yamlExample	sample/config/config_test.go	/^var yamlExample = []byte(`$/;"	v
