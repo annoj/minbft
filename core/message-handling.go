@@ -189,7 +189,7 @@ func defaultIncomingMessageHandler(id uint32, log messagelog.MessageLog, config 
 	applyCommit := makeCommitApplier(collectCommitment)
 	applyPrepare := makePrepareApplier(id, prepareSeq, collectCommitment, handleGeneratedMessage, stopPrepTimer)
 	applyReqViewChange := makeReqViewChangeApplier(id, handleGeneratedMessage)
-	applyPeerMessage := makePeerMessageApplier(applyPrepare, applyCommit, applyReqViewChange, applyViewChange)
+	applyPeerMessage := makePeerMessageApplier(applyPrepare, applyCommit, applyReqViewChange)
 	applyRequest := makeRequestApplier(id, n, handleGeneratedMessage, startReqTimer, startPrepTimer)
 
 	var processMessage messageProcessor
@@ -508,7 +508,7 @@ func makeViewMessageProcessor(viewState viewstate.State, applyPeerMessage peerMe
 
 // makePeerMessageApplier constructs an instance of peerMessageApplier using
 // the supplied abstractions.
-func makePeerMessageApplier(applyPrepare prepareApplier, applyCommit commitApplier, applyReqViewChange reqViewChangeApplier, applyViewChange viewChangeApplier) peerMessageApplier {
+func makePeerMessageApplier(applyPrepare prepareApplier, applyCommit commitApplier, applyReqViewChange reqViewChangeApplier) peerMessageApplier {
 	return func(msg messages.PeerMessage, active bool) error {
 		switch msg := msg.(type) {
 		case messages.Prepare:
