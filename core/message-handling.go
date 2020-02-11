@@ -183,11 +183,13 @@ func defaultIncomingMessageHandler(id uint32, log messagelog.MessageLog, config 
 	validateRequest := makeRequestValidator(verifyMessageSignature)
 	validatePrepare := makePrepareValidator(n, verifyUI, validateRequest)
 	validateCommit := makeCommitValidator(verifyUI, validatePrepare)
-	validateMessage := makeMessageValidator(validateRequest, validatePrepare, validateCommit)
+	validateReqViewChange := makeReqViewChangeValidator(n, verifyUI)
+	validateMessage := makeMessageValidator(validateRequest, validatePrepare, validateCommit, validateReqViewChange)
 
 	applyCommit := makeCommitApplier(collectCommitment)
 	applyPrepare := makePrepareApplier(id, prepareSeq, collectCommitment, handleGeneratedMessage, stopPrepTimer)
-	applyPeerMessage := makePeerMessageApplier(applyPrepare, applyCommit)
+	applyReqViewChange := makeReqViewChangeApplier(id, handleGeneratedMessage)
+	applyPeerMessage := makePeerMessageApplier(applyPrepare, applyCommit, applyReqViewChange, applyViewChange)
 	applyRequest := makeRequestApplier(id, n, handleGeneratedMessage, startReqTimer, startPrepTimer)
 
 	var processMessage messageProcessor
@@ -219,6 +221,7 @@ func defaultIncomingMessageHandler(id uint32, log messagelog.MessageLog, config 
 // messageStreamHandler using the supplied abstract handler.
 func makeMessageStreamHandler(handle incomingMessageHandler, logger *logging.Logger) messageStreamHandler {
 	return func(in <-chan []byte, reply chan<- []byte) {
+		fmt.Println("messageStreamHandler was invoked.")
 		for msgBytes := range in {
 			msg, err := messageImpl.NewFromBinary(msgBytes)
 			if err != nil {
@@ -332,9 +335,11 @@ func makePeerConnector(peerID uint32, connector api.ReplicaConnector) peerConnec
 // supplied abstractions.
 func makeIncomingMessageHandler(validate messageValidator, process messageProcessor, reply messageReplier) incomingMessageHandler {
 	return func(msg messages.Message, own bool) (replyChan <-chan messages.Message, new bool, err error) {
+		fmt.Println("incomingMessageHandler was invoked.")
 		if !own {
 			err = validate(msg)
 			if err != nil {
+				fmt.Println("incomingMessageHandler: err = validate(msg); err != nil")
 				err = fmt.Errorf("Validation failed: %s", err)
 				return nil, false, err
 			}
@@ -357,14 +362,15 @@ func makeIncomingMessageHandler(validate messageValidator, process messageProces
 				return nil, false, err
 			}
 		}
-
+		
+		fmt.Println("incomingMessageHandler: returned with no error")
 		return replyChan, new, nil
 	}
 }
 
 // makeMessageValidator constructs an instance of messageValidator
 // using the supplied abstractions.
-func makeMessageValidator(validateRequest requestValidator, validatePrepare prepareValidator, validateCommit commitValidator) messageValidator {
+func makeMessageValidator(validateRequest requestValidator, validatePrepare prepareValidator, validateCommit commitValidator, validateReqViewChange reqViewChangeValidator) messageValidator {
 	return func(msg messages.Message) error {
 		switch msg := msg.(type) {
 		case messages.Request:
@@ -374,8 +380,10 @@ func makeMessageValidator(validateRequest requestValidator, validatePrepare prep
 		case messages.Commit:
 			return validateCommit(msg)
 		case messages.ReqViewChange:
+				fmt.Println("messageValidator: case messages.ReqViewChange")
 			// XXX (Jona): ViewChange!
-			return fmt.Errorf("Not implemented")
+			// return fmt.Errorf("Not implemented")
+			return validateReqViewChange(msg)
 		default:
 			panic("Unknown message type")
 		}
@@ -390,6 +398,7 @@ func makeMessageProcessor(processRequest requestProcessor, processPeerMessage pe
 		case messages.Request:
 			return processRequest(msg)
 		case messages.PeerMessage:
+			fmt.Println("messageProcessor: case messages.PeerMessage")
 			return processPeerMessage(msg)
 		default:
 			panic("Unknown message type")
@@ -399,13 +408,18 @@ func makeMessageProcessor(processRequest requestProcessor, processPeerMessage pe
 
 func makePeerMessageProcessor(processEmbedded embeddedMessageProcessor, processUIMessage uiMessageProcessor) peerMessageProcessor {
 	return func(msg messages.PeerMessage) (new bool, err error) {
+		
 		processEmbedded(msg)
 
 		switch msg := msg.(type) {
 		case messages.CertifiedMessage:
 			return processUIMessage(msg)
+		case messages.ReqViewChange:
+			fmt.Println("peerMessageProcessor: case messages.ReqViewChange")
+			// TODO: Actually process message
+			return true, nil
 		default:
-			panic("Unknown message type")
+			panic("peerMessageProcessor: Unknown message type")
 		}
 	}
 }
@@ -425,7 +439,7 @@ func makeEmbeddedMessageProcessor(process messageProcessor, logger *logging.Logg
 		case messages.Commit:
 			processOne(msg.Prepare())
 		case messages.ReqViewChange:
-			// XXX (Jona): View Change!
+				// TODO: Actually process message!
 		default:
 			panic("Unknown message type")
 		}
@@ -494,13 +508,16 @@ func makeViewMessageProcessor(viewState viewstate.State, applyPeerMessage peerMe
 
 // makePeerMessageApplier constructs an instance of peerMessageApplier using
 // the supplied abstractions.
-func makePeerMessageApplier(applyPrepare prepareApplier, applyCommit commitApplier) peerMessageApplier {
+func makePeerMessageApplier(applyPrepare prepareApplier, applyCommit commitApplier, applyReqViewChange reqViewChangeApplier, applyViewChange viewChangeApplier) peerMessageApplier {
 	return func(msg messages.PeerMessage, active bool) error {
 		switch msg := msg.(type) {
 		case messages.Prepare:
 			return applyPrepare(msg, active)
 		case messages.Commit:
 			return applyCommit(msg, active)
+		case messages.ReqViewChange:
+			fmt.Println("peerMessageApplier: case messages.applyReqViewChange")
+			return applyReqViewChange(msg)
 		default:
 			panic("Unknown message type")
 		}
@@ -522,10 +539,11 @@ func makeMessageReplier(replyRequest requestReplier) messageReplier {
 				}
 			}()
 			return outChan, nil
-		case messages.Prepare, messages.Commit:
+		case messages.Prepare, messages.Commit, messages.ReqViewChange:
+			fmt.Println("messageReplier: case messages.Prepare, messages.Commit, messages.ReqViewChange")
 			return nil, nil
 		default:
-			panic("Unknown message type")
+			panic("messageRelier: Unknown message type")
 		}
 	}
 }
@@ -536,6 +554,7 @@ func makeGeneratedMessageHandler(sign messageSigner, assignUI uiAssigner, consum
 	var uiLock sync.Mutex
 
 	return func(msg messages.ReplicaMessage) {
+		fmt.Println("generatedMessageConsumer was invoked.")
 		switch msg := msg.(type) {
 		case messages.CertifiedMessage:
 			uiLock.Lock()
@@ -543,6 +562,7 @@ func makeGeneratedMessageHandler(sign messageSigner, assignUI uiAssigner, consum
 
 			assignUI(msg)
 		case messages.SignedMessage:
+			fmt.Println("generatedMessageConsumer: case messages.SignedMessage")
 			sign(msg)
 		}
 
@@ -552,19 +572,22 @@ func makeGeneratedMessageHandler(sign messageSigner, assignUI uiAssigner, consum
 
 func makeGeneratedMessageConsumer(log messagelog.MessageLog, provider clientstate.Provider, logger *logging.Logger) generatedMessageConsumer {
 	return func(msg messages.ReplicaMessage) {
+		fmt.Println("generatedMessageConsumer was invoked.")
 		logger.Debugf("Generated %s", messages.Stringify(msg))
 
 		switch msg := msg.(type) {
 		case messages.Reply:
+			fmt.Println("generatedMessageConsumer: case message.Reply")
 			clientID := msg.ClientID()
 			if err := provider(clientID).AddReply(msg); err != nil {
 				// Erroneous Reply must never be supplied
 				panic(fmt.Errorf("Failed to consume generated Reply: %s", err))
 			}
 		case messages.ReplicaMessage:
+			fmt.Println("generatedMessageConsumer: case messages.ReplicaMessage")
 			log.Append(msg)
 		default:
-			panic("Unknown message type")
+				panic("generatedMessageConsumer: Unknown message type")
 		}
 	}
 }

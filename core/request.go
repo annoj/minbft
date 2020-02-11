@@ -216,7 +216,7 @@ func makeRequestReplier(provider clientstate.Provider) requestReplier {
 // the supplied replica ID, operation executor, message signer, and
 // reply consumer.
 func makeRequestExecutor(id uint32, executor operationExecutor, handleGeneratedMessage generatedMessageHandler) requestExecutor {
-	return func(request messages.Request) {
+	return func(request messages.Request){
 		resultChan := executor(request.Operation())
 		go func() {
 			result := <-resultChan

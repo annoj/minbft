@@ -44,16 +44,21 @@ type reqViewChangeApplier func(reqViewChange messages.ReqViewChange) error
 // using n as the total number of nodes, and the supplied abstract
 // interfaces.
 // TODO: View numbers have also to be checked for consistency.
-func makeReqViewChangeValidator(n uint32, verifyUI uiVerifier, validateReqViewCHange reqViewChangeValidator) reqViewChangeValidator {
+func makeReqViewChangeValidator(n uint32, verifyUI uiVerifier) reqViewChangeValidator {
 		fmt.Println("makeReqViewChangeValidator was called!")
 	return func(reqViewChange messages.ReqViewChange) error {
 		replicaID := reqViewChange.ReplicaID()
 		newView := reqViewChange.NewView()
 
+		_ = newView
+		_ = replicaID
+		_ = n
+		_ = verifyUI
+
 		// Check REQ VIEW CHANGE message is not coming from the current primary
-		if isPrimary(newView, replicaID, n) {
-			return fmt.Errorf("ReqViewChange from primary %d for new view %d", replicaID, newView)
-		}
+		// if isPrimary(newView, replicaID, n) {
+		// 	return fmt.Errorf("ReqViewChange from primary %d for new view %d", replicaID, newView)
+		// }
 
 		// TODO: Should be validateRequest RequestValidator??
 		// if err := validateRequest(reqViewChange.Request()); err != nil {

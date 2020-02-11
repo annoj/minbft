@@ -38,6 +38,7 @@ AuthenticationScheme	sample/authentication/crypto.go	/^type AuthenticationScheme
 Authenticator	api/api.go	/^type Authenticator interface {$/;"	t
 Authenticator	sample/authentication/authenticator.go	/^type Authenticator struct {$/;"	t
 BftKeyStorer	sample/authentication/keymanager.go	/^type BftKeyStorer interface {$/;"	t
+CC	tools/sgx-capability/Makefile	/^CC = gcc$/;"	m
 CFLAGS	usig/sgx/Makefile	/^$(ENCLAVE_OBJECTS): CFLAGS   := $(ENCLAVE_CFLAGS)$/;"	m
 CFLAGS	usig/sgx/Makefile	/^$(TEST_OBJECTS): CFLAGS   := $(UNTRUSTED_CFLAGS)$/;"	m
 CFLAGS	usig/sgx/Makefile	/^$(UNTRUSTED_OBJECTS): CFLAGS   := $(UNTRUSTED_CFLAGS)$/;"	m
@@ -951,14 +952,14 @@ makeMessageReplier	core/message-handling.go	/^func makeMessageReplier(replyReque
 makeMessageSignatureVerifier	core/utils.go	/^func makeMessageSignatureVerifier(authen api.Authenticator, extractAuthenBytes authenBytesExtractor) messageSignatureVerifier {$/;"	f
 makeMessageSigner	core/utils.go	/^func makeMessageSigner(authen api.Authenticator, extractAuthenBytes authenBytesExtractor) messageSigner {$/;"	f
 makeMessageStreamHandler	core/message-handling.go	/^func makeMessageStreamHandler(handle incomingMessageHandler, logger *logging.Logger) messageStreamHandler {$/;"	f
-makeMessageValidator	core/message-handling.go	/^func makeMessageValidator(validateRequest requestValidator, validatePrepare prepareValidator, validateCommit commitValidator) messageValidator {$/;"	f
+makeMessageValidator	core/message-handling.go	/^func makeMessageValidator(validateRequest requestValidator, validatePrepare prepareValidator, validateCommit commitValidator, validateReqViewChange reqViewChangeValidator) messageValidator {$/;"	f
 makeMessages	sample/conn/grpc/grpc_test.go	/^func makeMessages(n int) (msgs [][]byte) {$/;"	f
 makeMockUIMsg	core/usig-ui_test.go	/^func makeMockUIMsg(ctrl *gomock.Controller, replicaID uint32, cv uint64) (messages.CertifiedMessage, *usig.UI) {$/;"	f
 makeMsg	core/internal/messagelog/messagelog_test.go	/^func makeMsg() messages.ReplicaMessage {$/;"	f
 makeOperationExecutor	core/request.go	/^func makeOperationExecutor(consumer api.RequestConsumer) operationExecutor {$/;"	f
 makeOutgoingMessageHandler	client/message-handling.go	/^func makeOutgoingMessageHandler(buf *requestbuffer.T) outgoingMessageHandler {$/;"	f
 makePeerConnector	core/message-handling.go	/^func makePeerConnector(peerID uint32, connector api.ReplicaConnector) peerConnector {$/;"	f
-makePeerMessageApplier	core/message-handling.go	/^func makePeerMessageApplier(applyPrepare prepareApplier, applyCommit commitApplier) peerMessageApplier {$/;"	f
+makePeerMessageApplier	core/message-handling.go	/^func makePeerMessageApplier(applyPrepare prepareApplier, applyCommit commitApplier, applyReqViewChange reqViewChangeApplier) peerMessageApplier {$/;"	f
 makePeerMessageProcessor	core/message-handling.go	/^func makePeerMessageProcessor(processEmbedded embeddedMessageProcessor, processUIMessage uiMessageProcessor) peerMessageProcessor {$/;"	f
 makePeerMessageSupplier	core/message-handling.go	/^func makePeerMessageSupplier(log messagelog.MessageLog) peerMessageSupplier {$/;"	f
 makePrepare	core/commit_test.go	/^func makePrepare(p, v, cv int) messages.Prepare {$/;"	f
@@ -974,6 +975,8 @@ makeReplyAuthenticator	client/message-handling.go	/^func makeReplyAuthenticator(
 makeReplyCollector	client/request.go	/^func makeReplyCollector(f uint32, buf *requestbuffer.T) replyCollector {$/;"	f
 makeReplyConsumer	client/message-handling.go	/^func makeReplyConsumer(buf *requestbuffer.T) replyConsumer {$/;"	f
 makeReplyMessageHandler	client/message-handling.go	/^func makeReplyMessageHandler(consumer replyConsumer, authenticator replyAuthenticator) replyMessageHandler {$/;"	f
+makeReqViewChangeApplier	core/req-view-change.go	/^func makeReqViewChangeApplier(id uint32, handleGeneratedMessage generatedMessageHandler) reqViewChangeApplier {$/;"	f
+makeReqViewChangeValidator	core/req-view-change.go	/^func makeReqViewChangeValidator(n uint32, verifyUI uiVerifier) reqViewChangeValidator {$/;"	f
 makeRequest	client/internal/requestbuffer/requestbuffer_test.go	/^func makeRequest(seq uint64) messages.Request {$/;"	f
 makeRequestApplier	core/request.go	/^func makeRequestApplier(id, n uint32, handleGeneratedMessage generatedMessageHandler, startReqTimer requestTimerStarter, startPrepTimer prepareTimerStarter) requestApplier {$/;"	f
 makeRequestConstructor	client/request.go	/^func makeRequestConstructor(clientID uint32, seq sequenceGenerator) requestConstructor {$/;"	f
@@ -1031,6 +1034,7 @@ minbft	core/options.go	/^package minbft$/;"	p
 minbft	core/prepare.go	/^package minbft$/;"	p
 minbft	core/prepare_test.go	/^package minbft$/;"	p
 minbft	core/replica.go	/^package minbft$/;"	p
+minbft	core/req-view-change.go	/^package minbft$/;"	p
 minbft	core/request.go	/^package minbft$/;"	p
 minbft	core/request_test.go	/^package minbft$/;"	p
 minbft	core/testutils_test.go	/^package minbft$/;"	p
@@ -1240,6 +1244,8 @@ replyMessageHandler	client/message-handling.go	/^type replyMessageHandler func(r
 replySet	client/internal/requestbuffer/requestbuffer.go	/^type replySet struct {$/;"	t
 replyState	core/internal/clientstate/reply.go	/^type replyState struct {$/;"	t
 reqViewChange	messages/protobuf/req-view-change.go	/^type reqViewChange struct {$/;"	t
+reqViewChangeApplier	core/req-view-change.go	/^type reqViewChangeApplier func(reqViewChange messages.ReqViewChange) error$/;"	t
+reqViewChangeValidator	core/req-view-change.go	/^type reqViewChangeValidator func(reqViewChange messages.ReqViewChange) error$/;"	t
 request	client/internal/requestbuffer/requestbuffer.go	/^type request struct {$/;"	t
 request	messages/protobuf/request.go	/^type request struct {$/;"	t
 request	sample/peer/cmd/request.go	/^func request(client client.Client, arg string) {$/;"	f
@@ -1310,6 +1316,7 @@ sgx_ecall_usig_get_sealed_key_size	usig/sgx/enclave/usig_t.c	/^static sgx_status
 sgx_ecall_usig_init	usig/sgx/enclave/usig_t.c	/^static sgx_status_t SGX_CDECL sgx_ecall_usig_init(void* pms)$/;"	f	file:
 sgx_ecall_usig_seal_key	usig/sgx/enclave/usig_t.c	/^static sgx_status_t SGX_CDECL sgx_ecall_usig_seal_key(void* pms)$/;"	f	file:
 shortString	messages/utils.go	/^func shortString(str string, max int) string {$/;"	f
+show_os_info	tools/prerequisite-check.sh	/^show_os_info() {$/;"	f
 signature_is_equal	usig/sgx/test/usig_test.c	/^static inline bool signature_is_equal(sgx_ec256_signature_t *s1,$/;"	f	file:
 silent-cmd	usig/sgx/Makefile	/^  silent-cmd = $(1) >\/dev\/null $(if $(2), 2>&1)$/;"	m
 silent-cmd	usig/sgx/Makefile	/^  silent-cmd = $(1)$/;"	m

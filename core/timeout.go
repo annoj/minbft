@@ -16,6 +16,7 @@ package minbft
 
 import (
 	"sync"
+	"fmt"
 
 	logging "github.com/op/go-logging"
 
@@ -30,6 +31,7 @@ type viewChangeRequestor func(newView uint64) (ok bool)
 // makeRequestTimeoutHandler constructs an instance of
 // requestTimeoutHandler given the supplied abstractions.
 func makeRequestTimeoutHandler(requestViewChange viewChangeRequestor, logger *logging.Logger) requestTimeoutHandler {
+	fmt.Println("makeRequestTimeoutHandler was invoked.")
 	return func(view uint64) {
 		newView := view + 1
 
@@ -50,7 +52,12 @@ func makeViewChangeRequestor(id uint32, viewState viewstate.State, handleGenerat
 		requested uint64
 	)
 
+	fmt.Printf("makeViewChangeRequestor was invoked, requested = %d\n", requested)
+
 	return func(newView uint64) (ok bool) {
+
+		fmt.Println("viewChangeRequestor was invoked.")
+
 		lock.Lock()
 		defer lock.Unlock()
 
