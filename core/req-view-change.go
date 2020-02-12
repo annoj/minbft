@@ -76,12 +76,15 @@ func makeReqViewChangeValidator(n uint32, verifyUI uiVerifier) reqViewChangeVali
 
 // makeReqViewChangeApplier constructs an instance of reqViewChangeApplier using
 // id as the current replica ID, and the supplied abstract interfaces.
-func makeReqViewChangeApplier(id uint32, handleGeneratedMessage generatedMessageHandler) reqViewChangeApplier {
+func makeReqViewChangeApplier(id uint32, collectReqViewChange reqViewChangeCollector, handleGeneratedMessage generatedMessageHandler) reqViewChangeApplier {
 	return func(reqViewChange messages.ReqViewChange) error {
 		newPrimaryID := reqViewChange.ReplicaID()
-		_ = newPrimaryID
 
 		// TODO: Stop reqViewChangeTimer here!
+
+		if err := collectReqViewChange(newPrimaryID); err != nil {
+			return fmt.Errorf("ReqViewChange cannot be taken into account: %s", err)
+		}
 
 		handleGeneratedMessage(messageImpl.NewViewChange(id, reqViewChange))
 

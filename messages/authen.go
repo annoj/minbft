@@ -71,12 +71,12 @@ func writeAuthenBytes(buf io.Writer, m Message) {
 		writeAuthenBytes(buf, prep)
 		_, _ = buf.Write(prep.UIBytes())
 	case ReqViewChange:
-		_ = binary.Write(buf, binary.BigEndian, m.NewView())
+		// _ = binary.Write(buf, binary.BigEndian, m.NewView())
 	case ViewChange:
-		reqViewChange := m.ReqViewChange()
-		_ = binary.Write(buf, binary.BigEndian, reqViewChange.ReplicaID())
-		writeAuthenBytes(buf, reqViewChange)
-		_, _ = buf.Write(reqViewChange.Signature())
+		// reqViewChange := m.ReqViewChange()
+		// _ = binary.Write(buf, binary.BigEndian, reqViewChange.ReplicaID())
+		// writeAuthenBytes(buf, reqViewChange)
+		// _, _ = buf.Write(reqViewChange.Signature())
 	default:
 		panic("unknown message type")
 	}

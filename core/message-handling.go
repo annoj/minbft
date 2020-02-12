@@ -96,6 +96,8 @@ type embeddedMessageProcessor func(msg messages.PeerMessage)
 // safe to invoke concurrently.
 type uiMessageProcessor func(msg messages.CertifiedMessage) (new bool, err error)
 
+type fakeMessageProcessor func(msg messages.PeerMessage) (new bool, err error)
+
 // viewMessageProcessor processes a valid message in current view.
 //
 // It continues processing of the supplied message, according to the
@@ -192,7 +194,7 @@ func defaultIncomingMessageHandler(id uint32, log messagelog.MessageLog, config 
 
 	applyCommit := makeCommitApplier(collectCommitment)
 	applyPrepare := makePrepareApplier(id, prepareSeq, collectCommitment, handleGeneratedMessage, stopPrepTimer)
-	applyReqViewChange := makeReqViewChangeApplier(id, handleGeneratedMessage)
+	applyReqViewChange := makeReqViewChangeApplier(id, collectReqViewChange, handleGeneratedMessage)
 	applyViewChange := makeViewChangeApplier(collectReqViewChange)
 	applyPeerMessage := makePeerMessageApplier(applyPrepare, applyCommit, applyReqViewChange, applyViewChange)
 	applyRequest := makeRequestApplier(id, n, handleGeneratedMessage, startReqTimer, startPrepTimer)
@@ -212,8 +214,9 @@ func defaultIncomingMessageHandler(id uint32, log messagelog.MessageLog, config 
 	processRequest := makeRequestProcessor(captureSeq, pendingReq, viewState, applyRequest)
 	processViewMessage := makeViewMessageProcessor(viewState, applyPeerMessage)
 	processUIMessage := makeUIMessageProcessor(captureUI, processViewMessage)
+	processFakeMessage := makeFakeMessageProcessor(processViewMessage)
 	processEmbedded := makeEmbeddedMessageProcessor(processMessageThunk, logger)
-	processPeerMessage := makePeerMessageProcessor(processEmbedded, processUIMessage)
+	processPeerMessage := makePeerMessageProcessor(processEmbedded, processUIMessage, processFakeMessage)
 	processMessage = makeMessageProcessor(processRequest, processPeerMessage)
 
 	replyRequest := makeRequestReplier(clientStates)
@@ -406,7 +409,7 @@ func makeMessageProcessor(processRequest requestProcessor, processPeerMessage pe
 		case messages.Request:
 			return processRequest(msg)
 		case messages.PeerMessage:
-			fmt.Println("messageProcessor: case messages.PeerMessage")
+			fmt.Println("messageProcessor: case messages.PeerMessage?!?!?!?!?!?!?!?!??!?!?!?!?!?!?!?!?!")
 			return processPeerMessage(msg)
 		default:
 			panic("Unknown message type")
@@ -414,7 +417,7 @@ func makeMessageProcessor(processRequest requestProcessor, processPeerMessage pe
 	}
 }
 
-func makePeerMessageProcessor(processEmbedded embeddedMessageProcessor, processUIMessage uiMessageProcessor) peerMessageProcessor {
+func makePeerMessageProcessor(processEmbedded embeddedMessageProcessor, processUIMessage uiMessageProcessor, processFakeMessage fakeMessageProcessor) peerMessageProcessor {
 	return func(msg messages.PeerMessage) (new bool, err error) {
 		
 		processEmbedded(msg)
@@ -423,9 +426,9 @@ func makePeerMessageProcessor(processEmbedded embeddedMessageProcessor, processU
 		case messages.CertifiedMessage:
 			return processUIMessage(msg)
 		case messages.ReqViewChange:
-			fmt.Println("peerMessageProcessor: case messages.ReqViewChange")
-			// TODO: Actually process message
-			return true, nil
+			fmt.Println("peerMessageProcessor: case messages.ReqViewChange !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+			// return true, nil
+			return processFakeMessage(msg)
 		default:
 			panic("peerMessageProcessor: Unknown message type")
 		}
@@ -447,7 +450,22 @@ func makeEmbeddedMessageProcessor(process messageProcessor, logger *logging.Logg
 		case messages.Commit:
 			processOne(msg.Prepare())
 		case messages.ReqViewChange:
-				// TODO: Actually process message!
+			// TODO: Actually process message!
+			fmt.Println("embeddedMessageProcessor: case messages.ReqViewChange!!!!!!!!!!!!!!!!!!!!!!!!!")
+		case messages.ViewChange:
+			fmt.Println("embeddedMessageProcessor: case messages.ViewChange!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+			processOne(msg)
+		default:
+			panic("Unknown message type")
+		}
+	}
+}
+
+func makeFakeMessageProcessor(processViewMessage viewMessageProcessor) fakeMessageProcessor {
+	return func(msg messages.PeerMessage) (new bool, err error) {
+		switch msg := msg.(type) {
+		case messages.PeerMessage:
+			return processViewMessage(msg)
 		default:
 			panic("Unknown message type")
 		}
@@ -502,6 +520,10 @@ func makeViewMessageProcessor(viewState viewstate.State, applyPeerMessage peerMe
 				// the message.
 				return false, fmt.Errorf("Message refers to unexpected view")
 			}
+		case messages.ReqViewChange:
+			fmt.Println("viewMessageProcessor: case messages.ReqViewChange")
+		case messages.ViewChange:
+			fmt.Println("viewMessageProcessor: case messages.ViewChange")
 		default:
 			panic("Unknown message type")
 		}
@@ -526,7 +548,7 @@ func makePeerMessageApplier(applyPrepare prepareApplier, applyCommit commitAppli
 		case messages.ReqViewChange:
 			fmt.Println("peerMessageApplier: case messages.applyReqViewChange")
 			return applyReqViewChange(msg)
-		 case messages.ViewChange:
+		case messages.ViewChange:
 			fmt.Println("peerMessageApplier: case messages.ViewChange")
 			return applyViewChange(msg, active)
 		default:
@@ -565,7 +587,7 @@ func makeGeneratedMessageHandler(sign messageSigner, assignUI uiAssigner, consum
 	var uiLock sync.Mutex
 
 	return func(msg messages.ReplicaMessage) {
-		fmt.Println("generatedMessageConsumer was invoked.")
+		fmt.Println("generatedMessageHandler was invoked.")
 		switch msg := msg.(type) {
 		case messages.CertifiedMessage:
 			uiLock.Lock()
@@ -573,7 +595,7 @@ func makeGeneratedMessageHandler(sign messageSigner, assignUI uiAssigner, consum
 
 			assignUI(msg)
 		case messages.SignedMessage:
-			fmt.Println("generatedMessageConsumer: case messages.SignedMessage")
+			fmt.Println("generatedMessageHandler: case messages.SignedMessage")
 			sign(msg)
 		}
 
