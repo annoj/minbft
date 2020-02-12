@@ -240,6 +240,7 @@ LDFLAGS	usig/sgx/Makefile	/^$(UNTRUSTED_TARGET): LDFLAGS := $(UNTRUSTED_LDFLAGS)
 LDLIBS	usig/sgx/Makefile	/^$(ENCLAVE_TARGET): LDLIBS  := $(ENCLAVE_LDLIBS)$/;"	m
 LDLIBS	usig/sgx/Makefile	/^$(TEST_TARGET): LDLIBS  := $(UNTRUSTED_LDLIBS)$/;"	m
 LDLIBS	usig/sgx/Makefile	/^$(UNTRUSTED_TARGET): LDLIBS  := $(UNTRUSTED_LDLIBS)$/;"	m
+LD_LIBRARY_PATH	tools/sgx-capability/Makefile	/^	LD_LIBRARY_PATH=$(SGX_SDK)\/lib64:$(LD_LIBRARY_PATH) .\/check-sgx-capability$/;"	m
 List	core/internal/requestlist/request-list.go	/^type List interface {$/;"	t
 ListenAndServe	sample/conn/grpc/server/server.go	/^func ListenAndServe(s ReplicaServer, addr string, serverOpts ...grpc.ServerOption) error {$/;"	f
 LoadConfig	sample/config/viperconfiger.go	/^func (c *ViperConfiger) LoadConfig(filePath string) {$/;"	f
@@ -490,6 +491,7 @@ SGX_EDGER8R	usig/sgx/Makefile	/^SGX_EDGER8R      := $(SGX_BIN_PATH)\/sgx_edger8r
 SGX_INCLUDE_PATH	usig/sgx/Makefile	/^SGX_INCLUDE_PATH := $(SGX_SDK)\/include$/;"	m
 SGX_LIBRARY_PATH	usig/sgx/Makefile	/^SGX_LIBRARY_PATH := $(SGX_SDK)\/lib64$/;"	m
 SGX_MODE	usig/sgx/Makefile	/^SGX_MODE ?= HW$/;"	m
+SGX_SDK	tools/sgx-capability/Makefile	/^SGX_SDK ?= "\/opt\/intel\/sgxsdk"$/;"	m
 SGX_SDK	usig/sgx/Makefile	/^  SGX_SDK := \/opt\/intel\/sgxsdk$/;"	m
 SGX_SIGNER	usig/sgx/Makefile	/^SGX_SIGNER       := $(SGX_BIN_PATH)\/sgx_sign$/;"	m
 SGX_TRTS_LIB	usig/sgx/Makefile	/^  SGX_TRTS_LIB     := sgx_trts$/;"	m
@@ -698,6 +700,7 @@ VerifyUI	usig/mocks/mock.go	/^func (mr *MockUSIGMockRecorder) VerifyUI(arg0, arg
 VerifyUI	usig/sgx/sgx-usig.go	/^func (u *USIG) VerifyUI(message []byte, ui *usig.UI, usigID []byte) error {$/;"	f
 VerifyUI	usig/sgx/sgx-usig.go	/^func VerifyUI(message []byte, ui *usig.UI, usigID []byte) error {$/;"	f
 View	messages/protobuf/prepare.go	/^func (m *prepare) View() uint64 {$/;"	f
+ViewChange	messages/api.go	/^type ViewChange interface {$/;"	t
 ViperConfiger	sample/config/viperconfiger.go	/^type ViperConfiger struct {$/;"	t
 WithLogFile	core/options.go	/^func WithLogFile(f *os.File) Option {$/;"	f
 WithLogLevel	core/options.go	/^func WithLogLevel(l logging.Level) Option {$/;"	f
@@ -785,6 +788,10 @@ channelClientChatClient	sample/conn/grpc/proto/channel.pb.go	/^type channelClien
 channelClientChatServer	sample/conn/grpc/proto/channel.pb.go	/^type channelClientChatServer struct {$/;"	t
 channelPeerChatClient	sample/conn/grpc/proto/channel.pb.go	/^type channelPeerChatClient struct {$/;"	t
 channelPeerChatServer	sample/conn/grpc/proto/channel.pb.go	/^type channelPeerChatServer struct {$/;"	t
+check_go_version	tools/prerequisite-check.sh	/^check_go_version() {$/;"	f
+check_sgx_support	tools/prerequisite-check.sh	/^check_sgx_support() {$/;"	f
+check_sgxpsw_version	tools/prerequisite-check.sh	/^check_sgxpsw_version() {$/;"	f
+check_sgxsdk_version	tools/prerequisite-check.sh	/^check_sgxsdk_version() {$/;"	f
 client	client/client.go	/^package client$/;"	p
 client	client/message-handling.go	/^package client$/;"	p
 client	client/request.go	/^package client$/;"	p
@@ -814,6 +821,7 @@ commitValidator	core/commit.go	/^type commitValidator func(commit messages.Commi
 commitmentCollector	core/commit.go	/^type commitmentCollector func(replicaID uint32, prepare messages.Prepare) error$/;"	t
 commitmentCounter	core/commit.go	/^type commitmentCounter func(replicaID uint32, prepare messages.Prepare) (done bool, err error)$/;"	t
 common	sample/conn/common/connector/connector.go	/^type common struct {$/;"	t
+compare_version	tools/prerequisite-check.sh	/^compare_version() {$/;"	f
 config	sample/config/config_test.go	/^package config$/;"	p
 config	sample/config/viperconfiger.go	/^package config$/;"	p
 configers	sample/config/config_test.go	/^var configers = []ConfigTester{New()}$/;"	v
@@ -888,6 +896,7 @@ getSpecName	sample/authentication/keymanager.go	/^func (spec *ecdsaKeySpec) getS
 getSpecName	sample/authentication/keymanager.go	/^func (spec *sgxEcdsaKeySpec) getSpecName() string {$/;"	f
 getTimeDuration	sample/config/viperconfiger.go	/^func (c *ViperConfiger) getTimeDuration(key string) time.Duration {$/;"	f
 getUint32	sample/config/viperconfiger.go	/^func (c *ViperConfiger) getUint32(key string) uint32 {$/;"	f
+get_sgx_psw_version	tools/prerequisite-check.sh	/^get_sgx_psw_version() {$/;"	f
 grpc	sample/conn/grpc/grpc_test.go	/^package grpc$/;"	p
 handleGeneratedPeerMessages	core/message-handling.go	/^func handleGeneratedPeerMessages(log messagelog.MessageLog, handle incomingMessageHandler, logger *logging.Logger) {$/;"	f
 handleIn	sample/conn/grpc/connector/replica.go	/^func (r *replica) handleIn(stream rpcStream, in <-chan []byte) {$/;"	f
@@ -935,6 +944,7 @@ main	sample/authentication/keytool/main.go	/^func main() {$/;"	f
 main	sample/authentication/keytool/main.go	/^package main$/;"	p
 main	sample/peer/main.go	/^func main() {$/;"	f
 main	sample/peer/main.go	/^package main$/;"	p
+main	tools/sgx-capability/check-sgx-capability.c	/^int main (int argc, char *argv[])$/;"	f
 main	usig/sgx/test/usig_test.c	/^int main(int argc, const char **argv)$/;"	f
 makeCommitApplier	core/commit.go	/^func makeCommitApplier(collectCommitment commitmentCollector) commitApplier {$/;"	f
 makeCommitValidator	core/commit.go	/^func makeCommitValidator(verifyUI uiVerifier, validatePrepare prepareValidator) commitValidator {$/;"	f
@@ -976,6 +986,7 @@ makeReplyCollector	client/request.go	/^func makeReplyCollector(f uint32, buf *re
 makeReplyConsumer	client/message-handling.go	/^func makeReplyConsumer(buf *requestbuffer.T) replyConsumer {$/;"	f
 makeReplyMessageHandler	client/message-handling.go	/^func makeReplyMessageHandler(consumer replyConsumer, authenticator replyAuthenticator) replyMessageHandler {$/;"	f
 makeReqViewChangeApplier	core/req-view-change.go	/^func makeReqViewChangeApplier(id uint32, handleGeneratedMessage generatedMessageHandler) reqViewChangeApplier {$/;"	f
+makeReqViewChangeCounter	core/view-change.go	/^func makeReqViewChangeCounter(f uint32) reqViewChangeCounter {$/;"	f
 makeReqViewChangeValidator	core/req-view-change.go	/^func makeReqViewChangeValidator(n uint32, verifyUI uiVerifier) reqViewChangeValidator {$/;"	f
 makeRequest	client/internal/requestbuffer/requestbuffer_test.go	/^func makeRequest(seq uint64) messages.Request {$/;"	f
 makeRequestApplier	core/request.go	/^func makeRequestApplier(id, n uint32, handleGeneratedMessage generatedMessageHandler, startReqTimer requestTimerStarter, startPrepTimer prepareTimerStarter) requestApplier {$/;"	f
@@ -1003,7 +1014,10 @@ makeUICapturer	core/usig-ui.go	/^func makeUICapturer(providePeerState peerstate.
 makeUIMessageProcessor	core/message-handling.go	/^func makeUIMessageProcessor(captureUI uiCapturer, processViewMessage viewMessageProcessor) uiMessageProcessor {$/;"	f
 makeUIVerifier	core/usig-ui.go	/^func makeUIVerifier(authen api.Authenticator, extractAuthenBytes authenBytesExtractor) uiVerifier {$/;"	f
 makeUSIGKeyFingerprint	sample/authentication/crypto.go	/^func makeUSIGKeyFingerprint(pubKey interface{}) (fingerprint usigKeyFingerprint, err error) {$/;"	f
+makeViewChangeApplier	core/view-change.go	/^func makeViewChangeApplier(collectViewChange viewChangeCollector) viewChangeApplier {$/;"	f
+makeViewChangeCollector	core/view-change.go	/^func makeViewChangeCollector(countViewChange viewChangeCounter) viewChangeCollector {$/;"	f
 makeViewChangeRequestor	core/timeout.go	/^func makeViewChangeRequestor(id uint32, viewState viewstate.State, handleGeneratedMessage generatedMessageHandler) viewChangeRequestor {$/;"	f
+makeViewChangeValidator	core/view-change.go	/^func makeViewChangeValidator(verifyUI uiVerifier, validateReqViewChange reqViewChangeValidator) viewChangeValidator {$/;"	f
 makeViewMessageProcessor	core/message-handling.go	/^func makeViewMessageProcessor(viewState viewstate.State, applyPeerMessage peerMessageApplier) viewMessageProcessor {$/;"	f
 marshalMessage	messages/protobuf/impl.go	/^func marshalMessage(m proto.Message) ([]byte, error) {$/;"	f
 maxStringWidth	messages/utils.go	/^const maxStringWidth = 256$/;"	c
@@ -1044,6 +1058,7 @@ minbft	core/usig-ui.go	/^package minbft$/;"	p
 minbft	core/usig-ui_test.go	/^package minbft$/;"	p
 minbft	core/utils.go	/^package minbft$/;"	p
 minbft	core/utils_test.go	/^package minbft$/;"	p
+minbft	core/view-change.go	/^package minbft$/;"	p
 minbft_test	core/integration_test.go	/^package minbft_test$/;"	p
 mock	core/internal/timer/mock/generate.go	/^package mock$/;"	p
 mock	core/internal/timer/mock/mock.go	/^package mock$/;"	p
@@ -1245,6 +1260,7 @@ replySet	client/internal/requestbuffer/requestbuffer.go	/^type replySet struct {
 replyState	core/internal/clientstate/reply.go	/^type replyState struct {$/;"	t
 reqViewChange	messages/protobuf/req-view-change.go	/^type reqViewChange struct {$/;"	t
 reqViewChangeApplier	core/req-view-change.go	/^type reqViewChangeApplier func(reqViewChange messages.ReqViewChange) error$/;"	t
+reqViewChangeCounter	core/view-change.go	/^type reqViewChangeCounter func(replicaID uint32) (done bool, err error)$/;"	t
 reqViewChangeValidator	core/req-view-change.go	/^type reqViewChangeValidator func(reqViewChange messages.ReqViewChange) error$/;"	t
 request	client/internal/requestbuffer/requestbuffer.go	/^type request struct {$/;"	t
 request	messages/protobuf/request.go	/^type request struct {$/;"	t
@@ -1395,7 +1411,10 @@ usig_priv_key	usig/sgx/enclave/usig.c	/^static sgx_ec256_private_t usig_priv_key
 usig_pub_key	usig/sgx/enclave/usig.c	/^static sgx_ec256_public_t usig_pub_key;$/;"	v	file:
 usig_seal_key	usig/sgx/shim/shim.c	/^sgx_status_t usig_seal_key(sgx_enclave_id_t enclave_id,$/;"	f
 usig_test	usig/usig_test.go	/^package usig_test$/;"	p
+viewChangeApplier	core/view-change.go	/^type viewChangeApplier func(viewChange messages.ViewChange, active bool) error$/;"	t
+viewChangeCollector	core/view-change.go	/^type viewChangeCollector func(replicaID uint32) error$/;"	t
 viewChangeRequestor	core/timeout.go	/^type viewChangeRequestor func(newView uint64) (ok bool)$/;"	t
+viewChangeValidator	core/view-change.go	/^type viewChangeValidator func(viewChange messages.ViewChange) error$/;"	t
 viewForPrimary	core/testutils_test.go	/^func viewForPrimary(n uint32, id uint32) uint64 {$/;"	f
 viewMessageProcessor	core/message-handling.go	/^type viewMessageProcessor func(msg messages.PeerMessage) (new bool, err error)$/;"	t
 viewState	core/internal/viewstate/view-state.go	/^type viewState struct {$/;"	t

@@ -1,4 +1,4 @@
-// Copyright (c) 2018 NEC Laboratories Europe GmbH.
+
 //
 // Authors: Sergey Fedorov <sergey.fedorov@neclab.eu>
 //
@@ -180,16 +180,21 @@ func defaultIncomingMessageHandler(id uint32, log messagelog.MessageLog, config 
 	executeRequest := makeRequestExecutor(id, executeOperation, handleGeneratedMessage)
 	collectCommitment := makeCommitmentCollector(countCommitment, retireSeq, pendingReq, stopReqTimer, executeRequest)
 
+	countReqViewChange := makeReqViewChangeCounter(f)
+	collectReqViewChange := makeReqViewChangeCollector(countReqViewChange)
+
 	validateRequest := makeRequestValidator(verifyMessageSignature)
 	validatePrepare := makePrepareValidator(n, verifyUI, validateRequest)
 	validateCommit := makeCommitValidator(verifyUI, validatePrepare)
 	validateReqViewChange := makeReqViewChangeValidator(n, verifyUI)
-	validateMessage := makeMessageValidator(validateRequest, validatePrepare, validateCommit, validateReqViewChange)
+	validateViewChange := makeViewChangeValidator(verifyUI, validateReqViewChange)
+	validateMessage := makeMessageValidator(validateRequest, validatePrepare, validateCommit, validateReqViewChange, validateViewChange)
 
 	applyCommit := makeCommitApplier(collectCommitment)
 	applyPrepare := makePrepareApplier(id, prepareSeq, collectCommitment, handleGeneratedMessage, stopPrepTimer)
 	applyReqViewChange := makeReqViewChangeApplier(id, handleGeneratedMessage)
-	applyPeerMessage := makePeerMessageApplier(applyPrepare, applyCommit, applyReqViewChange)
+	applyViewChange := makeViewChangeApplier(collectReqViewChange)
+	applyPeerMessage := makePeerMessageApplier(applyPrepare, applyCommit, applyReqViewChange, applyViewChange)
 	applyRequest := makeRequestApplier(id, n, handleGeneratedMessage, startReqTimer, startPrepTimer)
 
 	var processMessage messageProcessor
@@ -370,7 +375,7 @@ func makeIncomingMessageHandler(validate messageValidator, process messageProces
 
 // makeMessageValidator constructs an instance of messageValidator
 // using the supplied abstractions.
-func makeMessageValidator(validateRequest requestValidator, validatePrepare prepareValidator, validateCommit commitValidator, validateReqViewChange reqViewChangeValidator) messageValidator {
+func makeMessageValidator(validateRequest requestValidator, validatePrepare prepareValidator, validateCommit commitValidator, validateReqViewChange reqViewChangeValidator, validateViewChange viewChangeValidator) messageValidator {
 	return func(msg messages.Message) error {
 		switch msg := msg.(type) {
 		case messages.Request:
@@ -384,6 +389,9 @@ func makeMessageValidator(validateRequest requestValidator, validatePrepare prep
 			// XXX (Jona): ViewChange!
 			// return fmt.Errorf("Not implemented")
 			return validateReqViewChange(msg)
+		case messages.ViewChange:
+			fmt.Println("messageValidator: case messages.ViewChange")
+			return validateViewChange(msg)
 		default:
 			panic("Unknown message type")
 		}
@@ -508,7 +516,7 @@ func makeViewMessageProcessor(viewState viewstate.State, applyPeerMessage peerMe
 
 // makePeerMessageApplier constructs an instance of peerMessageApplier using
 // the supplied abstractions.
-func makePeerMessageApplier(applyPrepare prepareApplier, applyCommit commitApplier, applyReqViewChange reqViewChangeApplier) peerMessageApplier {
+func makePeerMessageApplier(applyPrepare prepareApplier, applyCommit commitApplier, applyReqViewChange reqViewChangeApplier, applyViewChange viewChangeApplier) peerMessageApplier {
 	return func(msg messages.PeerMessage, active bool) error {
 		switch msg := msg.(type) {
 		case messages.Prepare:
@@ -518,6 +526,9 @@ func makePeerMessageApplier(applyPrepare prepareApplier, applyCommit commitAppli
 		case messages.ReqViewChange:
 			fmt.Println("peerMessageApplier: case messages.applyReqViewChange")
 			return applyReqViewChange(msg)
+		 case messages.ViewChange:
+			fmt.Println("peerMessageApplier: case messages.ViewChange")
+			return applyViewChange(msg, active)
 		default:
 			panic("Unknown message type")
 		}

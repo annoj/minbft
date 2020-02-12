@@ -108,3 +108,8 @@ type ReqViewChange interface {
 	ImplementsPeerMessage()
 	ImplementsReqViewChange()
 }
+
+type ViewChange interface {
+	ReplicaMessage
+	NewView() uint64
+}
