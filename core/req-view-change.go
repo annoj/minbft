@@ -81,9 +81,9 @@ func makeReqViewChangeApplier(id uint32, handleGeneratedMessage generatedMessage
 		newPrimaryID := reqViewChange.ReplicaID()
 		_ = newPrimaryID
 
-		// TODO: Send out NewView messages here!
-		// TODO: Collect NewView messages here!
 		// TODO: Stop reqViewChangeTimer here!
+
+		handleGeneratedMessage(messageImpl.NewViewChange(id, reqViewChange))
 
 		return nil
 	}

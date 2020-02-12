@@ -28,6 +28,7 @@ message Message{
         Prepare prepare = 3;
         Commit commit = 4;
         ReqViewChange req_view_change = 5;
+		ViewChange view_change = 6;
     }
 }
 
@@ -98,6 +99,18 @@ message ReqViewChange {
 
     // New view number
     uint64 new_view = 2;
+
+    // Replica's signature
+    bytes signature = 3;
+}
+
+// ViewChange represents VIEW-CHANGE message.
+message ViewChange {
+    // Replica identifier
+    uint32 replica_id = 1;
+
+    // Other Replicas REQ-VIEW-CHANGE
+    ReqViewChange reqViewChange = 2;
 
     // Replica's signature
     bytes signature = 3;

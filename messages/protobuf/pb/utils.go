@@ -45,3 +45,11 @@ func PrepareFromAPI(prep messages.Prepare) *Prepare {
 		Ui:        prep.UIBytes(),
 	}
 }
+
+func ReqViewChangeFromAPI(reqViewChange messages.ReqViewChange) *ReqViewChange{
+	return &ReqViewChange{
+		ReplicaId:	reqViewChange.ReplicaID(),
+		NewView:    reqViewChange.NewView(),
+		Signature:	reqViewChange.Signature(),
+	}
+}

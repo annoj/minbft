@@ -15,6 +15,7 @@
 package protobuf
 
 import (
+	"github.com/hyperledger-labs/minbft/messages"
 	"github.com/hyperledger-labs/minbft/messages/protobuf/pb"
 )
 
@@ -56,3 +57,11 @@ func (m *reqViewChange) SetSignature(signature []byte) {
 func (reqViewChange) ImplementsReplicaMessage() {}
 func (reqViewChange) ImplementsPeerMessage()    {}
 func (reqViewChange) ImplementsReqViewChange()  {}
+
+func pbReqViewChangeFromAPI(m messages.ReqViewChange) *pb.ReqViewChange{
+	if m, ok := m.(*reqViewChange); ok {
+		return m.pbMsg
+	}
+
+	return pb.ReqViewChangeFromAPI(m)
+}
