@@ -21,6 +21,7 @@ import (
 	"fmt"
 
 	"github.com/hyperledger-labs/minbft/messages"
+	"github.com/hyperledger-labs/minbft/core/internal/viewstate"
 )
 
 // reqViewChangeValidator validates a ReqViewChange message.
@@ -43,32 +44,23 @@ type reqViewChangeApplier func(reqViewChange messages.ReqViewChange) error
 // reqViewChangeValidator constructs an instance of reqViewChangeValidator
 // using n as the total number of nodes, and the supplied abstract
 // interfaces.
-// TODO: View numbers have also to be checked for consistency.
-func makeReqViewChangeValidator(n uint32, verifyUI uiVerifier) reqViewChangeValidator {
+func makeReqViewChangeValidator(n uint32, viewState viewstate.State) reqViewChangeValidator {
 		fmt.Println("makeReqViewChangeValidator was called!")
 	return func(reqViewChange messages.ReqViewChange) error {
 		replicaID := reqViewChange.ReplicaID()
 		requestedView:= reqViewChange.RequestedView()
+		currentView := reqViewChange.View()
 
-		_ = requestedView 
-		_ = replicaID
-		_ = n
-		_ = verifyUI
-
-		// Check REQ VIEW CHANGE message is not coming from the current primary
-		// if isPrimary(newView, replicaID, n) {
-		// 	return fmt.Errorf("ReqViewChange from primary %d for new view %d", replicaID, newView)
-		// }
-
-		// TODO: Should be validateRequest RequestValidator??
-		// if err := validateRequest(reqViewChange.Request()); err != nil {
-		// 	return fmt.Errorf("Request invalid: %s", err)
-		// }
-
-		// TODO: Is this actually a message supposed to be signed?
-		// if _, err := verifyUI(reqViewChange); err != nil {
-		// 	return fmt.Errorf("UI not valid: %s", err)
-		// }
+		if isPrimary(currentView, replicaID, n) {
+			return fmt.Errorf("ReqViewChange from Primary %d", replicaID)
+		}
+		
+		currentView, _, release := viewState.HoldView()
+		defer release()
+		
+		if currentView <= requestedView {
+			return fmt.Errorf("Number of requested View was invalid, currentView: %d, requestedView: %d", currentView, requestedView)
+		}
 
 		return nil
 	}
@@ -78,7 +70,15 @@ func makeReqViewChangeValidator(n uint32, verifyUI uiVerifier) reqViewChangeVali
 // id as the current replica ID, and the supplied abstract interfaces.
 func makeReqViewChangeApplier(id uint32, collectReqViewChange reqViewChangeCollector, handleGeneratedMessage generatedMessageHandler) reqViewChangeApplier {
 	return func(reqViewChange messages.ReqViewChange) error {
-		newPrimaryID := reqViewChange.ReplicaID()
+
+		requestedView := reqViewChange.RequestedView()
+
+		// Increase expectedView in viewState
+		ok, release := viewState.AdvanceExpectedView(requestedView)
+		if !ok {
+			return fmt.Errorf("ExpectedView could not be increased to %d", requestedView)
+		}
+		defer release()
 
 		// TODO: Stop reqViewChangeTimer here!
 

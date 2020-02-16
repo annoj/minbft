@@ -102,7 +102,7 @@ func makeViewChangeApplier(collectViewChange reqViewChangeCollector) viewChangeA
 		prepare := viewChange.Prepare()
 		*/
 
-		if err := collectViewChange(replicaID); err != nil {
+		if err := collectViewChange(); err != nil {
 			return fmt.Errorf("ViewChange cannot be taken into account: %s", err)
 		}
 
@@ -112,17 +112,17 @@ func makeViewChangeApplier(collectViewChange reqViewChangeCollector) viewChangeA
 
 // makeViewChangeCollector constructs an instance of
 // reqViewChangeCollector using the supplied abstractions.
-func makeReqViewChangeCollector(countReqViewChange reqViewChangeCounter) reqViewChangeCollector {
+func makeViewChangeCollector(countViewChange viewChangeCounter) viewChangeCollector {
 	var lock sync.Mutex
 
-	return func(replicaID uint32) error {
+	return func() error {
 
 		fmt.Println("reqViewChangeCollector was invoked.")
 
 		lock.Lock()
 		defer lock.Unlock()
 
-		if done, err := countReqViewChange(replicaID); err != nil {
+		if done, err := countViewChange(); err != nil {
 			return err
 		} else if !done {
 			return nil
