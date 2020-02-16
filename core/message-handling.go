@@ -182,20 +182,20 @@ func defaultIncomingMessageHandler(id uint32, log messagelog.MessageLog, config 
 	executeRequest := makeRequestExecutor(id, executeOperation, handleGeneratedMessage)
 	collectCommitment := makeCommitmentCollector(countCommitment, retireSeq, pendingReq, stopReqTimer, executeRequest)
 
-	countReqViewChange := makeReqViewChangeCounter(f)
-	collectReqViewChange := makeReqViewChangeCollector(countReqViewChange)
+	countViewChange := makeViewChangeCounter(f)
+	collectViewChange := makeViewChangeCollector(countViewChange)
 
 	validateRequest := makeRequestValidator(verifyMessageSignature)
 	validatePrepare := makePrepareValidator(n, verifyUI, validateRequest)
 	validateCommit := makeCommitValidator(verifyUI, validatePrepare)
-	validateReqViewChange := makeReqViewChangeValidator(n, verifyUI)
+	validateReqViewChange := makeReqViewChangeValidator(n, viewState)
 	validateViewChange := makeViewChangeValidator(verifyUI, validateReqViewChange)
 	validateMessage := makeMessageValidator(validateRequest, validatePrepare, validateCommit, validateReqViewChange, validateViewChange)
 
 	applyCommit := makeCommitApplier(collectCommitment)
 	applyPrepare := makePrepareApplier(id, prepareSeq, collectCommitment, handleGeneratedMessage, stopPrepTimer)
-	applyReqViewChange := makeReqViewChangeApplier(id, collectReqViewChange, handleGeneratedMessage)
-	applyViewChange := makeViewChangeApplier(collectReqViewChange)
+	applyReqViewChange := makeReqViewChangeApplier(id, viewState, collectViewChange, handleGeneratedMessage)
+	applyViewChange := makeViewChangeApplier(collectViewChange)
 	applyPeerMessage := makePeerMessageApplier(applyPrepare, applyCommit, applyReqViewChange, applyViewChange)
 	applyRequest := makeRequestApplier(id, n, handleGeneratedMessage, startReqTimer, startPrepTimer)
 

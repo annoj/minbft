@@ -68,7 +68,7 @@ func makeReqViewChangeValidator(n uint32, viewState viewstate.State) reqViewChan
 
 // makeReqViewChangeApplier constructs an instance of reqViewChangeApplier using
 // id as the current replica ID, and the supplied abstract interfaces.
-func makeReqViewChangeApplier(id uint32, collectReqViewChange reqViewChangeCollector, handleGeneratedMessage generatedMessageHandler) reqViewChangeApplier {
+func makeReqViewChangeApplier(id uint32, viewState viewstate.State, collectViewChange viewChangeCollector, handleGeneratedMessage generatedMessageHandler) reqViewChangeApplier {
 	return func(reqViewChange messages.ReqViewChange) error {
 
 		requestedView := reqViewChange.RequestedView()
@@ -82,7 +82,7 @@ func makeReqViewChangeApplier(id uint32, collectReqViewChange reqViewChangeColle
 
 		// TODO: Stop reqViewChangeTimer here!
 
-		if err := collectReqViewChange(newPrimaryID); err != nil {
+		if err := collectViewChange(); err != nil {
 			return fmt.Errorf("ReqViewChange cannot be taken into account: %s", err)
 		}
 

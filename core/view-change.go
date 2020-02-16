@@ -47,7 +47,7 @@ type viewChangeApplier func(viewChange messages.ViewChange, active bool) error
 // distinct replicas has been reached, it triggers further required
 // actions to complete the viewChange. It is safe to invoke
 // concurrently.
-type reqViewChangeCollector func(replicaID uint32) error
+type viewChangeCollector func() error
 
 // viewChangeCounter counts viewChanges on reqViewChange.
 //
@@ -57,7 +57,7 @@ type reqViewChangeCollector func(replicaID uint32) error
 // ReqViewChange, such that the threshold to execute the viewChange operation
 // has been reached. An error is returned if any inconsistency is
 // detected.
-type reqViewChangeCounter func(replicaID uint32) (done bool, err error)
+type viewChangeCounter func() (done bool, err error)
 
 // makeViewChangeValidator constructs an instance of viewChangeValidator using
 // the supplied abstractions.
@@ -90,11 +90,10 @@ func makeViewChangeValidator(verifyUI uiVerifier, validateReqViewChange reqViewC
 
 // makeViewChangeApplier constructs an instance of viewChangeApplier using the
 // supplied abstractions.
-func makeViewChangeApplier(collectViewChange reqViewChangeCollector) viewChangeApplier {
+func makeViewChangeApplier(collectViewChange viewChangeCollector) viewChangeApplier {
 	return func(viewChange messages.ViewChange, active bool) error {
 
 		fmt.Println("viewChangeApplier was invoked.")
-		replicaID := viewChange.ReplicaID()
 		_ = active
 
 		/*
@@ -134,8 +133,8 @@ func makeViewChangeCollector(countViewChange viewChangeCounter) viewChangeCollec
 
 // makeViewChangeCounter constructs an instance of viewChangeCounter
 // given the number of tolerated faulty nodes.
-func makeReqViewChangeCounter(f uint32) reqViewChangeCounter {
-	return func(replicaID uint32) (done bool, err error) {
+func makeViewChangeCounter(f uint32) viewChangeCounter {
+	return func() (done bool, err error) {
 		return true, nil
 	}
 }
