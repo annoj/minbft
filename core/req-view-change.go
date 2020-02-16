@@ -80,8 +80,6 @@ func makeReqViewChangeApplier(id uint32, viewState viewstate.State, collectViewC
 		}
 		defer release()
 
-		// TODO: Stop reqViewChangeTimer here!
-
 		if err := collectViewChange(); err != nil {
 			return fmt.Errorf("ReqViewChange cannot be taken into account: %s", err)
 		}

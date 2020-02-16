@@ -65,24 +65,15 @@ func makeViewChangeValidator(verifyUI uiVerifier, validateReqViewChange reqViewC
 	return func(viewChange messages.ViewChange) error {
 
 		fmt.Println("viewChangeValidator was invoked.")
-		_ =verifyUI 
-		_ = validateReqViewChange
 
-		/*
-		prepare := viewChange.Prepare()
-
-		if viewChange.ReplicaID() == prepare.ReplicaID() {
-			return fmt.Errorf("ViewChange from primary")
-		}
-
-		if err := validatePrepare(prepare); err != nil {
-			return fmt.Errorf("Invalid Prepare: %s", err)
+		reqViewChange := viewChange.ReqViewChange()
+		if err := validateReqViewChange(reqViewChange); err != nil {
+			return fmt.Errorf("Invalid reqViewChange: %s", err)
 		}
 
 		if _, err := verifyUI(viewChange); err != nil {
 			return fmt.Errorf("UI is not valid: %s", err)
 		}
-		*/
 
 		return nil
 	}
