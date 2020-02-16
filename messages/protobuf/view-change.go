@@ -46,6 +46,18 @@ func (m *viewChange) ReqViewChange() messages.ReqViewChange {
 	return nil // m.pbMsg.GetReqViewChange()
 }
 
+func (m *viewChange) NewView() uint64 {
+	return m.pbMsg.GetNewView()
+}
+
+func (m *viewChange) CheckpointCertificate() messages.CheckpointCertificate {
+	return nil
+}
+
+func (m *viewChange) MessagesSinceCheckpoint() []messages.ReplicaMessage {
+	return nil
+}
+
 func (m *viewChange) UIBytes() []byte {
 	return nil // m.pbMsg.Ui
 }

@@ -48,9 +48,9 @@ func makeReqViewChangeValidator(n uint32, verifyUI uiVerifier) reqViewChangeVali
 		fmt.Println("makeReqViewChangeValidator was called!")
 	return func(reqViewChange messages.ReqViewChange) error {
 		replicaID := reqViewChange.ReplicaID()
-		newView := reqViewChange.NewView()
+		requestedView:= reqViewChange.RequestedView()
 
-		_ = newView
+		_ = requestedView 
 		_ = replicaID
 		_ = n
 		_ = verifyUI

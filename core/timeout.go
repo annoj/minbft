@@ -37,7 +37,6 @@ func makeRequestTimeoutHandler(requestViewChange viewChangeRequestor, logger *lo
 
 		if requestViewChange(newView) {
 			logger.Warningf("Requested view change to view %d due to request timeout", newView)
-			// XXX (Jona): ViewChange!
 		}
 	}
 }

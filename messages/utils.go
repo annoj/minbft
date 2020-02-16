@@ -53,7 +53,7 @@ func Stringify(msg Message) string {
 			cv, msg.ReplicaID(), Stringify(msg.Prepare()))
 	case ReqViewChange:
 		return fmt.Sprintf("<REQ-VIEW-CHANGE replica=%d newView=%d>",
-			msg.ReplicaID(), msg.NewView())
+			msg.ReplicaID(), msg.RequestedView())
 	case ViewChange:
 		return fmt.Sprintf("<VIEW-CHANGE cv=%d replica=%d reqViewChange=%s>",
 			cv, msg.ReplicaID(), Stringify(msg.ReqViewChange()))

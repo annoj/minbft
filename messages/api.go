@@ -30,6 +30,11 @@ type MessageImpl interface {
 	NewReply(replicaID, clientID uint32, sequence uint64, result []byte) Reply
 }
 
+// Testing only!!
+type CheckpointCertificate interface {
+	
+}
+
 type Message interface {
 	encoding.BinaryMarshaler
 }
@@ -105,13 +110,17 @@ type Reply interface {
 type ReqViewChange interface {
 	ReplicaMessage
 	SignedMessage
-	NewView() uint64
+	View() uint64
+	RequestedView() uint64
 	ImplementsPeerMessage()
 	ImplementsReqViewChange()
 }
 
 type ViewChange interface {
 	CertifiedMessage
+	NewView() uint64
+	CheckpointCertificate() CheckpointCertificate
+	MessagesSinceCheckpoint() []ReplicaMessage 
 	ReqViewChange() ReqViewChange
 	ImplementsPeerMessage()
 	ImplementsViewChange()

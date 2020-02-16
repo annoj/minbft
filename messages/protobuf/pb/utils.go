@@ -49,7 +49,7 @@ func PrepareFromAPI(prep messages.Prepare) *Prepare {
 func ReqViewChangeFromAPI(reqViewChange messages.ReqViewChange) *ReqViewChange{
 	return &ReqViewChange{
 		ReplicaId:	reqViewChange.ReplicaID(),
-		NewView:    reqViewChange.NewView(),
+		RequestedView:    reqViewChange.RequestedView(),
 		Signature:	reqViewChange.Signature(),
 	}
 }

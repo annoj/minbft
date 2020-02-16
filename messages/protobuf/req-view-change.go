@@ -23,10 +23,10 @@ type reqViewChange struct {
 	pbMsg *pb.ReqViewChange
 }
 
-func newReqViewChange(r uint32, nv uint64) *reqViewChange {
+func newReqViewChange(r uint32, rv uint64) *reqViewChange {
 	return &reqViewChange{pbMsg: &pb.ReqViewChange{
-		ReplicaId: r,
-		NewView:   nv,
+		ReplicaId: 		r,
+		RequestedView:  rv,
 	}}
 }
 
@@ -42,8 +42,12 @@ func (m *reqViewChange) ReplicaID() uint32 {
 	return m.pbMsg.GetReplicaId()
 }
 
-func (m *reqViewChange) NewView() uint64 {
-	return m.pbMsg.GetNewView()
+func (m *reqViewChange) View() uint64 {
+	return m.pbMsg.GetView()
+}
+
+func (m *reqViewChange) RequestedView() uint64 {
+	return m.pbMsg.GetRequestedView()
 }
 
 func (m *reqViewChange) Signature() []byte {
