@@ -29,6 +29,7 @@ message Message{
         Commit commit = 4;
         ReqViewChange req_view_change = 5;
 		ViewChange view_change = 6;
+		NewView new_view = 7;
     }
 }
 
@@ -107,17 +108,29 @@ message ReqViewChange {
     bytes signature = 4;
 }
 
-// ViewChange represents VIEW-CHANGE message.
+// viewchange represents view-change message.
 message ViewChange {
-    // Replica identifier
+    // replica identifier
     uint32 replica_id = 1;
 
-    // Other Replicas REQ-VIEW-CHANGE
+    // other replicas req-view-change
     ReqViewChange req_view_change = 2;
 
-	// New View
+	// new view
 	uint64 new_view = 3;
 
-    // Replica's signature
+    // replica's signature
     bytes signature = 4;
+}
+
+// newview represents view-change message.
+message NewView {
+    // replica identifier
+    uint32 replica_id = 1;
+
+	// new view
+	uint64 new_view = 2;
+
+    // replica's signature
+    bytes ui = 3;
 }

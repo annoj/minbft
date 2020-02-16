@@ -65,6 +65,10 @@ func (*impl) NewViewChange(r uint32, reqViewChange messages.ReqViewChange) messa
 	return newViewChange(r, reqViewChange)
 }
 
+func (*impl) NewNewView(r uint32, viewChange messages.ViewChange) messages.NewView {
+	return newNewView(r, viewChange)
+}
+
 func typedMessageFromPb(pbMsg *pb.Message) (messages.Message, error) {
 	switch t := pbMsg.Typed.(type) {
 	case *pb.Message_Request:

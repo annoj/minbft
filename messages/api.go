@@ -27,6 +27,7 @@ type MessageImpl interface {
 	NewCommit(replicaID uint32, prepare Prepare) Commit
 	NewReqViewChange(replicaID uint32, newView uint64) ReqViewChange
 	NewViewChange(replicaID uint32, reqViewChange ReqViewChange) ViewChange
+	NewNewView(replicaID uint32, viewChange ViewChange) NewView
 	NewReply(replicaID, clientID uint32, sequence uint64, result []byte) Reply
 }
 
@@ -124,4 +125,11 @@ type ViewChange interface {
 	ReqViewChange() ReqViewChange
 	ImplementsPeerMessage()
 	ImplementsViewChange()
+}
+
+type NewView interface {
+	CertifiedMessage
+	NewView() uint64
+	ImplementsPeerMessage()
+	ImplementsNewView()
 }

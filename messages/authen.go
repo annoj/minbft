@@ -41,6 +41,8 @@ func AuthenBytes(m Message) []byte {
 		tag = "REQ-VIEW-CHANGE"
 	case ViewChange:
 		tag = "VIEW-CHANGE"
+	case NewView:
+		tag = "NEW-VIEW"
 	default:
 		panic("unknown message type")
 	}
@@ -77,6 +79,8 @@ func writeAuthenBytes(buf io.Writer, m Message) {
 		// _ = binary.Write(buf, binary.BigEndian, reqViewChange.ReplicaID())
 		// writeAuthenBytes(buf, reqViewChange)
 		// _, _ = buf.Write(reqViewChange.Signature())
+	case NewView:
+		// TODO:!!
 	default:
 		panic("unknown message type")
 	}

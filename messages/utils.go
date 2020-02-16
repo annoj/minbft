@@ -57,6 +57,8 @@ func Stringify(msg Message) string {
 	case ViewChange:
 		return fmt.Sprintf("<VIEW-CHANGE cv=%d replica=%d reqViewChange=%s>",
 			cv, msg.ReplicaID(), Stringify(msg.ReqViewChange()))
+	case NewView:
+		return fmt.Sprintf("<NEW-VIEW>")
 	}
 
 	return "(unknown message)"
