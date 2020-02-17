@@ -190,12 +190,13 @@ func defaultIncomingMessageHandler(id uint32, log messagelog.MessageLog, config 
 	validateCommit := makeCommitValidator(verifyUI, validatePrepare)
 	validateReqViewChange := makeReqViewChangeValidator(n, viewState)
 	validateViewChange := makeViewChangeValidator(verifyUI, validateReqViewChange)
-	validateMessage := makeMessageValidator(validateRequest, validatePrepare, validateCommit, validateReqViewChange, validateViewChange)
+	validateNewView := makeNewViewValidator(verifyUI)
+	validateMessage := makeMessageValidator(validateRequest, validatePrepare, validateCommit, validateReqViewChange, validateViewChange, validateNewView)
 
 	applyCommit := makeCommitApplier(collectCommitment)
 	applyPrepare := makePrepareApplier(id, prepareSeq, collectCommitment, handleGeneratedMessage, stopPrepTimer)
 	applyReqViewChange := makeReqViewChangeApplier(id, viewState, collectViewChange, handleGeneratedMessage)
-	applyViewChange := makeViewChangeApplier(collectViewChange)
+	applyViewChange := makeViewChangeApplier(collectViewChange, handleGeneratedMessage)
 	applyPeerMessage := makePeerMessageApplier(applyPrepare, applyCommit, applyReqViewChange, applyViewChange)
 	applyRequest := makeRequestApplier(id, n, handleGeneratedMessage, startReqTimer, startPrepTimer)
 
@@ -378,7 +379,7 @@ func makeIncomingMessageHandler(validate messageValidator, process messageProces
 
 // makeMessageValidator constructs an instance of messageValidator
 // using the supplied abstractions.
-func makeMessageValidator(validateRequest requestValidator, validatePrepare prepareValidator, validateCommit commitValidator, validateReqViewChange reqViewChangeValidator, validateViewChange viewChangeValidator) messageValidator {
+func makeMessageValidator(validateRequest requestValidator, validatePrepare prepareValidator, validateCommit commitValidator, validateReqViewChange reqViewChangeValidator, validateViewChange viewChangeValidator, validateNewView newViewValidator) messageValidator {
 	return func(msg messages.Message) error {
 		switch msg := msg.(type) {
 		case messages.Request:
@@ -395,6 +396,9 @@ func makeMessageValidator(validateRequest requestValidator, validatePrepare prep
 		case messages.ViewChange:
 			fmt.Println("messageValidator: case messages.ViewChange")
 			return validateViewChange(msg)
+		case messages.NewView:
+			fmt.Println("messageValidator: case messages.NewView")
+			return validateNewView(msg)
 		default:
 			panic("Unknown message type")
 		}

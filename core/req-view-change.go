@@ -47,6 +47,7 @@ type reqViewChangeApplier func(reqViewChange messages.ReqViewChange) error
 func makeReqViewChangeValidator(n uint32, viewState viewstate.State) reqViewChangeValidator {
 		fmt.Println("makeReqViewChangeValidator was called!")
 	return func(reqViewChange messages.ReqViewChange) error {
+		fmt.Println("!!!!!!!!!!reqViewChangeValidator!!!!!!!!!!!!!!!!!!!")
 		replicaID := reqViewChange.ReplicaID()
 		requestedView:= reqViewChange.RequestedView()
 		currentView := reqViewChange.View()
@@ -58,7 +59,7 @@ func makeReqViewChangeValidator(n uint32, viewState viewstate.State) reqViewChan
 		currentView, _, release := viewState.HoldView()
 		defer release()
 		
-		if currentView <= requestedView {
+		if currentView >= requestedView {
 			return fmt.Errorf("Number of requested View was invalid, currentView: %d, requestedView: %d", currentView, requestedView)
 		}
 
@@ -74,10 +75,10 @@ func makeReqViewChangeApplier(id uint32, viewState viewstate.State, collectViewC
 		requestedView := reqViewChange.RequestedView()
 
 		// Increase expectedView in viewState
-		ok, release := viewState.AdvanceExpectedView(requestedView)
-		if !ok {
-			return fmt.Errorf("ExpectedView could not be increased to %d", requestedView)
-		}
+		_, release := viewState.AdvanceExpectedView(requestedView)
+//		if !ok {
+//			return fmt.Errorf("ExpectedView could not be increased to %d", requestedView)
+//		}
 		defer release()
 
 		if err := collectViewChange(); err != nil {

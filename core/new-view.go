@@ -62,7 +62,7 @@ type newViewmentCounter func(replicaID uint32, prepare messages.Prepare) (done b
 
 // makeNewViewValidator constructs an instance of newViewValidator using
 // the supplied abstractions.
-func makeNewViewValidator(verifyUI uiVerifier, validatePrepare prepareValidator) newViewValidator {
+func makeNewViewValidator(verifyUI uiVerifier) newViewValidator {
 	return func(newView messages.NewView) error {
 
 		_ = newView

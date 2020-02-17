@@ -81,20 +81,19 @@ func makeViewChangeValidator(verifyUI uiVerifier, validateReqViewChange reqViewC
 
 // makeViewChangeApplier constructs an instance of viewChangeApplier using the
 // supplied abstractions.
-func makeViewChangeApplier(collectViewChange viewChangeCollector) viewChangeApplier {
+func makeViewChangeApplier(collectViewChange viewChangeCollector, handleGeneratedMessage generatedMessageHandler) viewChangeApplier {
 	return func(viewChange messages.ViewChange, active bool) error {
 
 		fmt.Println("viewChangeApplier was invoked.")
 		_ = active
 
-		/*
 		replicaID := viewChange.ReplicaID()
-		prepare := viewChange.Prepare()
-		*/
 
 		if err := collectViewChange(); err != nil {
 			return fmt.Errorf("ViewChange cannot be taken into account: %s", err)
 		}
+
+		handleGeneratedMessage(messageImpl.NewNewView(replicaID, viewChange))
 
 		return nil
 	}

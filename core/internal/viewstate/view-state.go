@@ -23,7 +23,10 @@
 // active if current and expected view numbers match.
 package viewstate
 
-import "sync"
+import(
+	"sync"
+	"fmt"
+)
 
 // State defines operations on view state. All methods are safe to
 // invoke concurrently.
@@ -75,6 +78,8 @@ func (s *viewState) HoldView() (current, expected uint64, release func()) {
 func (s *viewState) AdvanceExpectedView(view uint64) (ok bool, release func()) {
 	s.Lock()
 	release = s.Unlock
+
+	fmt.Printf("expectedView: %d, view: %d\n", s.expectedView, view)
 
 	if s.expectedView < view {
 		s.expectedView = view
